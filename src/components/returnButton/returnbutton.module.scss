@@ -2,20 +2,16 @@
 
 .return {
     .return__link {
-        display: block;
-        margin: 0 auto;
-        border-radius: 25px;
-        font-weight: 500;
+        @include button;
+        display: block;        
         border: 1px solid $color_mint;
-        background-color: $color_mint;
-        transition: 0.5s all;
+        background-color: $color_mint;        
         padding: 10px;
         max-width: 180px;
         margin-bottom: 50px;
         text-align: center;
         text-transform: uppercase;
-        color: white;
-        cursor: pointer;
+        color: white;        
         &:hover {
             color: black;
             background-color: #fff;

@@ -1,0 +1,81 @@
+@import "constants/constants.scss";
+
+.firstBlock {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+        url(../../images/webp/background.webp) center center/cover no-repeat;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    @media (max-width: 768px) {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),
+            url(../../images/webp/background_small.webp) center center/cover
+                no-repeat;
+        background-attachment: scroll;
+    }
+    .firstBlock__title {
+        padding-top: 100px;
+        font-size: 150px;
+        font-weight: 700;
+        @media (max-width: 1200px) {
+            font-size: 100px;
+        }
+        @media (max-width: 768px) {
+            font-size: 65px;
+        }
+        @media (max-width: 350px) {
+            font-size: 50px;
+        }
+    }
+    .firstBlock__subtitle {
+        font-size: 60px;
+        font-weight: 500;
+        @media (max-width: 1200px) {
+            font-size: 40px;
+        }
+        @media (max-width: 768px) {
+            font-size: 25px;
+        }
+        @media (max-width: 350px) {
+            font-size: 22px;
+        }
+    }
+    .firstBlock__icon {
+        margin-top: 120px;
+        transform: rotate(-90deg);
+    }
+    .firstBlock__links {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .link_1,
+        .link_2 {
+            @include button;
+            padding: 15px 30px;
+            margin: 0 10px;
+            height: 55px;
+            border: 1px solid #fff;
+            font-size: 18px;
+            @media (max-width: 350px) {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+        .link_1 {
+            color: #fff;           
+            text-decoration: none;
+            &:hover {
+                background-color: #fff;
+                color: #000;
+            }
+        }
+        .link_2 {
+            background-color: #fff;
+            color: $color_grey;           
+            &:hover {
+                background-color: transparent;
+                color: #fff;
+            }
+        }
+    }
+}
