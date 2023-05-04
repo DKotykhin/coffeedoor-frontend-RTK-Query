@@ -1,0 +1,28 @@
+@import 'constants/constants.scss';
+
+.footer_block {
+    min-height: 260px;
+    background-color: $color_grey;
+    text-align: center;
+    color: #fff;
+    .footer_item {
+        padding: 10px;
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+        
+    }
+    .footer_icon {
+        margin-top: 25px;
+        font-size: 80px;
+        padding: 0 15px;
+        color: #fff;
+        &:hover {
+            transform: translateY(-3px);
+        }
+    }
+}

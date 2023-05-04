@@ -1,0 +1,28 @@
+@import "constants/constants.scss";
+
+.accordeon {
+    margin: 50px auto;
+    .accordeon__title {
+        font-weight: 700;
+        font-size: 22px;
+        margin-right: 16px;
+    }
+    .accordeon__subtitle {
+        font-style: italic;
+        font-size: 18px;
+        margin-left: 16px;
+    }
+    .accordeon__block {
+        margin: 16px;
+    }
+    .accordeon__name {
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .accordeon__description {
+        color: $color_lightGrey;
+    }
+    .accordeon__price {
+        font-size: 18px;
+    }
+}

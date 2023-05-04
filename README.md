@@ -1,46 +1,70 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CoffeeDoor Brewbar & Coffee shop
 
-## Available Scripts
+A brief description of what this project does and who it's for
 
-In the project directory, you can run:
+![Logo](https://i.ibb.co/VxVb9gn/logo-700x191.webp)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React, Typescript
+- MUI, SCSS
+- Three languages: ua, en, ru
+- Mobile friendly
 
-### `npm test`
+## Environment Variables
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this project, you will need to add the following environment variables to your .env file
 
-### `npm run build`
+`REACT_APP_BACKEND_URL`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploy on Vercel
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  [https://coffeedoor-next-hygraph.vercel.app](https://coffeedoor-next-hygraph.vercel.app)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  [https://luckycat.pp.ua](https://www.luckycat.pp.ua/)
 
-### `npm run eject`
+## Run Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Clone the project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  git clone https://github.com/DKotykhin/Coffeedoor-next-Hygraph.git
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Go to the project directory
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+  cd my-project
+```
 
-## Learn More
+Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Start the server
+
+```bash
+npm run dev
+# or
+yarn
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Firm grey | ![#333333](https://via.placeholder.com/10/333333?text=+) #333333 |
+| Firm mint | ![#00a1b6](https://via.placeholder.com/10/00a1b6?text=+) #00a1b6 |
+| Firm brown | ![#683b39](https://via.placeholder.com/10/683b39?text=+) #683b39 |
+
+## Author
+
+- [@DKotykhin](https://github.com/DKotykhin)
