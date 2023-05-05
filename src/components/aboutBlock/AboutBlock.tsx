@@ -62,7 +62,7 @@ const AboutBlock: React.FC = () => {
                         <ImageListItem key={i} cols={cols} rows={rows}>
                             <img
                                 {...srcset(item.img, 250, 200, rows, cols)}
-                                src={require(`images/aboutImages/${item.img}`)}
+                                src={item.img}
                                 alt={item.alt}
                                 loading="lazy"
                             />
