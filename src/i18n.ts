@@ -25,6 +25,10 @@ import aboutUa from "locales/ua/aboutblock.json";
 import aboutRu from "locales/ru/aboutblock.json";
 import aboutEn from "locales/en/aboutblock.json";
 
+import catalogUa from "locales/ua/catalog.json";
+import catalogRu from "locales/ru/catalog.json";
+import catalogEn from "locales/en/catalog.json";
+
 i18n.use(initReactI18next).init({
     resources: {
         ua: {
@@ -34,6 +38,7 @@ i18n.use(initReactI18next).init({
             first: firstUa,
             info: infoUa,
             about: aboutUa,
+            catalog: catalogUa,
         },
         ru: {
             menu: menuRu,
@@ -42,6 +47,7 @@ i18n.use(initReactI18next).init({
             first: firstRu,
             info: infoRu,
             about: aboutRu,
+            catalog: catalogRu,
         },
         en: {
             menu: menuEn,
@@ -50,6 +56,7 @@ i18n.use(initReactI18next).init({
             first: firstEn,
             info: infoEn,
             about: aboutEn,
+            catalog: catalogEn,
         },
     },
     lng: "ua",

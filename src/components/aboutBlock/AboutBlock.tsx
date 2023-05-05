@@ -28,7 +28,7 @@ const listVariants = {
     visible: (i: number) => ({
         opacity: 1,
         transition: {
-            delay: i * 0.3,
+            delay: i * 0.5,
         },
     }),
     hidden: { opacity: 0 },
@@ -43,7 +43,7 @@ const AboutBlock: React.FC = () => {
 
     return (
         <Container
-            id="about_block"
+            id="about"
             maxWidth="lg"
             className={styles.about}
         >

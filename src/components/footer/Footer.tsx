@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
     const { t } = useTranslation("footer");
 
     return (
-        <Box id="footer_block" className={styles.footer_block}>
+        <Box id="footer" className={styles.footer_block}>
             <Box>
                 {
                     SocialMedias.map(socialMedia => (

@@ -13,16 +13,16 @@ import { Languages } from 'types/menuTypes';
 
 const MenuPage: React.FC = () => {
     const { data, isLoading } = useGetMenuQuery('');
-    const {i18n } = useTranslation('menu');
-    
+    const { i18n } = useTranslation('menu');
+
     let lang: Languages;
     switch (i18n.language) {
         case 'ua': lang = 'ua';
-        break;
+            break;
         case 'ru': lang = 'ru';
-        break;
+            break;
         case 'en': lang = 'en';
-        break;
+            break;
         default: lang = 'ua';
     }
 
@@ -34,7 +34,7 @@ const MenuPage: React.FC = () => {
             </Helmet>
             <MenuHeader />
             {isLoading ? <Spinner /> : <AccordionMenu data={data} lang={lang} />}
-            <ReturnButton/>
+            <ReturnButton />
         </>
     )
 };

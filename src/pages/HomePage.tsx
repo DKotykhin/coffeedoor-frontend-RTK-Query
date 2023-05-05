@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import FirstBlock from 'components/firstBlock/FirstBlock';
 import InfoBlock from 'components/infoBlock/InfoBlock';
 import AboutBlock from 'components/aboutBlock/AboutBlock';
+import CatalogList from 'components/catalog/CatalogList';
 
 const HomePage: React.FC = () => {
 
@@ -15,6 +16,7 @@ const HomePage: React.FC = () => {
             </Helmet>
             <FirstBlock />
             <InfoBlock />
+            <CatalogList />
             <AboutBlock />
         </>
     )

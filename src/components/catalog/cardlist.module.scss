@@ -1,0 +1,21 @@
+.cardList {
+    text-align: center;
+    .cardList__title {
+        padding: 40px 0 20px 0;
+        font-size: 45px;
+        text-align: center;
+        font-weight: 500;
+        text-transform: uppercase;
+        @media (max-width: 768px) {
+            font-size: 30px;
+        }
+    }
+    .cardList__subtitle {
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 30px;
+        @media (max-width: 768px) {
+            font-size: 18px;
+        }
+    }
+}
