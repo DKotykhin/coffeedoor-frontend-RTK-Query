@@ -6,7 +6,7 @@ import { Box } from "@mui/material"
 const Spinner: React.FC = () => {
 
     return (
-        <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+        <Box style={{ display: 'flex', justifyContent: 'center', marginTop: '50px', marginBottom: '50px' }}>
             <Icon />
         </Box>
     )

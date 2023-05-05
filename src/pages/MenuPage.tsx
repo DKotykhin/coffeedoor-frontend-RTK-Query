@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from "react-helmet";
 import { useTranslation } from 'react-i18next';
 
-import MenuAccordion from 'components/accordeon/Accordeon';
+import AccordionMenu from 'components/accordeon/AccordeonMenu';
 
 import { useGetMenuQuery } from 'services/menuService';
 import Spinner from 'components/spinner/Spinner';
@@ -33,7 +33,7 @@ const MenuPage: React.FC = () => {
                 <title>Menu Page</title>
             </Helmet>
             <MenuHeader />
-            {isLoading ? <Spinner /> : <MenuAccordion data={data} lang={lang} />}
+            {isLoading ? <Spinner /> : <AccordionMenu data={data} lang={lang} />}
             <ReturnButton/>
         </>
     )

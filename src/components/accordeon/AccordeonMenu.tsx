@@ -9,7 +9,7 @@ import MuiAccordionSummary, {
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandCircleDown";
 
-import { AccordeonBlock } from "./AccordeonBlock";
+import AccordeonBlock from "./AccordeonBlock";
 import { IMenuGroup, Languages } from "types/menuTypes";
 
 import styles from './accordeon.module.scss';
@@ -51,7 +51,7 @@ interface IAccordeonBlock {
 }
 
 
-const MenuAccordeon: React.FC<IAccordeonBlock> = ({ data, lang }) => {
+const AccordeonMenu: React.FC<IAccordeonBlock> = ({ data, lang }) => {
     const [expanded, setExpanded] = useState("");
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -78,4 +78,4 @@ const MenuAccordeon: React.FC<IAccordeonBlock> = ({ data, lang }) => {
     );
 }
 
-export default MenuAccordeon;
+export default AccordeonMenu;

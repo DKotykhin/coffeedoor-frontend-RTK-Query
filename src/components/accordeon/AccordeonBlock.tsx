@@ -20,7 +20,7 @@ interface IAccordeonBlock {
     lang: Languages,
 }
 
-export const AccordeonBlock: React.FC<IAccordeonBlock> = ({ blockItem, lang }) => {
+const AccordeonBlock: React.FC<IAccordeonBlock> = ({ blockItem, lang }) => {
 
     return (
         <AccordionDetails>
@@ -29,12 +29,17 @@ export const AccordeonBlock: React.FC<IAccordeonBlock> = ({ blockItem, lang }) =
                     {blockItem.subtitle[lang]}
                 </Typography>
             }
-            {blockItem.items?.map((item: IMenuItem, i: number) => (
-                <Box key={i} className={styles.accordeon__block}>
-                    <AccordeonItem
-                        item={item} lang={lang} />
-                </Box>
-            ))}
+            {blockItem.items
+                ?.filter(item => item.hidden === false)
+                .map((item: IMenuItem, i: number) => (
+                    <Box key={i} className={styles.accordeon__block}>
+                        <AccordeonItem
+                            item={item} lang={lang}
+                        />
+                    </Box>
+                ))}
         </AccordionDetails>
     );
 };
+
+export default AccordeonBlock;

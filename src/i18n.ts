@@ -17,6 +17,14 @@ import firstUa from "locales/ua/firstblock.json";
 import firstRu from "locales/ru/firstblock.json";
 import firstEn from "locales/en/firstblock.json";
 
+import infoUa from "locales/ua/infoblock.json";
+import infoRu from "locales/ru/infoblock.json";
+import infoEn from "locales/en/infoblock.json";
+
+import aboutUa from "locales/ua/aboutblock.json";
+import aboutRu from "locales/ru/aboutblock.json";
+import aboutEn from "locales/en/aboutblock.json";
+
 i18n.use(initReactI18next).init({
     resources: {
         ua: {
@@ -24,18 +32,24 @@ i18n.use(initReactI18next).init({
             footer: footerUa,
             thanks: thanksUa,
             first: firstUa,
+            info: infoUa,
+            about: aboutUa,
         },
         ru: {
             menu: menuRu,
             footer: footerRu,
             thanks: thanksRu,
             first: firstRu,
+            info: infoRu,
+            about: aboutRu,
         },
         en: {
             menu: menuEn,
             footer: footerEn,
             thanks: thanksEn,
             first: firstEn,
+            info: infoEn,
+            about: aboutEn,
         },
     },
     lng: "ua",

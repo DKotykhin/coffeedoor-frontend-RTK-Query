@@ -2,6 +2,8 @@ import React from 'react';
 import Helmet from "react-helmet";
 
 import FirstBlock from 'components/firstBlock/FirstBlock';
+import InfoBlock from 'components/infoBlock/InfoBlock';
+import AboutBlock from 'components/aboutBlock/AboutBlock';
 
 const HomePage: React.FC = () => {
 
@@ -12,6 +14,8 @@ const HomePage: React.FC = () => {
                 <title>Home Page</title>
             </Helmet>
             <FirstBlock />
+            <InfoBlock />
+            <AboutBlock />
         </>
     )
 };
