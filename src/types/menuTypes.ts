@@ -2,21 +2,21 @@ export interface IMenuGroup {
     title: IMenuUnit;
     subtitle?: IMenuUnit;
     items: IMenuItem[];
-    hidden: Boolean;
-    position: Number;
+    hidden: boolean;
+    position: number;
 }
 
 interface IMenuUnit {
-    ua: String;
-    ru: String;
-    en: String;
+    ua: string;
+    ru: string;
+    en: string;
 }
 
 export interface IMenuItem {
     name: IMenuUnit;
     description?: IMenuUnit;
-    price: String;
-    hidden: Boolean;
+    price: string;
+    hidden: boolean;
 }
 
 export type Languages = "ua" | "ru" | "en";

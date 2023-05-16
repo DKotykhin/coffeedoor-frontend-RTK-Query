@@ -1,0 +1,30 @@
+@import "constants/constants.scss";
+
+.card {
+    max-width: 350px;
+    margin: 20px;
+    .card__content {
+        text-align: left;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .card__price {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+    .card__description {
+        font-size: 14px;
+        color: $color_lightGrey;
+        margin-bottom: 8px;
+    }
+    .card__boxItems p {
+        font-size: 14px;
+    }
+    .card__buttons {
+        display: flex;
+        justify-content: space-around;
+    }
+}

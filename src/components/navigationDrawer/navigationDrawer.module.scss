@@ -1,0 +1,56 @@
+@import "constants/constants.scss";
+
+@mixin langButton {
+    display: inline-block;
+    border-radius: 15px;
+    padding: 4px 16px;
+    margin: 30px 8px;
+    cursor: pointer;
+}
+.drawer {
+    .drawer__icon {
+        position: fixed;
+        right: 30px;
+        top: 20px;
+        color: #a0a0a0;
+        font-size: 50px;
+        font-weight: 700;
+        padding: 8px;
+        border: 2px solid #a0a0a0;
+        border-radius: 50%;
+        z-index: 5;
+        cursor: pointer;
+    }
+}
+.drawer__box {
+    width: 250px;
+    .drawer__items {
+        padding: 20px;
+        font-size: 20px;
+        .drawer__item {
+            color: #000;
+            text-decoration: none;
+            padding: 8px;
+            &:hover {
+                color: $color_lightGrey;
+            }
+        }
+    }
+    img {
+        margin: 30px 0 0 20px;
+    }
+    .lang__box {
+        text-align: center;
+        .lang__button {
+            @include langButton;
+            border: 1px solid $color_lightGrey;
+            color: $color_lightGrey;
+        }
+        .lang__button_active {
+            @include langButton;
+            background-color: $color_mint;
+            border: 1px solid $color_mint;
+            color: #fff;
+        }
+    }
+}

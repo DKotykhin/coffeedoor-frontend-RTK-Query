@@ -1,0 +1,14 @@
+{
+    "title": "Your order:",
+    "message": "Basket is empty",
+    "total": "Total: ",
+    "weight": "g",
+    "currency": " uah",
+    "name": "Your name",
+    "phone": "Your phone",
+    "delivery": "Delivery method",
+    "var_1": "pick up at coffee shop",
+    "var_2": "delivery according to the carrier's tariffs",
+    "comment": "Delivery address or comment",
+    "submit": "submit"
+}

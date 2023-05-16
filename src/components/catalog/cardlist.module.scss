@@ -18,4 +18,9 @@
             font-size: 18px;
         }
     }
+    .cardList__grid {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
 }

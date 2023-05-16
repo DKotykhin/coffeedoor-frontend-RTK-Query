@@ -1,22 +1,26 @@
 export interface IStoreItem {
-    group: String;
+    _id: string;
+    group: string;
     title: IStoreUnit;
     itemName: IStoreUnit;
-    description?: IStoreUnit;
+    description: IStoreUnit;
     detailText?: IStoreUnit;
-    images?: [String];
-    tm?: String;
-    country?: String;
-    sort?: String;
-    price: Number;
-    weight?: Number;
-    order: Boolean;
-    hidden: Boolean;
-    position: Number;
+    images?: [string];
+    tm?: string;
+    country?: IStoreUnit;
+    sort?: {
+        key: IStoreUnit,
+        value: IStoreUnit,
+    };
+    price: number;
+    weight?: number;
+    order: boolean;
+    hidden: boolean;
+    position: number;
 }
 
 interface IStoreUnit {
-    ua: String;
-    ru: String;
-    en: String;
+    ua: string;
+    ru: string;
+    en: string;
 }

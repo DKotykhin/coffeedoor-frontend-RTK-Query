@@ -1,0 +1,49 @@
+@import "constants/constants.scss";
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 710px;
+    background-color: #fff;
+    border: 2px solid $color_lightGrey;
+    border-radius: 10px;
+    // box-shadow: 10px 5px 5px black;
+    padding: 24px;
+    @media (max-width: 800px) {
+        width: 400px;
+    }
+    @media (max-width: 500px) {
+        width: 90%;
+    }
+    .modal__close {
+        position: absolute;
+        right: -30px;
+        top: -30px;
+        font-weight: 700;
+        font-size: 30px;
+        color: #ff0000;
+        cursor: pointer;
+    }
+    .modal__box {
+        display: flex;
+        flex-wrap: wrap;
+        .modal__right {
+            padding: 20px;
+            height: 300px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .card__price {
+                font-size: 1.3rem;
+                font-weight: 700;
+            }
+        }
+    }
+    .card__description {
+        color: $color_lightGrey;
+        margin-bottom: 8px;
+    }
+}

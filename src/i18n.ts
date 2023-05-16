@@ -29,6 +29,18 @@ import catalogUa from "locales/ua/catalog.json";
 import catalogRu from "locales/ru/catalog.json";
 import catalogEn from "locales/en/catalog.json";
 
+import personalUa from "locales/ua/personal.json";
+import personalRu from "locales/ru/personal.json";
+import personalEn from "locales/en/personal.json";
+
+import cardUa from "locales/ua/card.json";
+import cardRu from "locales/ru/card.json";
+import cardEn from "locales/en/card.json";
+
+import basketUa from "locales/ua/basket.json";
+import basketRu from "locales/ru/basket.json";
+import basketEn from "locales/en/basket.json";
+
 i18n.use(initReactI18next).init({
     resources: {
         ua: {
@@ -39,6 +51,9 @@ i18n.use(initReactI18next).init({
             info: infoUa,
             about: aboutUa,
             catalog: catalogUa,
+            personal: personalUa,
+            card: cardUa,
+            basket: basketUa,
         },
         ru: {
             menu: menuRu,
@@ -48,6 +63,9 @@ i18n.use(initReactI18next).init({
             info: infoRu,
             about: aboutRu,
             catalog: catalogRu,
+            personal: personalRu,
+            card: cardRu,
+            basket: basketRu,
         },
         en: {
             menu: menuEn,
@@ -57,6 +75,9 @@ i18n.use(initReactI18next).init({
             info: infoEn,
             about: aboutEn,
             catalog: catalogEn,
+            personal: personalEn,
+            card: cardEn,
+            basket: basketEn,
         },
     },
     lng: "ua",

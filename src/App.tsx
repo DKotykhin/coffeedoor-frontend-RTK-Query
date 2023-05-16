@@ -5,6 +5,7 @@ import HomePage from "pages/HomePage";
 import MenuPage from "pages/MenuPage";
 import Page404 from "pages/Page404";
 import ThanksPage from "pages/ThanksPage";
+import PersonalPage from "pages/PersonalPage";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: 'thanks',
                 element: <ThanksPage />,
+            },
+            {
+                path: 'personal',
+                element: <PersonalPage />,
             },
         ],
     },

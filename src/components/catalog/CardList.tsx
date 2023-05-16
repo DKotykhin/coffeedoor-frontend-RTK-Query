@@ -1,12 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Container, Typography, Box } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
-import styles from './cardlist.module.scss';
+import ItemCard from 'components/card/Card';
 
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
+
+import styles from './cardlist.module.scss';
 
 interface ICardList {
     group: string,
@@ -17,17 +18,7 @@ interface ICardList {
 
 const CardList: React.FC<ICardList> = ({ group, title, subtitle, data }) => {
 
-    const { t, i18n } = useTranslation('catalog');
-    let lang: Languages;
-    switch (i18n.language) {
-        case 'ua': lang = 'ua';
-            break;
-        case 'ru': lang = 'ru';
-            break;
-        case 'en': lang = 'en';
-            break;
-        default: lang = 'ua';
-    }
+    const { t } = useTranslation('catalog');
 
     return (
         <Container id={group} maxWidth="xl" className={styles.cardList}>
@@ -35,9 +26,11 @@ const CardList: React.FC<ICardList> = ({ group, title, subtitle, data }) => {
             <Typography className={styles.cardList__subtitle}>
                 {t(subtitle)}
             </Typography>
-            {data.filter(item => item.group === group).map((item, i) => (
-                <Box key={i}>{item.title[lang]} - {item.itemName[lang]}</Box>
-            ))}
+            <Box className={styles.cardList__grid}>
+                {data.filter(item => item.group === group).map((item, i) => (
+                    <ItemCard key={i} {...item} />
+                ))}
+            </Box>
         </Container>
     )
 }

@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { fetchMenu } from "services/menuService";
 import { fetchStore } from "services/storeService";
+import basket from './basketSlice';
 
 // import { setupListeners } from "@reduxjs/toolkit/query";
 
 const store = configureStore({
     reducer: {
+        basket,
         [fetchMenu.reducerPath]: fetchMenu.reducer,
         [fetchStore.reducerPath]: fetchStore.reducer,
     },

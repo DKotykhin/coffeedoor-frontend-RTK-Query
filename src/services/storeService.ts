@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IFullData } from "types/basketType";
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -11,7 +12,18 @@ export const fetchStore = createApi({
                 url: "/store",
             }),
         }),
+
+        sendBasketData: builder.mutation<any, IFullData>({
+            query: (data) => ({
+                url: "/send",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }),
+        })
     }),
 });
 
-export const { useGetStoreQuery } = fetchStore;
+export const { useGetStoreQuery, useSendBasketDataMutation } = fetchStore;
