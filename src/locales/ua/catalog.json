@@ -9,14 +9,6 @@
     "mills_subtitle": "Якщо треба змолоти каву вдома",
     "accessories_title": "Кавові аксесуари",
     "accessories_subtitle": "Для приготування кави вдома",
-    "buttonA": "всі чаї",
-    "buttonB": "зелені",
-    "buttonC": "чорні",
-    "buttonD": "трав'яні",
-    "buttonE": "фруктові",
-    "valueA": "",
-    "valueB": "зелений",
-    "valueC": "чорний",
-    "valueD": "трав'яний",
-    "valueE": "фруктовий"
+    "filters": "Фільтри",
+    "all_button": "Всі"
 }

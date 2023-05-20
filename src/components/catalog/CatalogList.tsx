@@ -40,9 +40,12 @@ const CatalogList: React.FC = () => {
 
     return isSuccess ? (
         <>
-            {List.map(item => (
-                <Box key={item.group}>
-                    <CardList group={item.group} title={item.title} subtitle={item.subtitle} data={data} />
+            {List.map(listItem => (
+                <Box key={listItem.group}>
+                    <CardList
+                        item={listItem}
+                        data={data.filter((dataItem: { group: string; }) => dataItem.group === listItem.group)}
+                    />
                 </Box>
             ))}
         </>

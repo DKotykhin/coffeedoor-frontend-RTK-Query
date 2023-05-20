@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 import { Box, Modal, Typography, Backdrop, Fade, Divider } from '@mui/material';
@@ -31,6 +32,8 @@ const BasketModal: React.FC = () => {
 
     const { t } = useTranslation("basket");
 
+    const navigate = useNavigate();
+
     const { basketData } = useAppSelector(selectBasket);
     const dispatch = useAppDispatch();
 
@@ -58,6 +61,7 @@ const BasketModal: React.FC = () => {
             .then(response => {
                 console.log(response.message);
                 dispatch(basketSetEmpty());
+                navigate("/thanks");
             })
     };
 

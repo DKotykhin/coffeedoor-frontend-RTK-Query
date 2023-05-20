@@ -24,3 +24,8 @@ interface IStoreUnit {
     ru: string;
     en: string;
 }
+
+export interface IFilter {
+    button: string;
+    value: string;
+}

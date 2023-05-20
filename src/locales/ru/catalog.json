@@ -9,14 +9,6 @@
     "mills_subtitle": "Когда необходимо смолоть кофе дома",
     "accessories_title": "Кофейные аксессуары",
     "accessories_subtitle": "Для приготовления кофе дома",
-    "buttonA": "все чаи",
-    "buttonB": "зелёные",
-    "buttonC": "чёрные",
-    "buttonD": "травяные",
-    "buttonE": "фруктовые",
-    "valueA": "",
-    "valueB": "зелёный",
-    "valueC": "чёрный",
-    "valueD": "травяной",
-    "valueE": "фруктовый"
+    "filters": "Фильтры",
+    "all_button": "Все"
 }

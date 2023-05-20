@@ -18,24 +18,19 @@ import styles from './card.module.scss';
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
 
-const ItemCard: React.FC<IStoreItem> = (item) => {
+interface IItemCard {
+    item: IStoreItem,
+    lang: Languages,
+}
+
+const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
 
     const [openModal, setOpenModal] = useState(false);
     const dispatch = useAppDispatch();
 
     const image = item.images?.length ? Base_URL + item.images[0] : waitImage;
 
-    const { t, i18n } = useTranslation("card");
-    let lang: Languages;
-    switch (i18n.language) {
-        case 'ua': lang = 'ua';
-            break;
-        case 'ru': lang = 'ru';
-            break;
-        case 'en': lang = 'en';
-            break;
-        default: lang = 'ua';
-    };
+    const { t } = useTranslation("card");
 
     const detailClick = () => setOpenModal(true);
     const closeModal = () => setOpenModal(false);
