@@ -25,10 +25,12 @@ interface IItemCard {
 
 const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
 
+    const { _id, itemName, title, images, price, description, order, weight, sort } = item;
+
     const [openModal, setOpenModal] = useState(false);
     const dispatch = useAppDispatch();
 
-    const image = item.images?.length ? Base_URL + item.images[0] : waitImage;
+    const image = images?.length ? Base_URL + images[0] : waitImage;
 
     const { t } = useTranslation("card");
 
@@ -40,34 +42,34 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
             <CardActionArea onClick={detailClick}>
                 <CardMedia
                     component="img"
-                    height="350"
+                    height="100%"
                     image={image}
-                    alt={item.itemName[lang]}
+                    alt={itemName[lang]}
                 />
                 <CardContent className={styles.card__content}>
                     <Typography gutterBottom variant="h5" component="div">
-                        {item.title[lang]} {item.itemName[lang]}
+                        {title[lang]} {itemName[lang]}
                     </Typography>
                     <Typography className={styles.card__price}>
-                        {item.price} {t("currency")}
+                        {price} {t("currency")}
                     </Typography>
                     <Typography className={styles.card__description}>
-                        {item.description[lang]}
+                        {description[lang]}
                     </Typography>
                     <Box className={styles.card__boxItems}>
-                        {item.order &&
+                        {order &&
                             <Typography color="error">
                                 {t("order")}
                             </Typography>
                         }
-                        {item.weight &&
+                        {weight &&
                             <Typography color='secondary.light'>
-                                {t("weight")}{item.weight}{t("unit")}
+                                {t("weight")}{weight}{t("unit")}
                             </Typography>
                         }
-                        {item.sort?.key &&
+                        {sort?.key &&
                             <Typography color='secondary.light'>
-                                {item.sort.key[lang]}{": "} {item.sort.value[lang]}
+                                {sort.key[lang]}{": "} {sort.value[lang]}
                             </Typography>
                         }
                     </Box>
@@ -81,19 +83,19 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                     onClick={() =>
                         dispatch(
                             basketAddItems({
-                                title: item.title[lang],
-                                itemName: item.itemName[lang],
-                                price: item.price,
-                                weight: item.weight,
+                                title: title[lang],
+                                itemName: itemName[lang],
+                                price,
+                                weight,
                                 quantity: 1,
-                                id: item._id,
+                                id: _id,
                             })
                         )
                     }>
                     {t("button_2")}
                 </Button>
             </CardActions>
-            <DetailedCard item={item} lang={lang} image={image} openModal={openModal} closeModal={closeModal} />
+            <DetailedCard item={item} lang={lang} openModal={openModal} closeModal={closeModal} />
         </Card>
     )
 }

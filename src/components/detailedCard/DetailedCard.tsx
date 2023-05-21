@@ -4,10 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { Backdrop, Box, Modal, Fade, Typography } from '@mui/material';
 import CloseIcon from "@mui/icons-material/Close";
 
+import ActiveButtons from './ActiveButtons';
+
 import { IStoreItem } from 'types/storeTypes';
 import { Languages } from 'types/menuTypes';
 
 import styles from './detailedCard.module.scss';
+import ImageSwiper from './ImageSwiper';
 
 // const style = {
 //     bgcolor: 'background.paper',
@@ -17,12 +20,11 @@ import styles from './detailedCard.module.scss';
 interface IDetailedCard {
     item: IStoreItem,
     lang: Languages,
-    image: string,
     openModal: boolean,
     closeModal: () => void,
 }
 
-const DetailedCard: React.FC<IDetailedCard> = ({ item, lang, image, openModal, closeModal }) => {
+const DetailedCard: React.FC<IDetailedCard> = ({ item, lang, openModal, closeModal }) => {
 
     const { t } = useTranslation("card");
 
@@ -52,14 +54,15 @@ const DetailedCard: React.FC<IDetailedCard> = ({ item, lang, image, openModal, c
                             onClick={handleClose}
                         />
                         <Box className={styles.modal__box}>
-                            <img src={image} alt={item.itemName[lang]} />
-                            <Box className={styles.modal__right}>
+                            <ImageSwiper item={item} lang={lang} />
+                            <Box className={styles.modal__textBlock}>
                                 <Typography variant="h5" component="h2">
                                     {item.title[lang]} {item.itemName[lang]}
                                 </Typography>
                                 <Typography className={styles.card__price}>
                                     {item.price} {t("currency")}
                                 </Typography>
+                                <ActiveButtons item={item} lang={lang} closeModal={handleClose} />
                                 <Box>
                                     {item.order &&
                                         <Typography color="error">

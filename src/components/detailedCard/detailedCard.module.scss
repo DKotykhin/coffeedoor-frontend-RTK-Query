@@ -5,7 +5,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 710px;
+    width: 720px;
+    max-height: 90%;
+    overflow-y: auto;
     background-color: #fff;
     border: 2px solid $color_lightGrey;
     border-radius: 10px;
@@ -14,13 +16,13 @@
     @media (max-width: 800px) {
         width: 400px;
     }
-    @media (max-width: 500px) {
+    @media (max-width: 450px) {
         width: 90%;
     }
     .modal__close {
         position: absolute;
-        right: -30px;
-        top: -30px;
+        left: 18px;
+        top: 8px;
         font-weight: 700;
         font-size: 30px;
         color: #ff0000;
@@ -29,13 +31,22 @@
     .modal__box {
         display: flex;
         flex-wrap: wrap;
-        .modal__right {
+        margin-top: 20px;
+        @media (max-width: 450px) {
+            img {
+                width: 100%;
+            }
+        }
+        .modal__textBlock {
             padding: 20px;
             height: 300px;
             width: 300px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            @media (max-width: 800px) {
+                padding: 20px 0;
+            }
             .card__price {
                 font-size: 1.3rem;
                 font-weight: 700;
@@ -44,6 +55,6 @@
     }
     .card__description {
         color: $color_lightGrey;
-        margin-bottom: 8px;
+        margin-top: 16px;
     }
 }

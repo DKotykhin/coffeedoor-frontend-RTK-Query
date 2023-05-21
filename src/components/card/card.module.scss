@@ -1,8 +1,11 @@
 @import "constants/constants.scss";
 
 .card {
-    max-width: 350px;
-    margin: 20px;
+    max-width: 320px;
+    margin: 15px 0;
+    @media (min-width: 1250px) {
+        margin: 20px;
+    }
     .card__content {
         text-align: left;
         min-height: 300px;

@@ -1,0 +1,33 @@
+@import "constants/constants.scss";
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 24px 0;
+    font-size: 20px;
+    .buttons__remove,
+    .buttons__add {
+        color: $color_mint;
+        font-size: 30px;
+        vertical-align: middle;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    .buttons__add {
+        margin: 0 20px 0 10px;
+    }
+    .buttons__submit {
+        @include button;
+        padding: 8px;
+        width: 120px;
+        color: #fff;
+        border: 1px solid $color_mint;
+        background-color: $color_mint;
+        white-space: nowrap;
+        &:hover {
+            color: black;
+            background-color: #fff;
+        }
+    }
+}
