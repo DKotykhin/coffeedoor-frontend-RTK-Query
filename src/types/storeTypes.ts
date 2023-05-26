@@ -1,6 +1,4 @@
-export interface IStoreItem {
-    _id: string;
-    group: string;
+export interface IUpdateStoreItem {
     title: IStoreUnit;
     itemName: IStoreUnit;
     description: IStoreUnit;
@@ -9,14 +7,31 @@ export interface IStoreItem {
     tm?: string;
     country?: IStoreUnit;
     sort?: {
-        key: IStoreUnit,
-        value: IStoreUnit,
+        key: IStoreUnit;
+        value: IStoreUnit;
     };
     price: number;
     weight?: number;
     order: boolean;
     hidden: boolean;
     position: number;
+}
+
+export interface ICreateStoreItem extends IUpdateStoreItem {
+    group: string;
+}
+
+export interface IStoreItem extends ICreateStoreItem {
+    _id: string;
+}
+
+export interface IDeleteStoreItem {
+    _id?: string;
+}
+
+export interface IUpdatedData {
+    id: string;
+    data: IUpdateStoreItem;
 }
 
 interface IStoreUnit {

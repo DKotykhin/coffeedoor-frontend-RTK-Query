@@ -55,6 +55,9 @@
     }
     .card__description {
         color: $color_lightGrey;
-        margin-top: 16px;
+        margin: 16px 0;
+    }
+    .card__detailText {
+        color: $color_lightGrey;
     }
 }

@@ -3,8 +3,9 @@ import React from 'react';
 import { Box } from '@mui/material';
 
 import CardList from './CardList';
-import { useGetStoreQuery } from 'services/storeService';
 import Spinner from 'components/spinner/Spinner';
+
+import { useGetStoreQuery } from 'services/storeService';
 
 const List = [
     {

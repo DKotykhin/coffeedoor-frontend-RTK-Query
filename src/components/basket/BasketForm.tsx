@@ -14,7 +14,7 @@ import {
 
 import { FormValidation } from "./basketFormValidation";
 
-import { IFormData } from 'types/basketType';
+import { IFormData } from 'types/basketTypes';
 
 import styles from './basketForm.module.scss';
 

@@ -1,0 +1,22 @@
+@import "constants/constants.scss";
+
+.admin {
+    text-align: center;
+    .admin__title {
+        margin: 20px 0;
+        font-size: 1.8rem;
+    }
+    .admin__buttonBox {
+        margin-bottom: 20px;
+        .admin__return {
+            color: $color_lightGrey;
+            margin-right: 10px;
+        }
+        .admin__add {
+            margin-left: 10px;
+        }
+    }
+    .admin__buttons {
+        margin-bottom: 30px;
+    }
+}

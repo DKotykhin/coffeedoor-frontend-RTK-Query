@@ -20,7 +20,7 @@ import {
 import { useAppDispatch, useAppSelector } from "store/reduxHooks";
 import { selectBasket } from "store/selectors";
 
-import { IBasket, IFormData, IFullData } from 'types/basketType';
+import { IBasket, IFormData, IFullData } from 'types/basketTypes';
 
 import styles from './basketModal.module.scss';
 
