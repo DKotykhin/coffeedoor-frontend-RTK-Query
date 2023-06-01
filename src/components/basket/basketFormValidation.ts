@@ -19,10 +19,6 @@ const schema = yup.object({
 });
 
 export const FormValidation: Object = {
-    defaultValues: {
-        userName: '',
-        phone: '',
-    },
     resolver: yupResolver(schema),
     mode: 'onBlur'
 }

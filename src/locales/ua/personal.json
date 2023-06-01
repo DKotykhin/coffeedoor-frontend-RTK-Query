@@ -1,6 +1,32 @@
 {
     "title": "Персональна сторінка",
+    "return": "Повернутися на головну",
     "tabLabelA": "Інформація",
     "tabLabelB": "Замовлення",
-    "tabLabelC": "Пропозиції"
+    "tabLabelC": "Пропозиції",
+    "formLoginTitle": "Вхід до кабінету",
+    "formRegisterTitle": "Реєстрація",
+    "formNameTitle": "Ваше ім'я",
+    "formNamePlaceholder": "введіть ім'я...",
+    "formPhoneTitle": "Ваш телефон",
+    "formPhonePlaceholder": "введіть телефон...",
+    "formEmailTitle": "Ваша пошта",
+    "formEmailPlaceholder": "введіть email...",
+    "formPasswordTitle": "Ваш пароль",
+    "formPasswordPlaceholder": "введіть пароль...",
+    "formLoading": "Завантаження...",
+    "formLoginQuestion": "Немає особистого кабінета?",
+    "formRegisterQuestion": "Є особистий кабінет?",
+    "orderTitle": "Ваш лист замовлень",
+    "orderQuantity": "Загалом замовлень: ",
+    "orderSum": "Загальна сума: ",
+    "orderCurrency": " грн",
+    "orderEmpty": "Нажаль у вас ще немає замовлень",
+    "tableName": "Назва товару",
+    "tablePrice": "Ціна",
+    "tableQuantity": "Кількість",
+    "tableSum": "Сума",
+    "tableDate": "Дата замовлення: ",
+    "tableTotal": "Загалом"
+
 }

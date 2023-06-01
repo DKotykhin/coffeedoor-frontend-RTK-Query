@@ -24,6 +24,31 @@
 }
 .drawer__box {
     width: 250px;
+    img {
+        padding-bottom: 20px;
+    }
+    .drawer__loginBox {
+        display: flex;
+        align-items: center;
+        .drawer__login {
+            padding: 14px 28px;
+            font-size: 20px;
+            max-width: 250px;
+            cursor: pointer;
+            &:hover {
+                color: $color_lightGrey;
+            }
+        }
+        .drawer__logout {
+            svg {
+                margin-top: 6px;
+                cursor: pointer;
+                &:hover {
+                    color: $color_lightGrey;
+                }
+            }
+        }
+    }
     .drawer__items {
         padding: 20px;
         font-size: 20px;

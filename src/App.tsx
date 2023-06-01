@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "components/layout/Layout";
+import { RequireAuth } from "hocs/RequireAuth";
+
 import HomePage from "pages/HomePage";
 import MenuPage from "pages/MenuPage";
 import Page404 from "pages/Page404";
@@ -9,6 +11,9 @@ import PersonalPage from "pages/PersonalPage";
 import AdminPage from "pages/AdminPage";
 import UpdateItemPage from "pages/UpdateItemPage";
 import CreateItemPage from "pages/CreateItemPage";
+import LoginPage from "pages/LoginPage";
+import RegistrationPage from "pages/RegisterPage";
+import { RequireAdminAuth } from "hocs/RequireAdminAuth";
 
 export const router = createBrowserRouter([
     {
@@ -29,19 +34,27 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'personal',
-                element: <PersonalPage />,
+                element: <RequireAuth children={<PersonalPage />} />,
+            },
+            {
+                path: 'login',
+                element: <LoginPage />,
+            },
+            {
+                path: 'registration',
+                element: <RegistrationPage />,
             },
             {
                 path: 'admin',
-                element: <AdminPage />,
+                element: <RequireAdminAuth children={<AdminPage />} />,
             },
             {
                 path: 'admin/:itemId',
-                element: <UpdateItemPage />,
+                element: <RequireAdminAuth children={<UpdateItemPage />} />,
             },
             {
                 path: 'admin/create',
-                element: <CreateItemPage />,
+                element: <RequireAdminAuth children={<CreateItemPage />} />,
             },
         ],
     },

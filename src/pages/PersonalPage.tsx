@@ -1,7 +1,7 @@
-import PersonalHeader from 'components/personalPage/personalHeader/PersonalHeader';
-import Tabs from 'components/personalPage/tabs/Tabs';
 import React from 'react';
 import { Helmet } from "react-helmet";
+
+import PageComponent from 'components/personalPage/PageComponent';
 
 const PersonalPage: React.FC = () => {
     return (
@@ -10,8 +10,7 @@ const PersonalPage: React.FC = () => {
                 <meta name="description" content="Personal Page" />
                 <title>Personal Page</title>
             </Helmet>
-            <PersonalHeader />
-            <Tabs />
+            <PageComponent />
         </>
     )
 }

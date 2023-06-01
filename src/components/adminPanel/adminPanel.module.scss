@@ -18,5 +18,9 @@
     }
     .admin__buttons {
         margin-bottom: 30px;
+        .admin__button {
+            margin: 0 10px;
+            border-radius: 5px;
+        }
     }
 }

@@ -5,6 +5,7 @@
     "weight": "g",
     "currency": " uah",
     "name": "Your name",
+    "namePlaceholder": "type name...",
     "phone": "Your phone",
     "delivery": "Delivery method",
     "var_1": "pick up at coffee shop",

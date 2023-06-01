@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { List, ListItem } from "@mui/material";
+import { List, ListItem, Typography } from "@mui/material";
 import { Box, Drawer, Divider, Link as MuiLink } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import LogoutIcon from '@mui/icons-material/Logout';
+
+import { useAuth } from 'hooks/useAuth';
+import { fetchUser } from "services/userService";
+import { useAppDispatch } from "store/reduxHooks";
 
 import logo from 'images/webp/logo_192x192.webp';
 
@@ -19,6 +24,10 @@ const NavigationDrawer: React.FC = () => {
 
     const [state, setState] = useState(false);
     const { t, i18n } = useTranslation("first");
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
+    const { data, isSuccess } = useAuth();
 
     const catalogTitleList: IDrawerTitle[] = [
         { title: t("titleA"), id: "#coffee" },
@@ -48,6 +57,16 @@ const NavigationDrawer: React.FC = () => {
         setState(open);
     };
 
+    const handleLogin = () => {
+        navigate('/personal')
+    };
+    const handleLogout = () => {
+        console.log('logout');
+        sessionStorage.removeItem("rememberMe");
+        localStorage.removeItem("rememberMe");
+        dispatch(fetchUser.util.resetApiState());
+    };
+
     return (
         <Box className={styles.drawer}>
             <MenuIcon
@@ -57,6 +76,24 @@ const NavigationDrawer: React.FC = () => {
             <Drawer anchor="right" open={state} onClick={toggleDrawer(false)}>
                 <Box className={styles.drawer__box}>
                     <img src={logo} width={100} alt='CoffeeDoor logo' />
+                    <Divider />
+                    <Box className={styles.drawer__loginBox}>
+                        <Typography
+                            className={styles.drawer__login}
+                            onClick={handleLogin}
+                        >
+                            {data ? data.user.userName : t("login")}
+                        </Typography>
+                        {isSuccess &&
+                            <Box 
+                                className={styles.drawer__logout}
+                                onClick={handleLogout}
+                            >
+                                <LogoutIcon />
+                            </Box>
+                        }
+                    </Box>
+                    <Divider />
                     <List className={styles.drawer__items}>
                         {catalogTitleList.map((text) => (
                             <ListItem key={text.id} disablePadding>

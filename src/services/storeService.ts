@@ -1,7 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { IFullData } from "types/basketTypes";
-import { ICreateStoreItem, IDeleteStoreItem, IStoreItem, IUpdatedData } from "types/storeTypes";
+import {
+    ICreateStoreItem,
+    IDeleteStoreItem,
+    IStoreItem,
+    IUpdatedData,
+} from "types/storeTypes";
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -15,17 +19,6 @@ export const fetchStore = createApi({
                 url: "/store",
             }),
             providesTags: ["Item"],
-        }),
-
-        sendBasketData: builder.mutation<any, IFullData>({
-            query: (data) => ({
-                url: "/send",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            }),
         }),
 
         createStoreItem: builder.mutation<any, ICreateStoreItem>({
@@ -68,7 +61,6 @@ export const fetchStore = createApi({
 
 export const {
     useGetStoreQuery,
-    useSendBasketDataMutation,
     useCreateStoreItemMutation,
     useUpdateStoreItemMutation,
     useDeleteStoreItemMutation,

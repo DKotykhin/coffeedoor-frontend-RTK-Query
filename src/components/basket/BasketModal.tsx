@@ -9,7 +9,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
 import BasketIcon from 'components/basket/BasketIcon';
 import BasketForm from './BasketForm';
-import { useSendBasketDataMutation } from 'services/storeService';
+import { useSendBasketDataMutation } from 'services/orderService';
 
 import {
     basketRemoveItems,
@@ -63,6 +63,7 @@ const BasketModal: React.FC = () => {
                 dispatch(basketSetEmpty());
                 navigate("/thanks");
             })
+            .catch(error => console.log(error))
     };
 
     return (

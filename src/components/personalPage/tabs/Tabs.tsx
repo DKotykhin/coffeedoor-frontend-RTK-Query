@@ -4,9 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { Box, Container, Tab } from '@mui/material';
 
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { IUser } from 'types/userTypes';
+import InfoTab from './InfoTab';
+import OrderTab from './OrderTab';
+import ProposalTab from './ProposalTab';
 
 
-const Tabs: React.FC = () => {
+const Tabs: React.FC<{ user: IUser }> = ({ user }) => {
+
     const [value, setValue] = React.useState('1');
     const { t } = useTranslation("personal");
 
@@ -24,9 +29,9 @@ const Tabs: React.FC = () => {
                         <Tab label={t("tabLabelC")} value="3" />
                     </TabList>
                 </Box>
-                <TabPanel value="1">{t("tabLabelA")}</TabPanel>
-                <TabPanel value="2">{t("tabLabelB")}</TabPanel>
-                <TabPanel value="3">{t("tabLabelC")}</TabPanel>
+                <TabPanel value="1"><InfoTab user={user} /></TabPanel>
+                <TabPanel value="2"><OrderTab /></TabPanel>
+                <TabPanel value="3"><ProposalTab /></TabPanel>
             </TabContext>
         </Container>
     );

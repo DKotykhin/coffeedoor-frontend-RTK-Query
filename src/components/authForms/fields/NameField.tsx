@@ -1,0 +1,45 @@
+
+import { Controller } from "react-hook-form";
+
+import {
+    Box,
+    InputLabel,
+    FormControl,
+    FormHelperText,
+    OutlinedInput,
+} from "@mui/material";
+
+import styles from './field.module.scss';
+
+interface INameField {
+    label: string;
+    placeholder: string;
+    error: any;
+    control: any;
+}
+
+const NameField: React.FC<INameField> = ({ label, placeholder, error, control }) => {
+    return (
+        <Box className={styles.field}>
+            <InputLabel>{label}</InputLabel>
+            <FormControl className={styles.field__control}>
+                <Controller
+                    name="userName"
+                    control={control}
+                    render={({ field }) => (
+                        <OutlinedInput
+                            {...field}
+                            type="text"
+                            placeholder={placeholder}
+                            autoComplete="name"
+                            error={error ? true : false}
+                        />
+                    )}
+                />
+            <FormHelperText>{error?.message}</FormHelperText>
+            </FormControl>
+        </Box>
+    );
+};
+
+export default NameField;

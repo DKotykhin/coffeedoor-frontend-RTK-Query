@@ -3,7 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
 
 import { Box, Button, TextField } from "@mui/material";
-import { Typography, InputLabel, OutlinedInput } from "@mui/material";
+import { Typography, InputLabel } from "@mui/material";
 import {
     Radio,
     RadioGroup,
@@ -13,10 +13,12 @@ import {
 } from "@mui/material";
 
 import { FormValidation } from "./basketFormValidation";
+import { NameField, PhoneField } from 'components/authForms/fields';
 
 import { IFormData } from 'types/basketTypes';
 
 import styles from './basketForm.module.scss';
+import { useAuth } from 'hooks/useAuth';
 
 interface IBasketForm {
     onSubmit: (data: IFormData) => void
@@ -25,12 +27,19 @@ interface IBasketForm {
 const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
 
     const { t } = useTranslation("basket");
+    const {data} = useAuth();
 
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormData>(FormValidation);
+    } = useForm<IFormData>({
+        ...FormValidation,
+        defaultValues: {
+            userName: data ? data.user.userName : '',
+            phone: data ? data.user.phone : '',
+        },
+    });
 
     return (
         <>
@@ -41,38 +50,17 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
                 noValidate
                 autoComplete="off"
             >
-                <InputLabel
-                    htmlFor="userName"
-                    className={styles.basketForm__label}
-                >
-                    {t("name")}
-                </InputLabel>
-                <Controller
-                    name="userName"
+                <NameField
+                    label={t("name")}
+                    placeholder={t("namePlaceholder")}
+                    error={errors.userName}
                     control={control}
-                    render={({ field }) => (
-                        <OutlinedInput {...field} sx={{ width: "100%" }} />
-                    )}
                 />
-                <Typography className={styles.basketForm__error}>
-                    {errors.userName?.message}
-                </Typography>
-                <InputLabel
-                    htmlFor="phone"
-                    className={styles.basketForm__label}
-                >
-                    {t("phone")}
-                </InputLabel>
-                <Controller
-                    name="phone"
+                <PhoneField
+                    label={t("phone")}
+                    error={errors.phone}
                     control={control}
-                    render={({ field }) => (
-                        <OutlinedInput {...field} sx={{ width: "100%" }} placeholder='0501112233' />
-                    )}
                 />
-                <Typography className={styles.basketForm__error}>
-                    {errors.phone?.message}
-                </Typography>
                 <Controller
                     name="deliveryWay"
                     control={control}

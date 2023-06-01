@@ -6,7 +6,7 @@ import { Box, Typography } from "@mui/material";
 import styles from "./returnbutton.module.scss";
 
 const ReturnButton: React.FC = () => {
-    let { t } = useTranslation("menu");
+    const { t } = useTranslation("menu");
 
     return (
         <Box className={styles.return}>

@@ -55,6 +55,7 @@ const AdminPanel: React.FC = () => {
                         key={item}
                         variant='outlined'
                         onClick={() => handleClick(item)}
+                        className={styles.admin__button}
                     >
                         {item}
                     </Button>
