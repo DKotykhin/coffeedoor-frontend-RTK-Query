@@ -9,7 +9,7 @@ import ActiveButtons from './ActiveButtons';
 import ImageSwiper from './ImageSwiper';
 
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
+import { Languages } from "hooks/useLang";
 
 import styles from './detailedCard.module.scss';
 

@@ -1,8 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+import { getToken } from "./getToken";
+
 import {
     ICreateStoreItem,
-    IDeleteStoreItem,
+    IDeleteResponse,
     IStoreItem,
     IUpdatedData,
 } from "types/storeTypes";
@@ -21,11 +23,12 @@ export const fetchStore = createApi({
             providesTags: ["Item"],
         }),
 
-        createStoreItem: builder.mutation<any, ICreateStoreItem>({
+        createStoreItem: builder.mutation<IStoreItem, ICreateStoreItem>({
             query: (data) => ({
                 url: "/store",
                 method: "POST",
                 headers: {
+                    Authorization: `Bearer ${getToken()}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data),
@@ -33,11 +36,12 @@ export const fetchStore = createApi({
             invalidatesTags: ["Item"],
         }),
 
-        updateStoreItem: builder.mutation<any, IUpdatedData>({
+        updateStoreItem: builder.mutation<IStoreItem, IUpdatedData>({
             query: (data) => ({
                 url: "/store",
                 method: "PATCH",
                 headers: {
+                    Authorization: `Bearer ${getToken()}`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data),
@@ -45,14 +49,18 @@ export const fetchStore = createApi({
             invalidatesTags: ["Item"],
         }),
 
-        deleteStoreItem: builder.mutation<any, IDeleteStoreItem>({
-            query: (data) => ({
+        deleteStoreItem: builder.mutation<
+            IDeleteResponse,
+            { _id: string | undefined }
+        >({
+            query: (_id) => ({
                 url: "/store",
                 method: "DELETE",
                 headers: {
+                    Authorization: `Bearer ${getToken()}`,
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                params: { _id },
             }),
             invalidatesTags: ["Item"],
         }),

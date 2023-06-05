@@ -10,7 +10,7 @@ import { useAppDispatch } from "store/reduxHooks";
 import { basketAddItems } from "store/basketSlice";
 
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
+import { Languages } from "hooks/useLang";
 
 import styles from './activeButtons.module.scss';
 

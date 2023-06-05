@@ -27,6 +27,14 @@
     img {
         padding-bottom: 20px;
     }
+    .drawer__admin {
+        padding: 0 28px 14px;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover {
+            color: $color_lightGrey;
+        }
+    }
     .drawer__loginBox {
         display: flex;
         align-items: center;

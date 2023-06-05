@@ -3,16 +3,16 @@ import Helmet from "react-helmet";
 
 import CreateStoreItem from 'components/adminPanel/createStoreItem/CreateStoreItem';
 
-const CreateItemPage: React.FC = () => {
+const CreateStoreItemPage: React.FC = () => {
     return (
         <>
             <Helmet>
-                <meta name="description" content="Create Item Page" />
-                <title>Create Item Page</title>
+                <meta name="description" content="Create Store Item Page" />
+                <title>Create Store Item Page</title>
             </Helmet>
             <CreateStoreItem />
         </>
     )
 }
 
-export default CreateItemPage;
+export default CreateStoreItemPage;

@@ -10,7 +10,9 @@ import MuiAccordionSummary, {
 import ExpandMoreIcon from "@mui/icons-material/ExpandCircleDown";
 
 import AccordeonBlock from "./AccordeonBlock";
-import { IMenuGroup, Languages } from "types/menuTypes";
+import { useLang } from 'hooks/useLang';
+
+import { IMenuGroup } from "types/menuTypes";
 
 import styles from './accordeon.module.scss';
 
@@ -47,12 +49,12 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
 
 interface IAccordeonBlock {
     data: IMenuGroup[],
-    lang: Languages,
 }
 
 
-const AccordeonMenu: React.FC<IAccordeonBlock> = ({ data, lang }) => {
+const AccordeonMenu: React.FC<IAccordeonBlock> = ({ data }) => {
     const [expanded, setExpanded] = useState("");
+    const lang = useLang();
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : "");

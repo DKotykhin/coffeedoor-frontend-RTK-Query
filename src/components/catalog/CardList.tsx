@@ -8,8 +8,9 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import ItemCard from 'components/card/Card';
 import FilterItem from 'components/filter/FilterItem';
 
+import { useLang } from 'hooks/useLang';
+
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
 
 import styles from './cardlist.module.scss';
 import "swiper/css";
@@ -26,6 +27,7 @@ interface ICardList {
 const CardList: React.FC<ICardList> = ({ item, data }) => {
 
     const { group, title, subtitle } = item;
+    const lang = useLang();
 
     const [filterKey, setFilterKey] = useState<string | undefined>();
     const [filterValue, setFilterValue] = useState<(string | undefined)[]>();
@@ -34,17 +36,7 @@ const CardList: React.FC<ICardList> = ({ item, data }) => {
 
     const matches = useMediaQuery('(min-width:1250px)');
 
-    const { t, i18n } = useTranslation('catalog');
-    let lang: Languages;
-    switch (i18n.language) {
-        case 'ua': lang = 'ua';
-            break;
-        case 'ru': lang = 'ru';
-            break;
-        case 'en': lang = 'en';
-            break;
-        default: lang = 'ua';
-    };
+    const { t } = useTranslation('catalog');
 
     useEffect(() => {
         const filterKeyArray = data.map(item => item.sort?.key[lang])

@@ -4,15 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Box, Container, Typography } from '@mui/material';
 
+import { langButtons } from 'hooks/useLang';
 import logo from 'images/webp/logo_700x191.webp';
 
 import styles from './menuHeader.module.scss';
-
-const lang = [
-    { key: 'ua', label: 'Ua' },
-    { key: 'ru', label: 'Ru' },
-    { key: 'en', label: 'En' },
-];
 
 const MenuHeader: React.FC = () => {
     const { t, i18n } = useTranslation('menu');
@@ -28,7 +23,7 @@ const MenuHeader: React.FC = () => {
             <Typography className={styles.menu__subtitle} component="h3">
                 {t("subtitle")}
             </Typography>
-            {lang.map(item => (
+            {langButtons.map(item => (
                 <Box
                     key={item.key}
                     onClick={() => i18n.changeLanguage(item.key)}

@@ -1,32 +1,37 @@
 import React from 'react';
+import { Controller } from "react-hook-form";
 
-import { Box, InputLabel, TextField, Typography } from "@mui/material";
+import { Box, InputLabel, TextField, FormHelperText } from "@mui/material";
 
 interface IInput {
     label: string;
-    defaultValue?: string | number;
-    register: Object
+    name: string;
+    defaultValue: string | undefined;
+    control: any,
     error?: any,
 }
 
-const TextArea: React.FC<IInput> = ({ label, defaultValue, register, error }) => {
+const TextArea: React.FC<IInput> = ({ label, defaultValue, control, name, error }) => {
 
     return (
         <>
             <Box sx={{ display: "flex", mb: 2 }}>
-                <InputLabel sx={{ width: "120px", mt: 1 }}>{label}</InputLabel>
-                <TextField
-                    multiline
-                    {...register}
-                    sx={{ ml: 3, width: "100%" }}
+                <InputLabel sx={{ width: "130px", mt: 1 }}>{label}</InputLabel>
+                <Controller
+                    name={name}
+                    control={control}
                     defaultValue={defaultValue}
+                    render={({ field }) =>
+                        <TextField
+                            {...field}
+                            multiline
+                            sx={{ ml: 3, width: "100%" }}
+                            error={error ? true : false}
+                        />
+                    }
                 />
             </Box>
-            {error &&
-                <Typography sx={{ color: '#ff0000', fontSize: '0.8rem' }}>
-                    {error.type === 'required' ? 'This field is required' : 'Put valid value'}
-                </Typography>
-            }
+            <FormHelperText sx={{ marginLeft: '130px' }}>{error?.message}</FormHelperText>
         </>
     )
 }

@@ -4,6 +4,19 @@ export interface IMenuGroup {
     items: IMenuItem[];
     hidden: boolean;
     position: number;
+    _id: string;
+    createdAt: string;
+}
+
+export interface IUpdateMenuGroup {
+    groupId: string;
+    data: IMenuGroup;
+}
+
+export interface IDeleteResponse {
+    acknowledged: boolean;
+    deletedCount: number;
+    mesaage: string;
 }
 
 interface IMenuUnit {
@@ -17,6 +30,5 @@ export interface IMenuItem {
     description?: IMenuUnit;
     price: string;
     hidden: boolean;
+    _id: string;
 }
-
-export type Languages = "ua" | "ru" | "en";

@@ -6,9 +6,10 @@ import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
 import Spinner from 'components/spinner/Spinner';
 import ChildModal from '../childModal/ChildModal';
-import { updateFormData } from './updateFormData';
-import { SingleInput, TextArea, MDEField, RadioButton } from '../inputs';
+import { StoreItemValidation } from 'components/validation/storeItemValidation';
+import { TextArea, MDEField, CheckboxInput, InputField } from '../inputs/_index';
 
+import { storeFormData } from '../formData/storeFormData';
 import { useUpdateStoreItemMutation, useDeleteStoreItemMutation } from 'services/storeService';
 import { useGetStoreQuery } from 'services/storeService';
 
@@ -52,13 +53,17 @@ const UpdateStoreItem: React.FC = () => {
     }, []);
 
     const {
-        register,
+        control,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+    } = useForm(StoreItemValidation);
 
     const onSubmit = async (data: FieldValues) => {
-        const updatedData = updateFormData(data, itemId, mdeValueUa, mdeValueRu, mdeValueEn);
+        const formData = storeFormData(data, mdeValueUa, mdeValueRu, mdeValueEn);
+        const updatedData = {
+            id: itemId,
+            data: formData,
+        }
         console.log(updatedData)
         await sendData(updatedData)
             .unwrap()
@@ -70,7 +75,7 @@ const UpdateStoreItem: React.FC = () => {
 
     const handleSubmitDelete = async () => {
         setOpenChildModal(false);
-        await deleteData({_id: itemId})
+        await deleteData({ _id: itemId })
             .unwrap()
             .then(response => {
                 console.log(response.message);
@@ -84,170 +89,197 @@ const UpdateStoreItem: React.FC = () => {
                 Edit Store Item
             </Typography>
             {currentItem ?
-                <Paper
-                    elevation={10}
+                <Box
                     onSubmit={handleSubmit(onSubmit)}
                     className={styles.form}
                     component="form"
                     noValidate
                     autoComplete="off"
                 >
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <SingleInput
-                            register={register('titleUa', { required: true })}
-                            label={'Title Ua'}
-                            defaultValue={currentItem.title.ua}
-                            error={errors.titleUa}
-                        />
-                        <SingleInput
-                            register={register('titleRu', { required: true })}
-                            label={'Title Ru'}
-                            defaultValue={currentItem.title.ru}
-                            error={errors.titleRu}
-                        />
-                        <SingleInput
-                            register={register('titleEn', { required: true })}
-                            label={'Title En'}
-                            defaultValue={currentItem.title.en}
-                            error={errors.titleEn}
-                        />
+                    <Paper elevation={10} sx={{ p: 2 }}>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <InputField
+                                control={control}
+                                name={'titleUa'}
+                                label={'Title Ua'}
+                                defaultValue={currentItem.title.ua}
+                                error={errors.titleUa}
+                            />
+                            <InputField
+                                control={control}
+                                name={'titleRu'}
+                                label={'Title Ru'}
+                                defaultValue={currentItem.title.ru}
+                                error={errors.titleRu}
+                            />
+                            <InputField
+                                control={control}
+                                name={'titleEn'}
+                                label={'Title En'}
+                                defaultValue={currentItem.title.en}
+                                error={errors.titleEn}
+                            />
+                        </Paper>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <InputField
+                                control={control}
+                                name={'itemNameUa'}
+                                label={'Item Name Ua'}
+                                defaultValue={currentItem.itemName.ua}
+                                error={errors.itemNameUa}
+                            />
+                            <InputField
+                                control={control}
+                                name={'itemNameRu'}
+                                label={'Item Name Ru'}
+                                defaultValue={currentItem.itemName.ru}
+                                error={errors.itemNameRu}
+                            />
+                            <InputField
+                                control={control}
+                                name={'itemNameEn'}
+                                label={'Item Name En'}
+                                defaultValue={currentItem.itemName.en}
+                                error={errors.itemNameEn}
+                            />
+                        </Paper>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <InputField
+                                control={control}
+                                name={'countryUa'}
+                                label={'Country Ua'}
+                                defaultValue={currentItem.country?.ua}
+                                error={errors.countryUa}
+                            />
+                            <InputField
+                                control={control}
+                                name={'countryRu'}
+                                label={'Country Ru'}
+                                defaultValue={currentItem.country?.ru}
+                                error={errors.countryRu}
+                            />
+                            <InputField
+                                control={control}
+                                name={'countryEn'}
+                                label={'Country En'}
+                                defaultValue={currentItem.country?.en}
+                                error={errors.countryEn}
+                            />
+                        </Paper>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <InputField
+                                control={control}
+                                name={'sortKeyUa'}
+                                label={'Sort key Ua'}
+                                defaultValue={currentItem.sort?.key.ua}
+                                error={errors.sortKeyUa}
+                            />
+                            <InputField
+                                control={control}
+                                name={'sortKeyRu'}
+                                label={'Sort key Ru'}
+                                defaultValue={currentItem.sort?.key.ru}
+                                error={errors.sortKeyRu}
+                            />
+                            <InputField
+                                control={control}
+                                name={'sortKeyEn'}
+                                label={'Sort key En'}
+                                defaultValue={currentItem.sort?.key.en}
+                                error={errors.sortKeyEn}
+                            />
+                        </Paper>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <InputField
+                                control={control}
+                                name={'sortValueUa'}
+                                label={'Sort value Ua'}
+                                defaultValue={currentItem.sort?.value.ua}
+                                error={errors.sortValueUa}
+                            />
+                            <InputField
+                                control={control}
+                                name={'sortValueRu'}
+                                label={'Sort value Ru'}
+                                defaultValue={currentItem.sort?.value.ru}
+                                error={errors.sortValueRu}
+                            />
+                            <InputField
+                                control={control}
+                                name={'sortValueEn'}
+                                label={'Sort value En'}
+                                defaultValue={currentItem.sort?.value.en}
+                                error={errors.sortValueEn}
+                            />
+                        </Paper>
+                        <Paper elevation={10} sx={{ p: 1, my: 1 }}>
+                            <TextArea
+                                control={control}
+                                name={'descriptionUa'}
+                                label={'Description Ua'}
+                                defaultValue={currentItem.description?.ua}
+                                error={errors.descriptionUa}
+                            />
+                            <TextArea
+                                control={control}
+                                name={'descriptionRu'}
+                                label={'Description Ru'}
+                                defaultValue={currentItem.description?.ru}
+                                error={errors.descriptionRu}
+                            />
+                            <TextArea
+                                control={control}
+                                name={'descriptionEn'}
+                                label={'Description En'}
+                                defaultValue={currentItem.description?.en}
+                                error={errors.descriptionEn}
+                            />
+                        </Paper>
+                        <MDEField MDEChange={MDEChangeUa} value={currentItem.detailText?.ua} label={'Detail text Ua'} />
+                        <MDEField MDEChange={MDEChangeRu} value={currentItem.detailText?.ru} label={'Detail text Ru'} />
+                        <MDEField MDEChange={MDEChangeEn} value={currentItem.detailText?.en} label={'Detail text En'} />
+                        <Box sx={{ p: 2 }}>
+                            <InputField
+                                control={control}
+                                name={'price'}
+                                label={'Price, uah'}
+                                defaultValue={currentItem.price}
+                                error={errors.price}
+                            />
+                            <InputField
+                                control={control}
+                                name={'weight'}
+                                label={'Weight, g'}
+                                defaultValue={currentItem?.weight}
+                                error={errors.weight}
+                            />
+                            <InputField
+                                control={control}
+                                name={'tm'}
+                                label={'TM'}
+                                defaultValue={currentItem?.tm}
+                            />
+                            <InputField
+                                control={control}
+                                name={'position'}
+                                label={'Position'}
+                                defaultValue={currentItem.position}
+                                error={errors.position}
+                            />
+                            <CheckboxInput
+                                control={control}
+                                name={'hidden'}
+                                label={'Hidden'}
+                                defaultValue={currentItem.hidden}
+                            />
+                            <CheckboxInput
+                                control={control}
+                                name={'order'}
+                                label={'Order'}
+                                defaultValue={currentItem.order}
+                            />
+                        </Box>
                     </Paper>
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <SingleInput
-                            register={register('itemNameUa', { required: true })}
-                            label={'Item Name Ua'}
-                            defaultValue={currentItem.itemName.ua}
-                            error={errors.itemNameUa}
-                        />
-                        <SingleInput
-                            register={register('itemNameRu', { required: true })}
-                            label={'Item Name Ru'}
-                            defaultValue={currentItem.itemName.ru}
-                            error={errors.itemNameRu}
-                        />
-                        <SingleInput
-                            register={register('itemNameEn', { required: true })}
-                            label={'Item Name En'}
-                            defaultValue={currentItem.itemName.en}
-                            error={errors.itemNameEn}
-                        />
-                    </Paper>
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <SingleInput
-                            register={register('countryUa')}
-                            label={'Country Ua'}
-                            defaultValue={currentItem.country?.ua}
-                            error={errors.countryUa}
-                        />
-                        <SingleInput
-                            register={register('countryRu')}
-                            label={'Country Ru'}
-                            defaultValue={currentItem.country?.ru}
-                            error={errors.countryRu}
-                        />
-                        <SingleInput
-                            register={register('countryEn')}
-                            label={'Country En'}
-                            defaultValue={currentItem.country?.en}
-                            error={errors.countryEn}
-                        />
-                    </Paper>
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <SingleInput
-                            register={register('sortKeyUa')}
-                            label={'Sort key Ua'}
-                            defaultValue={currentItem.sort?.key.ua}
-                            error={errors.sortKeyUa}
-                        />
-                        <SingleInput
-                            register={register('sortKeyRu')}
-                            label={'Sort key Ru'}
-                            defaultValue={currentItem.sort?.key.ru}
-                            error={errors.sortKeyUa}
-                        />
-                        <SingleInput
-                            register={register('sortKeyEn')}
-                            label={'Sort key En'}
-                            defaultValue={currentItem.sort?.key.en}
-                            error={errors.sortKeyUa}
-                        />
-                    </Paper>
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <SingleInput
-                            register={register('sortValueUa')}
-                            label={'Sort value Ua'}
-                            defaultValue={currentItem.sort?.value.ua}
-                            error={errors.sortValueUa}
-                        />
-                        <SingleInput
-                            register={register('sortValueRu')}
-                            label={'Sort value Ru'}
-                            defaultValue={currentItem.sort?.value.ru}
-                            error={errors.sortValueUa}
-                        />
-                        <SingleInput
-                            register={register('sortValueEn')}
-                            label={'Sort value En'}
-                            defaultValue={currentItem.sort?.value.en}
-                            error={errors.sortValueUa}
-                        />
-                    </Paper>
-                    <Paper elevation={10} sx={{ p: 1, my: 1 }}>
-                        <TextArea
-                            register={register('descriptionUa', { required: true })}
-                            label={'Description Ua'}
-                            defaultValue={currentItem.description?.ua}
-                            error={errors.descriptionUa}
-                        />
-                        <TextArea
-                            register={register('descriptionRu', { required: true })}
-                            label={'Description Ru'}
-                            defaultValue={currentItem.description?.ru}
-                            error={errors.descriptionRu}
-                        />
-                        <TextArea
-                            register={register('descriptionEn', { required: true })}
-                            label={'Description En'}
-                            defaultValue={currentItem.description?.en}
-                            error={errors.descriptionEn}
-                        />
-                    </Paper>
-                    <MDEField MDEChange={MDEChangeUa} value={currentItem.detailText?.ua} label={'Detail text Ua'} />
-                    <MDEField MDEChange={MDEChangeRu} value={currentItem.detailText?.ru} label={'Detail text Ru'} />
-                    <MDEField MDEChange={MDEChangeEn} value={currentItem.detailText?.en} label={'Detail text En'} />
-                    <SingleInput
-                        register={register('price', { required: true, pattern: /^\d+$/ })}
-                        label={'Price, uah'}
-                        defaultValue={currentItem.price}
-                        error={errors.price}
-                    />
-                    <SingleInput
-                        register={register('weight', { pattern: /^\d+$/ })}
-                        label={'Weight, g'}
-                        defaultValue={currentItem?.weight}
-                        error={errors.weight}
-                    />
-                    <SingleInput
-                        register={register('tm')}
-                        label={'TM'}
-                        defaultValue={currentItem?.tm}
-                    />
-                    <SingleInput
-                        register={register('position', { required: true, pattern: /^\d+$/ })}
-                        label={'Position'}
-                        defaultValue={currentItem.position}
-                        error={errors.position}
-                    />
-                    <RadioButton
-                        register={register('hidden', { required: true })}
-                        label={'Hidden'}
-                        defaultValue={currentItem.hidden}
-                    />
-                    <RadioButton
-                        register={register('order', { required: true })}
-                        label={'Order'}
-                        defaultValue={currentItem.order}
-                    />
                     <Box className={styles.buttons}>
                         <Button
                             className={styles.button__delete}
@@ -265,7 +297,7 @@ const UpdateStoreItem: React.FC = () => {
                             {isLoading ? 'Loading...' : 'Update'}
                         </Button>
                     </Box>
-                </Paper> : null
+                </Box> : null
             }
             <ChildModal
                 open={openChildModal}

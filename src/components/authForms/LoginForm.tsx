@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { Button, Container, Typography, Box, Avatar, Paper } from "@mui/material";
 import { InputLabel, Checkbox } from "@mui/material";
 
-import { PasswordField, PhoneField } from './fields/index';
-import { LoginFormValidation } from './validation/userFormValidation';
+import { PasswordField, PhoneField } from './fields/_index';
+import { LoginFormValidation } from '../validation/userFormValidation';
 
 import { useFetchLoginUserMutation } from 'services/userService';
 

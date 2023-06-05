@@ -8,6 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import { useAuth } from 'hooks/useAuth';
+import { langButtons } from 'hooks/useLang';
 import { fetchUser } from "services/userService";
 import { useAppDispatch } from "store/reduxHooks";
 
@@ -41,12 +42,6 @@ const NavigationDrawer: React.FC = () => {
         { title: t("titleY"), id: "#footer" },
     ];
 
-    const lang = [
-        { key: 'ua', label: 'Ua' },
-        { key: 'ru', label: 'Ru' },
-        { key: 'en', label: 'En' },
-    ];
-
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
             ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -57,11 +52,10 @@ const NavigationDrawer: React.FC = () => {
         setState(open);
     };
 
-    const handleLogin = () => {
-        navigate('/personal')
-    };
+    const handleLink = () => navigate('/admin');
+    const handleLogin = () => navigate('/personal');
     const handleLogout = () => {
-        console.log('logout');
+        // console.log('logout');
         sessionStorage.removeItem("rememberMe");
         localStorage.removeItem("rememberMe");
         dispatch(fetchUser.util.resetApiState());
@@ -85,7 +79,7 @@ const NavigationDrawer: React.FC = () => {
                             {data ? data.user.userName : t("login")}
                         </Typography>
                         {isSuccess &&
-                            <Box 
+                            <Box
                                 className={styles.drawer__logout}
                                 onClick={handleLogout}
                             >
@@ -93,6 +87,14 @@ const NavigationDrawer: React.FC = () => {
                             </Box>
                         }
                     </Box>
+                    {(data?.user.role === 'admin') ?
+                        <Typography
+                            className={styles.drawer__admin}
+                            onClick={handleLink}
+                        >
+                            {t("admin")}
+                        </Typography> : null
+                    }
                     <Divider />
                     <List className={styles.drawer__items}>
                         {catalogTitleList.map((text) => (
@@ -129,7 +131,7 @@ const NavigationDrawer: React.FC = () => {
                     </List>
                     <Divider />
                     <Box className={styles.lang__box}>
-                        {lang.map(item => (
+                        {langButtons.map(item => (
                             <Box
                                 key={item.key}
                                 onClick={() => i18n.changeLanguage(item.key)}

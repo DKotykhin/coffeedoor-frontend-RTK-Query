@@ -41,6 +41,10 @@ import basketUa from "locales/ua/basket.json";
 import basketRu from "locales/ru/basket.json";
 import basketEn from "locales/en/basket.json";
 
+import adminUa from "locales/ua/admin.json";
+import adminRu from "locales/ru/admin.json";
+import adminEn from "locales/en/admin.json";
+
 i18n.use(initReactI18next).init({
     resources: {
         ua: {
@@ -54,6 +58,7 @@ i18n.use(initReactI18next).init({
             personal: personalUa,
             card: cardUa,
             basket: basketUa,
+            admin: adminUa,
         },
         ru: {
             menu: menuRu,
@@ -66,6 +71,7 @@ i18n.use(initReactI18next).init({
             personal: personalRu,
             card: cardRu,
             basket: basketRu,
+            admin: adminRu,
         },
         en: {
             menu: menuEn,
@@ -78,6 +84,7 @@ i18n.use(initReactI18next).init({
             personal: personalEn,
             card: cardEn,
             basket: basketEn,
+            admin: adminEn,
         },
     },
     lng: "ua",

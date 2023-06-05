@@ -29,12 +29,11 @@ const MDEField: React.FC<IMDEField> = ({ value, MDEChange, label }) => {
         []
     );
     return (
-        <Paper sx={{ display: 'flex', my: 1, p: 1 }}>
-            <Typography sx={{ width: "150px", color: '#808080' }}>
+        <Paper elevation={10} sx={{ display: 'flex', my: 1, p: 1 }}>
+            <Typography sx={{ width: "160px", color: '#808080' }}>
                 {label}
             </Typography>
             <Box sx={{ width: "100%" }}>
-
                 <SimpleMDE value={value} onChange={MDEChange} options={options} />
             </Box>
         </Paper>

@@ -23,14 +23,18 @@ export interface ICreateStoreItem extends IUpdateStoreItem {
 
 export interface IStoreItem extends ICreateStoreItem {
     _id: string;
+    createdAt: string;
+    message: string;
 }
 
-export interface IDeleteStoreItem {
-    _id?: string;
+export interface IDeleteResponse {
+    acknowledged: boolean;
+    deletedCount: number;
+    message: string;
 }
 
 export interface IUpdatedData {
-    id: string;
+    id: string | undefined;
     data: IUpdateStoreItem;
 }
 

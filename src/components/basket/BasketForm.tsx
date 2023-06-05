@@ -12,13 +12,13 @@ import {
     FormLabel,
 } from "@mui/material";
 
-import { FormValidation } from "./basketFormValidation";
-import { NameField, PhoneField } from 'components/authForms/fields';
+import { FormValidation } from "../validation/basketValidation";
+import { NameField, PhoneField } from 'components/authForms/fields/_index';
+import { useAuth } from 'hooks/useAuth';
 
 import { IFormData } from 'types/basketTypes';
 
 import styles from './basketForm.module.scss';
-import { useAuth } from 'hooks/useAuth';
 
 interface IBasketForm {
     onSubmit: (data: IFormData) => void

@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Typography } from "@mui/material";
 
-import { IMenuItem, Languages } from "types/menuTypes";
+import { IMenuItem } from "types/menuTypes";
+import { Languages } from "hooks/useLang";
 
 import styles from './accordeon.module.scss';
 

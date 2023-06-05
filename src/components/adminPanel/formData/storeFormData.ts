@@ -1,13 +1,13 @@
 import { FieldValues } from "react-hook-form";
 
-export const createFormData = (
+export const storeFormData = (
     data: FieldValues,
     mdeValueUa: string | undefined,
     mdeValueRu: string | undefined,
     mdeValueEn: string | undefined
 ): any => {
-    const { price, position, weight, tm, group } = data;
-    const createdData = {
+    const { price, position, weight, tm, hidden, order } = data;
+    const updatedData = {
         title: {
             ua: data.titleUa,
             ru: data.titleRu,
@@ -45,13 +45,12 @@ export const createFormData = (
             ru: mdeValueRu,
             en: mdeValueEn,
         },
-        price: +price,
-        weight: +weight,
+        price: price,
+        weight: weight,
         tm,
-        position: +position,
-        hidden: data.hidden === "true",
-        order: data.order === "true",
-        group,
+        position,
+        hidden,
+        order,
     };
-    return createdData;
+    return updatedData;
 };

@@ -6,7 +6,8 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { styled } from "@mui/material/styles";
 
 import AccordeonItem from "./AccordeonItem";
-import { IMenuGroup, IMenuItem, Languages } from "types/menuTypes";
+import { IMenuGroup, IMenuItem } from "types/menuTypes";
+import { Languages } from "hooks/useLang";
 
 import styles from './accordeon.module.scss';
 

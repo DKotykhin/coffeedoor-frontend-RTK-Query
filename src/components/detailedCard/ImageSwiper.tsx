@@ -6,7 +6,7 @@ import { EffectCube, Pagination } from "swiper";
 import waitImage from 'images/webp/wait_1.webp';
 
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
+import { Languages } from "hooks/useLang";
 
 import "swiper/css";
 import "swiper/css/effect-cube";

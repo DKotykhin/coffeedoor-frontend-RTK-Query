@@ -1,7 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-import { IUserLogin, IUserLoginByTokenResponse, IUserRegister, IUserResponse } from "types/userTypes";
 import { getToken } from "./getToken";
+
+import {
+    IUserLogin,
+    IUserLoginByTokenResponse,
+    IUserRegister,
+    IUserResponse,
+} from "types/userTypes";
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
 

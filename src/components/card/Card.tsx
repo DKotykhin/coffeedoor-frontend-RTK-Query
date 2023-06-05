@@ -12,7 +12,7 @@ import { basketAddItems } from "store/basketSlice";
 import waitImage from 'images/webp/wait_1.webp';
 
 import { IStoreItem } from 'types/storeTypes';
-import { Languages } from 'types/menuTypes';
+import { Languages } from "hooks/useLang";
 
 import styles from './card.module.scss';
 

@@ -1,0 +1,14 @@
+export { default as AdminPage } from "./AdminPage";
+export { default as CreateMenuGroupPage } from "./CreateMenuGroupPage";
+export { default as CreateMenuItemPage } from "./CreateMenuItemPage";
+export { default as CreateStoreItemPage } from "./CreateStoreItemPage";
+export { default as HomePage } from "./HomePage";
+export { default as LoginPage } from "./LoginPage";
+export { default as MenuGroupPage } from "./MenuGroupPage";
+export { default as MenuItemPage } from "./MenuItemPage";
+export { default as MenuPage } from "./MenuPage";
+export { default as Page404 } from "./Page404";
+export { default as PersonalPage } from "./PersonalPage";
+export { default as RegistrationPage } from "./RegisterPage";
+export { default as StoreItemPage } from "./StoreItemPage";
+export { default as ThanksPage } from "./ThanksPage";

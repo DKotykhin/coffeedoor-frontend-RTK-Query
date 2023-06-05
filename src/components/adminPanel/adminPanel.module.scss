@@ -6,20 +6,17 @@
         margin: 20px 0;
         font-size: 1.8rem;
     }
-    .admin__buttonBox {
+    .admin__return {
+        color: $color_lightGrey;
         margin-bottom: 20px;
-        .admin__return {
-            color: $color_lightGrey;
-            margin-right: 10px;
-        }
-        .admin__add {
-            margin-left: 10px;
-        }
     }
     .admin__buttons {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        .admin__add {
+            margin: 10px;
+        }
         .admin__button {
-            margin: 0 10px;
+            margin: 10px;
             border-radius: 5px;
         }
     }

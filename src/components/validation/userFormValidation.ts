@@ -1,28 +1,8 @@
-import * as yup from "yup";
-
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import * as yup from "yup";
 import "yup-phone-lite";
 
-const userName = yup
-    .string()
-    .matches(/^([^0-9]*)$/, "Enter letters!")
-    .min(2, "Minimum 2 characters to fill")
-    .max(20, "Maximum 20 characters to fill")
-    .required("Required field!");
-
-const phone = yup
-    .string()
-    .min(10, "Введіть правильний номер")
-    .phone(["PL", "UA"], "Введіть правильний номер")
-    .required("Обов'язкове поле!");
-
-// const email = yup.string().email("Wrong email address");
-
-const password = yup
-    .string()
-    .required("Required field!")
-    .min(8, "Minimum 8 characters to fill");
+import { userName, password, phone } from "./_validationTypes";
 
 const registerschema = yup.object({
     userName,

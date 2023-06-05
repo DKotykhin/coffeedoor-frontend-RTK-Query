@@ -2,18 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "components/layout/Layout";
 import { RequireAuth } from "hocs/RequireAuth";
-
-import HomePage from "pages/HomePage";
-import MenuPage from "pages/MenuPage";
-import Page404 from "pages/Page404";
-import ThanksPage from "pages/ThanksPage";
-import PersonalPage from "pages/PersonalPage";
-import AdminPage from "pages/AdminPage";
-import UpdateItemPage from "pages/UpdateItemPage";
-import CreateItemPage from "pages/CreateItemPage";
-import LoginPage from "pages/LoginPage";
-import RegistrationPage from "pages/RegisterPage";
 import { RequireAdminAuth } from "hocs/RequireAdminAuth";
+
+import { AdminPage, CreateMenuGroupPage, CreateMenuItemPage, CreateStoreItemPage, HomePage, MenuPage, MenuItemPage, MenuGroupPage, LoginPage, Page404, PersonalPage, RegistrationPage, StoreItemPage, ThanksPage } from "pages/_index";
 
 export const router = createBrowserRouter([
     {
@@ -49,12 +40,28 @@ export const router = createBrowserRouter([
                 element: <RequireAdminAuth children={<AdminPage />} />,
             },
             {
-                path: 'admin/:itemId',
-                element: <RequireAdminAuth children={<UpdateItemPage />} />,
+                path: 'admin/store/:itemId',
+                element: <RequireAdminAuth children={<StoreItemPage />} />,
             },
             {
-                path: 'admin/create',
-                element: <RequireAdminAuth children={<CreateItemPage />} />,
+                path: 'admin/menuGroup/:itemId',
+                element: <RequireAdminAuth children={<MenuGroupPage />} />,
+            },
+            {
+                path: 'admin/menuItem/:itemId',
+                element: <RequireAdminAuth children={<MenuItemPage />} />,
+            },
+            {
+                path: 'admin/createStoreItem',
+                element: <RequireAdminAuth children={<CreateStoreItemPage />} />,
+            },
+            {
+                path: 'admin/createMenuGroup',
+                element: <RequireAdminAuth children={<CreateMenuGroupPage />} />,
+            },
+            {
+                path: 'admin/createMenuItem',
+                element: <RequireAdminAuth children={<CreateMenuItemPage />} />,
             },
         ],
     },

@@ -1,68 +1,112 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 import { Button, Typography, Box } from "@mui/material";
 
 import Spinner from 'components/spinner/Spinner';
-import ItemTable from './itemTable/ItemTable';
+import StoreTable from './itemTable/StoreTable';
+import MenuGroupTable from './itemTable/MenuGroupTable';
 
 import { useGetStoreQuery } from 'services/storeService';
+import { useGetMenuQuery } from 'services/menuService';
 
 import { IStoreItem } from 'types/storeTypes';
+import { IMenuGroup } from 'types/menuTypes';
 
 import styles from './adminPanel.module.scss';
 
 const AdminPanel: React.FC = () => {
 
-    const [itemList, setItemList] = useState<IStoreItem[]>([])
+    const [storeList, setStoreList] = useState<IStoreItem[]>([]);
+    const [menuList, setMenuList] = useState<IMenuGroup[]>([]);
 
-    const { data, isSuccess } = useGetStoreQuery('');
-    const groups = data?.map(item => item.group);
+    const { t } = useTranslation("admin");
+
+    const { data: storeData, isSuccess } = useGetStoreQuery('');
+    const groups = storeData?.map(item => item.group);
     const buttons = [...new Set(groups)];
+
+    const { data: menuData, isSuccess: menuIsSuccess } = useGetMenuQuery('');
 
     const navigate = useNavigate();
     const handleReturn = () => navigate("/");
 
-    const handleAdd = () => navigate("/admin/create");
+    const handleAddStoreItem = () => navigate("/admin/createStoreItem");
+    const handleAddMenuGroup = () => navigate("/admin/createMenuGroup");
+    const handleAddMenuItem = () => navigate("/admin/createMenuItem");
 
-    const handleClick = (group: string) => {
-        const storeItems = data?.filter(item => item.group === group);
-        setItemList(storeItems || []);
+    const handleClickStoreGroup = (group: string) => {
+        const storeItems = storeData?.filter(item => item.group === group);
+        setStoreList(storeItems || []);
+        setMenuList([]);
     };
 
-    return isSuccess ? (
+    const handleClickMenu = () => {
+        setMenuList(menuData)
+        setStoreList([]);
+    };
+
+    return (isSuccess && menuIsSuccess) ? (
         <Box className={styles.admin}>
             <Typography className={styles.admin__title}>
-                Admin Panel
+                {t("adminPageTitle")}
             </Typography>
-            <Box className={styles.admin__buttonBox}>
-                <Button
-                    className={styles.admin__return}
-                    onClick={() => handleReturn()}
-                >
-                    Main page
-                </Button>
-                <Button
-                    className={styles.admin__add}
-                    onClick={() => handleAdd()}
-                >
-                    Add new item
-                </Button>
-            </Box>
+            <Button
+                className={styles.admin__return}
+                onClick={() => handleReturn()}
+            >
+                {t("returnLink")}
+            </Button>
             <Box className={styles.admin__buttons}>
-                {buttons.map(item => (
+                <Typography>{t("store")}</Typography>
+                <Button
+                    variant='contained'
+                    className={styles.admin__add}
+                    onClick={() => handleAddStoreItem()}
+                >
+                    {t("addStoreItem")}
+                </Button>
+                {buttons?.map(item => (
                     <Button
                         key={item}
                         variant='outlined'
-                        onClick={() => handleClick(item)}
+                        onClick={() => handleClickStoreGroup(item)}
                         className={styles.admin__button}
                     >
                         {item}
                     </Button>
                 ))}
             </Box>
-            {itemList.length ?
-                <ItemTable itemList={itemList} /> : null
+            <Box className={styles.admin__buttons}>
+                <Typography>{t("menu")}</Typography>
+                <Button
+                    variant='contained'
+                    className={styles.admin__add}
+                    onClick={() => handleAddMenuGroup()}
+                >
+                    {t("addMenuGroup")}
+                </Button>
+                <Button
+                    variant='contained'
+                    className={styles.admin__add}
+                    onClick={() => handleAddMenuItem()}
+                >
+                    {t("addStoreItem")}
+                </Button>
+                <Button
+                    variant='outlined'
+                    className={styles.admin__add}
+                    onClick={() => handleClickMenu()}
+                >
+                    {t("menu")}
+                </Button>
+            </Box>
+            {storeList.length ?
+                <StoreTable itemList={storeList} /> : null
+            }
+            {menuList.length ?
+                <MenuGroupTable itemList={menuList} /> : null
             }
         </Box>
     ) : <Spinner />
