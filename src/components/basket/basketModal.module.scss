@@ -59,7 +59,13 @@
             vertical-align: bottom;
             margin-left: 10px;
             margin-right: 10px;
+            border-radius: 50%;
             cursor: pointer;
+            &:hover {
+                color: #fff;
+                background-color: $color_mint;
+                transition: 0.5s all;
+            }
         }
     }
     .basketModal__subtitle {

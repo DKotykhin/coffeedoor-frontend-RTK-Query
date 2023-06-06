@@ -3,14 +3,17 @@ import React from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination } from "swiper";
 
+import { Box } from '@mui/material';
+
 import waitImage from 'images/webp/wait_1.webp';
 
-import { IStoreItem } from 'types/storeTypes';
 import { Languages } from "hooks/useLang";
+import { IStoreItem } from 'types/storeTypes';
 
 import "swiper/css";
-import "swiper/css/effect-cube";
 import "swiper/css/pagination";
+import "swiper/css/effect-cube";
+import "./imageSwiper.scss";
 
 interface IImageSwiper {
     item: IStoreItem,
@@ -24,18 +27,18 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ item, lang }) => {
     const { images } = item;
 
     return (
-        <>
+        <Box sx={{ maxWidth: '350px' }}>
             {images?.length ?
                 <Swiper
-                    effect={"cube"}
+                    pagination={true}
                     grabCursor={true}
+                    effect={"cube"}
                     cubeEffect={{
                         shadow: true,
                         slideShadows: true,
                         shadowOffset: 10,
                         shadowScale: 0.8,
                     }}
-                    pagination={true}
                     modules={[EffectCube, Pagination]}
                 >
                     {images.map((image, i) => (
@@ -47,7 +50,7 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ item, lang }) => {
                 :
                 <img src={waitImage} alt={'wait for'} />
             }
-        </>
+        </Box>
     )
 }
 

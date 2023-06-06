@@ -94,11 +94,18 @@ const LoginForm: React.FC = () => {
                 {t("formLoginQuestion")}
             </Typography>
             <Button
-                className={styles.form__return_button}
+                className={styles.form__sign_button}
                 component={Link}
                 to="/registration"
             >
                 {t("formRegisterTitle")}
+            </Button>
+            <Button
+                className={styles.form__return_button}
+                component={Link}
+                to="/"
+            >
+                {t("return")}
             </Button>
         </Container>
     )

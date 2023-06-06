@@ -86,8 +86,19 @@ const RegisterForm: React.FC = () => {
             <Typography className={styles.form__subtitle}>
                 {t("formRegisterQuestion")}
             </Typography>
-            <Button className={styles.form__return_button} component={Link} to="/login">
+            <Button
+                className={styles.form__sign_button}
+                component={Link}
+                to="/login"
+            >
                 {t("formLoginTitle")}
+            </Button>
+            <Button
+                className={styles.form__return_button}
+                component={Link}
+                to="/"
+            >
+                {t("return")}
             </Button>
         </Container>
     )

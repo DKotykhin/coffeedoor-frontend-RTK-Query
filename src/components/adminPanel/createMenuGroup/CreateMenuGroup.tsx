@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
@@ -17,6 +18,8 @@ import styles from './createMenuGroup.module.scss';
 const CreateMenuGroup: React.FC = () => {
 
     const [sendData, { isLoading }] = useCreateMenuGroupMutation();
+
+    const { t } = useTranslation("admin");
 
     const {
         control,
@@ -44,7 +47,7 @@ const CreateMenuGroup: React.FC = () => {
     return (
         <Container maxWidth='lg' className={styles.createMenuGroup}>
             <Typography className={styles.createMenuGroup__title}>
-                Create Menu Group
+                {t("createMenuGroupTitle")}
             </Typography>
             <Box
                 onSubmit={handleSubmit(onSubmit)}

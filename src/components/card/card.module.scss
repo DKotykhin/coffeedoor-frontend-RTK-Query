@@ -29,5 +29,31 @@
     .card__buttons {
         display: flex;
         justify-content: space-around;
+        margin-bottom: 10px;
+        .button__detail {
+            @include button;
+            padding: 8px;
+            margin: 0 8px;
+            width: 120px;
+            border: 1px solid $color_mint;
+            white-space: nowrap;
+            &:hover {
+                color: #fff;
+                background-color: $color_mint;
+            }
+        }
+        .button__basket {
+            @include button;
+            padding: 8px;
+            width: 120px;
+            color: #fff;
+            border: 1px solid $color_mint;
+            background-color: $color_mint;
+            white-space: nowrap;
+            &:hover {
+                color: $color_mint;
+                background-color: #fff;
+            }
+        }
     }
 }

@@ -3,6 +3,8 @@
     "createStoreItemTitle": "Добавить новую позицию магазина",
     "updateStoreItemTitle": "Редактировать позицию магазина",
     "menuGroupPageTitle": "Редактировать группу меню",
+    "createMenuGroupTitle": "Создать группу меню",
+    "createMenuItemTitle": "Создать позицию меню",
     "returnLink": "на главную",
     "addStoreItem": "добавить позицию",
     "addMenuGroup": "добавить группу",

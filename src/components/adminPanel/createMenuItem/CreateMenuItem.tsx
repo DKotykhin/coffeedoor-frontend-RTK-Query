@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
@@ -19,6 +20,8 @@ const CreateMenuItem: React.FC = () => {
     const [sendData, { isLoading }] = useCreateMenuItemMutation();
     const { data: menuData, isSuccess } = useGetMenuQuery('');
     const groupList = menuData?.map((item: IMenuGroup) => item.title.ua);
+
+    const { t } = useTranslation("admin");
 
     const {
         control,
@@ -52,7 +55,7 @@ const CreateMenuItem: React.FC = () => {
     return (
         <Container maxWidth='lg' className={styles.createMenuItem}>
             <Typography className={styles.createMenuItem__title}>
-                Create Menu Item
+                {t("createMenuItemTitle")}
             </Typography>
             <Box
                 onSubmit={handleSubmit(onSubmit)}

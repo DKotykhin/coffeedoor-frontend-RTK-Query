@@ -76,10 +76,10 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                 </CardContent>
             </CardActionArea>
             <CardActions className={styles.card__buttons}>
-                <Button color="primary" onClick={detailClick}>
+                <Button className={styles.button__detail} onClick={detailClick}>
                     {t("button_1")}
                 </Button>
-                <Button color="primary"
+                <Button className={styles.button__basket}
                     onClick={() =>
                         dispatch(
                             basketAddItems({
