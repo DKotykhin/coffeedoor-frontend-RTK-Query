@@ -6,7 +6,7 @@ import { Box, InputLabel, TextField, FormHelperText } from "@mui/material";
 interface IInput {
     label: string;
     name: string;
-    defaultValue: string | undefined;
+    defaultValue?: string | undefined;
     control: any,
     error?: any,
 }
@@ -20,7 +20,7 @@ const TextArea: React.FC<IInput> = ({ label, defaultValue, control, name, error 
                 <Controller
                     name={name}
                     control={control}
-                    defaultValue={defaultValue}
+                    defaultValue={defaultValue || ""}
                     render={({ field }) =>
                         <TextField
                             {...field}

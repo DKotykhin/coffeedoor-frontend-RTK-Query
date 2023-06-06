@@ -1,5 +1,7 @@
 {
     "adminPageTitle": "Административная панель",
+    "createStoreItemTitle": "Добавить новую позицию магазина",
+    "updateStoreItemTitle": "Редактировать позицию магазина",
     "menuGroupPageTitle": "Редактировать группу меню",
     "returnLink": "на главную",
     "addStoreItem": "добавить позицию",

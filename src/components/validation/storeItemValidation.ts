@@ -29,7 +29,7 @@ const schema = yup.object({
     descriptionRu: yupStringArea,
     descriptionEn: yupStringArea,
     price: yupNumber,
-    weight: yupNumber,
+    weight: yupString,
     tm: yupString,
     position: yupNumber,
 });

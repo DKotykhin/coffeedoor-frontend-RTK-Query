@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
@@ -21,6 +23,8 @@ const UpdateStoreItem: React.FC = () => {
     const { data, isSuccess } = useGetStoreQuery('');
     const [sendData, { isLoading }] = useUpdateStoreItemMutation();
     const [deleteData, { isLoading: deleteLoading }] = useDeleteStoreItemMutation();
+
+    const { t } = useTranslation("admin");
 
     const [openChildModal, setOpenChildModal] = useState(false);
     const handleCloseModal = (): void => setOpenChildModal(false);
@@ -64,29 +68,37 @@ const UpdateStoreItem: React.FC = () => {
             id: itemId,
             data: formData,
         }
-        console.log(updatedData)
+        // console.log(updatedData);
         await sendData(updatedData)
             .unwrap()
             .then(response => {
+                toast.success(response.message);
                 console.log(response.message);
                 navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
             })
     };
 
     const handleSubmitDelete = async () => {
         setOpenChildModal(false);
-        await deleteData({ _id: itemId })
+        await deleteData(itemId)
             .unwrap()
             .then(response => {
+                toast.success(response.message);
                 console.log(response.message);
                 navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
             })
     };
 
     return isSuccess ? (
         <Container maxWidth='lg' className={styles.storeItem}>
             <Typography className={styles.storeItem__title}>
-                Edit Store Item
+                {t("updateStoreItemTitle")}
             </Typography>
             {currentItem ?
                 <Box

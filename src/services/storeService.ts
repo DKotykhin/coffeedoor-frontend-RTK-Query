@@ -6,6 +6,7 @@ import {
     ICreateStoreItem,
     IDeleteResponse,
     IStoreItem,
+    IStoreItemResponse,
     IUpdatedData,
 } from "types/storeTypes";
 
@@ -23,20 +24,22 @@ export const fetchStore = createApi({
             providesTags: ["Item"],
         }),
 
-        createStoreItem: builder.mutation<IStoreItem, ICreateStoreItem>({
-            query: (data) => ({
-                url: "/store",
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${getToken()}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            }),
-            invalidatesTags: ["Item"],
-        }),
+        createStoreItem: builder.mutation<IStoreItemResponse, ICreateStoreItem>(
+            {
+                query: (data) => ({
+                    url: "/store",
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${getToken()}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }),
+                invalidatesTags: ["Item"],
+            }
+        ),
 
-        updateStoreItem: builder.mutation<IStoreItem, IUpdatedData>({
+        updateStoreItem: builder.mutation<IStoreItemResponse, IUpdatedData>({
             query: (data) => ({
                 url: "/store",
                 method: "PATCH",
@@ -49,18 +52,15 @@ export const fetchStore = createApi({
             invalidatesTags: ["Item"],
         }),
 
-        deleteStoreItem: builder.mutation<
-            IDeleteResponse,
-            { _id: string | undefined }
-        >({
-            query: (_id) => ({
+        deleteStoreItem: builder.mutation<IDeleteResponse, string | undefined>({
+            query: (storeId) => ({
                 url: "/store",
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
                     "Content-Type": "application/json",
                 },
-                params: { _id },
+                params: { storeId },
             }),
             invalidatesTags: ["Item"],
         }),

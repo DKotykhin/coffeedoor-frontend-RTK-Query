@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Table, TableContainer, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { Button, Paper, Container } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
 
 import { useLang } from 'hooks/useLang';
 
@@ -28,7 +30,7 @@ const StoreTable: React.FC<IStoreTable> = ({ itemList }) => {
             name: item.title[lang] + ' ' + item.itemName[lang],
             price: item.price,
             position: item.position,
-            hidden: item.hidden ? 'false' : 'true',
+            hidden: item.hidden ? <DoNotDisturbOnIcon color='error'/> : <CheckCircleIcon color='primary'/>,
             edit: <Button onClick={() => handleClick(item._id)}>Edit</Button>
         }
     });

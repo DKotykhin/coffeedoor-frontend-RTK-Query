@@ -1,3 +1,8 @@
+interface IStoreUnit {
+    ua: string;
+    ru: string;
+    en: string;
+}
 export interface IUpdateStoreItem {
     title: IStoreUnit;
     itemName: IStoreUnit;
@@ -24,13 +29,6 @@ export interface ICreateStoreItem extends IUpdateStoreItem {
 export interface IStoreItem extends ICreateStoreItem {
     _id: string;
     createdAt: string;
-    message: string;
-}
-
-export interface IDeleteResponse {
-    acknowledged: boolean;
-    deletedCount: number;
-    message: string;
 }
 
 export interface IUpdatedData {
@@ -38,13 +36,20 @@ export interface IUpdatedData {
     data: IUpdateStoreItem;
 }
 
-interface IStoreUnit {
-    ua: string;
-    ru: string;
-    en: string;
-}
-
 export interface IFilter {
     button: string;
     value: string;
+}
+
+export interface IStoreItemResponse {
+    item: IStoreItem;
+    message: string;
+}
+
+export interface IDeleteResponse {
+    status: {
+        acknowledged: boolean;
+        deletedCount: number;
+    };
+    message: string;
 }

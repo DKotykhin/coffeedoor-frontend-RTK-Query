@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 import { Table, TableContainer, TableBody, TableCell, TableHead, TableRow, Container } from '@mui/material';
 import { Button, Paper } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import DoNotDisturbOnIcon from '@mui/icons-material/DoNotDisturbOn';
 
 import { useLang } from 'hooks/useLang';
 
 import { IMenuGroup } from 'types/menuTypes';
 
 interface IMenuGroupTable {
-    itemList: IMenuGroup[],    
+    itemList: IMenuGroup[],
 }
 
 const MenuGroupTable: React.FC<IMenuGroupTable> = ({ itemList }) => {
@@ -20,7 +22,7 @@ const MenuGroupTable: React.FC<IMenuGroupTable> = ({ itemList }) => {
     const handleClickEdit = (groupId: string) => {
         if (groupId) {
             navigate(`/admin/menuGroup/${groupId}`);
-        }        
+        }
     };
 
     const rows = itemList.map(item => {
@@ -28,7 +30,7 @@ const MenuGroupTable: React.FC<IMenuGroupTable> = ({ itemList }) => {
             title: item.title[lang],
             subtitle: item.subtitle ? item.subtitle[lang] : "",
             position: item.position,
-            hidden: item.hidden ? 'false' : 'true',
+            hidden: item.hidden ? <DoNotDisturbOnIcon color='error' /> : <CheckCircleIcon color='primary' />,
             edit: <Button onClick={() => handleClickEdit(item._id)}>Edit</Button>,
         }
     });

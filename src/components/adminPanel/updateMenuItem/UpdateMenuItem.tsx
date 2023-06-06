@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Typography, Paper } from '@mui/material';
 
@@ -10,7 +11,7 @@ import { CheckboxInput, InputField } from '../inputs/_index';
 import { menuItemFormData } from '../formData/menuItemFormData';
 import { MenuItemValidation } from 'components/validation/menuItemValidation';
 
-import { useGetMenuQuery } from 'services/menuService';
+import { useDeleteMenuItemMutation, useGetMenuQuery, useUpdateMenuItemMutation } from 'services/menuService';
 
 import { IMenuGroup, IMenuItem } from 'types/menuTypes';
 
@@ -34,13 +35,13 @@ const UpdateMenuItem: React.FC = () => {
             item.items.some(item => item._id === itemId)
         ));
         const Item = menuGroup.items.find((item: IMenuItem) => item._id === itemId);
-        setMenuItem(Item);       
+        setMenuItem(Item);
     }, [data, itemId]);
 
-    const deleteLoading = false;
-    const isLoading = false;
+    const [sendData, { isLoading }] = useUpdateMenuItemMutation();
+    const [deleteData, { isLoading: deleteLoading }] = useDeleteMenuItemMutation();
 
-    const {       
+    const {
         control,
         handleSubmit,
         formState: { errors },
@@ -53,16 +54,35 @@ const UpdateMenuItem: React.FC = () => {
 
     const handleSubmitDelete = async () => {
         setOpenChildModal(false);
-        console.log('delete')
+        await deleteData(itemId)
+            .unwrap()
+            .then(response => {
+                toast.success(response.message);
+                console.log(response);
+                navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
     };
 
     const onSubmit = async (data: FieldValues) => {
         const formData = menuItemFormData(data);
         const updatedData = {
-            id: itemId,
+            itemId,
             data: formData,
         }
         console.log(updatedData);
+        await sendData(updatedData)
+            .unwrap()
+            .then(response => {
+                toast.success(response.message);
+                console.log(response);
+                navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
     };
 
     return isSuccess ? (

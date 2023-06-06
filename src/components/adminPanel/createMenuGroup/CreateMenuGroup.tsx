@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
@@ -9,11 +10,13 @@ import CheckboxInput from '../inputs/CheckboxInput';
 import { MenuGroupValidation } from 'components/validation/menuGroupValidation';
 import { menuGroupFormData } from '../formData/menuGroupFormData';
 
+import { useCreateMenuGroupMutation } from 'services/menuService';
+
 import styles from './createMenuGroup.module.scss';
 
 const CreateMenuGroup: React.FC = () => {
 
-    const isLoading = false;
+    const [sendData, { isLoading }] = useCreateMenuGroupMutation();
 
     const {
         control,
@@ -25,8 +28,17 @@ const CreateMenuGroup: React.FC = () => {
     const handleCancel = (): void => navigate("/admin");
 
     const onSubmit = async (data: FieldValues) => {
-        const formData = menuGroupFormData(data)
-        console.log(formData);
+        const formData = menuGroupFormData(data)       
+        await sendData(formData)
+            .unwrap()
+            .then(response => {
+                toast.success(response.message);
+                console.log(response);
+                navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
     };
 
     return (
@@ -47,21 +59,18 @@ const CreateMenuGroup: React.FC = () => {
                             control={control}
                             name={'titleUa'}
                             label={'Title Ua'}
-                            defaultValue=""
                             error={errors.titleUa}
                         />
                         <InputField
                             control={control}
                             name={'titleRu'}
                             label={'Title Ru'}
-                            defaultValue=""
                             error={errors.titleRu}
                         />
                         <InputField
                             control={control}
                             name={'titleEn'}
                             label={'Title En'}
-                            defaultValue=""
                             error={errors.titleEn}
                         />
                     </Paper>
@@ -70,21 +79,18 @@ const CreateMenuGroup: React.FC = () => {
                             control={control}
                             name={'subtitleUa'}
                             label={'Subtitle Ua'}
-                            defaultValue=""
                             error={errors.subtitleUa}
                         />
                         <InputField
                             control={control}
                             name={'subtitleRu'}
                             label={'Subtitle Ru'}
-                            defaultValue=""
                             error={errors.subtitleRu}
                         />
                         <InputField
                             control={control}
                             name={'subtitleEn'}
                             label={'Subtitle En'}
-                            defaultValue=""
                             error={errors.subtitleEn}
                         />
                     </Paper>

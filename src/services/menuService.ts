@@ -2,7 +2,15 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 import { getToken } from "./getToken";
 
-import { IDeleteResponse, IMenuGroup, IUpdateMenuGroup } from "types/menuTypes";
+import {
+    ICreateMenuGroup,
+    ICreateMenuItem,
+    IUpdateMenuGroup,
+    IUpdateMenuItem,
+    IMenuGroupResponse,
+    IMenuItemResponse,
+    IMenuDeleteResponse,
+} from "types/menuTypes";
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -18,9 +26,55 @@ export const fetchMenu = createApi({
             providesTags: ["Menu"],
         }),
 
-        createMenuGroup: builder.mutation<IMenuGroup, IMenuGroup>({
-            query: (data) => ({
+        createMenuGroup: builder.mutation<IMenuGroupResponse, ICreateMenuGroup>(
+            {
+                query: (data) => ({
+                    url: "/menugroup",
+                    method: "POST",
+                    headers: {
+                        Authorization: `Bearer ${getToken()}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }),
+                invalidatesTags: ["Menu"],
+            }
+        ),
+
+        updateMenuGroup: builder.mutation<IMenuGroupResponse, IUpdateMenuGroup>(
+            {
+                query: (data) => ({
+                    url: "/menugroup",
+                    method: "PATCH",
+                    headers: {
+                        Authorization: `Bearer ${getToken()}`,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }),
+                invalidatesTags: ["Menu"],
+            }
+        ),
+
+        deleteMenuGroup: builder.mutation<
+            IMenuDeleteResponse,
+            string | undefined
+        >({
+            query: (groupId) => ({
                 url: "/menugroup",
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`,
+                    "Content-Type": "application/json",
+                },
+                params: { groupId },
+            }),
+            invalidatesTags: ["Menu"],
+        }),
+
+        createMenuItem: builder.mutation<IMenuItemResponse, ICreateMenuItem>({
+            query: (data) => ({
+                url: "/menuitem",
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
@@ -31,9 +85,9 @@ export const fetchMenu = createApi({
             invalidatesTags: ["Menu"],
         }),
 
-        updateMenuGroup: builder.mutation<IMenuGroup, IUpdateMenuGroup>({
+        updateMenuItem: builder.mutation<IMenuItemResponse, IUpdateMenuItem>({
             query: (data) => ({
-                url: "/menugroup",
+                url: "/menuitem",
                 method: "PATCH",
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
@@ -44,22 +98,30 @@ export const fetchMenu = createApi({
             invalidatesTags: ["Menu"],
         }),
 
-        deleteMenuGroup: builder.mutation<
-            IDeleteResponse,
-            { _id: string | undefined }
+        deleteMenuItem: builder.mutation<
+            IMenuDeleteResponse,
+            string | undefined
         >({
-            query: (_id) => ({
-                url: "/menugroup",
+            query: (itemId) => ({
+                url: "/menuitem",
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${getToken()}`,
                     "Content-Type": "application/json",
                 },
-                params: { _id },
+                params: { itemId },
             }),
             invalidatesTags: ["Menu"],
         }),
     }),
 });
 
-export const { useGetMenuQuery, useCreateMenuGroupMutation } = fetchMenu;
+export const {
+    useGetMenuQuery,
+    useCreateMenuGroupMutation,
+    useUpdateMenuGroupMutation,
+    useDeleteMenuGroupMutation,
+    useCreateMenuItemMutation,
+    useUpdateMenuItemMutation,
+    useDeleteMenuItemMutation,
+} = fetchMenu;

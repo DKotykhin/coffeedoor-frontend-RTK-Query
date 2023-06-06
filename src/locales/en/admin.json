@@ -1,5 +1,7 @@
 {
     "adminPageTitle": "Admin Panel",
+    "createStoreItemTitle": "Create Store Item",
+    "updateStoreItemTitle": "Update Store Item",
     "menuGroupPageTitle": "Edit Menu Group",
     "returnLink": "Main Page",
     "addStoreItem": "Add New Item",

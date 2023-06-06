@@ -2,10 +2,13 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import { ToastContainer, Flip } from 'react-toastify';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import './i18n';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { router } from './App';
 import store from 'store/store';
@@ -47,6 +50,17 @@ root.render(
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <RouterProvider router={router} />
+            <ToastContainer
+                position="top-center"
+                autoClose={4000}
+                hideProgressBar
+                transition={Flip}
+                closeOnClick
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
         </ThemeProvider>
     </Provider>
 );

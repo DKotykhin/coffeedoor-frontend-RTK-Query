@@ -1,6 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
@@ -19,6 +21,8 @@ const CreateStoreItem: React.FC = () => {
     const groupList = [...new Set(groups)];
 
     const [createData, { isLoading }] = useCreateStoreItemMutation();
+
+    const { t } = useTranslation("admin");
 
     const navigate = useNavigate();
     const handleCancel = (): void => navigate("/admin");
@@ -45,20 +49,28 @@ const CreateStoreItem: React.FC = () => {
     } = useForm(StoreItemValidation);
 
     const onSubmit = async (data: FieldValues) => {
-        const createdData = storeFormData(data, mdeValueUa, mdeValueRu, mdeValueEn);
-        console.log(createdData);
+        const formData = storeFormData(data, mdeValueUa, mdeValueRu, mdeValueEn);
+        // console.log(formData);
+        const createdData = {
+            ...formData,
+            group: data.group,
+        }
         await createData(createdData)
             .unwrap()
             .then(response => {
+                toast.success(response.message);
                 console.log(response.message);
                 navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
             })
     };
 
     return (
         <Container maxWidth='lg' className={styles.createStoreItem}>
             <Typography className={styles.createStoreItem__title}>
-                Create Store Item
+                {t("createStoreItemTitle")}
             </Typography>
             <Box
                 onSubmit={handleSubmit(onSubmit)}
@@ -80,21 +92,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'titleUa'}
                             label={'Title Ua'}
-                            defaultValue=""
                             error={errors.titleUa}
                         />
                         <InputField
                             control={control}
                             name={'titleRu'}
-                            label={'Title Ru'}
-                            defaultValue=""
+                            label={'Title Ru'}                            
                             error={errors.titleRu}
                         />
                         <InputField
                             control={control}
                             name={'titleEn'}
                             label={'Title En'}
-                            defaultValue=""
                             error={errors.titleEn}
                         />
                     </Paper>
@@ -103,21 +112,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'itemNameUa'}
                             label={'Item Name Ua'}
-                            defaultValue=""
                             error={errors.itemNameUa}
                         />
                         <InputField
                             control={control}
                             name={'itemNameRu'}
                             label={'Item Name Ru'}
-                            defaultValue=""
                             error={errors.itemNameRu}
                         />
                         <InputField
                             control={control}
                             name={'itemNameEn'}
                             label={'Item Name En'}
-                            defaultValue=""
                             error={errors.itemNameEn}
                         />
                     </Paper>
@@ -126,21 +132,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'countryUa'}
                             label={'Country Ua'}
-                            defaultValue=""
                             error={errors.countryUa}
                         />
                         <InputField
                             control={control}
                             name={'countryRu'}
                             label={'Country Ru'}
-                            defaultValue=""
                             error={errors.countryRu}
                         />
                         <InputField
                             control={control}
                             name={'countryEn'}
                             label={'Country En'}
-                            defaultValue=""
                             error={errors.countryEn}
                         />
                     </Paper>
@@ -149,21 +152,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'sortKeyUa'}
                             label={'Sort key Ua'}
-                            defaultValue=""
                             error={errors.sortKeyUa}
                         />
                         <InputField
                             control={control}
                             name={'sortKeyRu'}
                             label={'Sort key Ru'}
-                            defaultValue=""
                             error={errors.sortKeyRu}
                         />
                         <InputField
                             control={control}
                             name={'sortKeyEn'}
                             label={'Sort key En'}
-                            defaultValue=""
                             error={errors.sortKeyEn}
                         />
                     </Paper>
@@ -172,21 +172,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'sortValueUa'}
                             label={'Sort value Ua'}
-                            defaultValue=""
                             error={errors.sortValueUa}
                         />
                         <InputField
                             control={control}
                             name={'sortValueRu'}
                             label={'Sort value Ru'}
-                            defaultValue=""
                             error={errors.sortValueRu}
                         />
                         <InputField
                             control={control}
                             name={'sortValueEn'}
                             label={'Sort value En'}
-                            defaultValue=""
                             error={errors.sortValueEn}
                         />
                     </Paper>
@@ -195,21 +192,18 @@ const CreateStoreItem: React.FC = () => {
                             control={control}
                             name={'descriptionUa'}
                             label={'Description Ua'}
-                            defaultValue=""
                             error={errors.descriptionUa}
                         />
                         <TextArea
                             control={control}
                             name={'descriptionRu'}
                             label={'Description Ru'}
-                            defaultValue=""
                             error={errors.descriptionRu}
                         />
                         <TextArea
                             control={control}
                             name={'descriptionEn'}
                             label={'Description En'}
-                            defaultValue=""
                             error={errors.descriptionEn}
                         />
                     </Paper>
@@ -227,14 +221,12 @@ const CreateStoreItem: React.FC = () => {
                         control={control}
                         name={'weight'}
                         label={'Weight, g'}
-                        defaultValue=""
                         error={errors.weight}
                     />
                     <InputField
                         control={control}
                         name={'tm'}
-                        label={'TM'}
-                        defaultValue=""
+                        label={'TM'}                        
                     />
                     <InputField
                         control={control}

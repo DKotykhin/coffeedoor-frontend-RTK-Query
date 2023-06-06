@@ -6,6 +6,7 @@ import CardList from './CardList';
 import Spinner from 'components/spinner/Spinner';
 
 import { useGetStoreQuery } from 'services/storeService';
+import { IStoreItem } from 'types/storeTypes';
 
 const List = [
     {
@@ -45,7 +46,10 @@ const CatalogList: React.FC = () => {
                 <Box key={listItem.group}>
                     <CardList
                         item={listItem}
-                        data={data.filter((dataItem: { group: string; }) => dataItem.group === listItem.group)}
+                        data={
+                            data?.filter((item: IStoreItem) => item.hidden === false)
+                                .filter((item: IStoreItem) => item.group === listItem.group)
+                        }
                     />
                 </Box>
             ))}

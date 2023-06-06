@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { useForm, FieldValues } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 import { Container, Typography, Box, Paper, Button } from '@mui/material';
 
@@ -12,7 +13,7 @@ import { CheckboxInput, InputField } from '../inputs/_index';
 import { menuGroupFormData } from '../formData/menuGroupFormData';
 import { MenuGroupValidation } from 'components/validation/menuGroupValidation';
 
-import { useGetMenuQuery } from 'services/menuService';
+import { useDeleteMenuGroupMutation, useGetMenuQuery, useUpdateMenuGroupMutation } from 'services/menuService';
 
 import { IMenuGroup } from 'types/menuTypes';
 
@@ -28,8 +29,8 @@ const UpdateMenuGroup: React.FC = () => {
 
     const { t } = useTranslation("admin");
 
-    const deleteLoading = false;
-    const isLoading = false;
+    const [sendData, { isLoading }] = useUpdateMenuGroupMutation();
+    const [deleteData, { isLoading: deleteLoading }] = useDeleteMenuGroupMutation();
 
     const {
         control,
@@ -44,16 +45,35 @@ const UpdateMenuGroup: React.FC = () => {
 
     const handleSubmitDelete = async () => {
         setOpenChildModal(false);
-        console.log('delete')
+        await deleteData(itemId)
+            .unwrap()
+            .then(response => {
+                toast.success(response.message);
+                console.log(response);
+                navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
     };
 
     const onSubmit = async (data: FieldValues) => {
         const formData = menuGroupFormData(data);
         const updatedData = {
+            groupId: itemId,
             data: formData,
-            id: itemId,
         }
         console.log(updatedData);
+        await sendData(updatedData)
+            .unwrap()
+            .then(response => {
+                toast.success(response.message);
+                console.log(response);
+                navigate("/admin");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
     };
 
     return isSuccess ? (

@@ -7,10 +7,12 @@ import MenuHeader from 'components/menuHeader/MenuHeader';
 import ReturnButton from 'components/returnButton/ReturnButton';
 
 import { useGetMenuQuery } from 'services/menuService';
+import { IMenuGroup } from 'types/menuTypes';
 
 const MenuPage: React.FC = () => {
     const { data, isLoading } = useGetMenuQuery('');
- 
+    const visibleData = data?.filter((item: IMenuGroup) => item.hidden === false);
+
     return (
         <>
             <Helmet>
@@ -18,7 +20,7 @@ const MenuPage: React.FC = () => {
                 <title>Menu Page</title>
             </Helmet>
             <MenuHeader />
-            {isLoading ? <Spinner /> : <AccordionMenu data={data} />}
+            {isLoading ? <Spinner /> : <AccordionMenu data={visibleData} />}
             <ReturnButton />
         </>
     )
