@@ -1,0 +1,15 @@
+.infoForm {
+    margin-bottom: 20px;
+    .infoForm__title {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 16px;
+    }
+    .infoForm__box {
+        padding: 16px;
+        .infoForm__submit_button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

@@ -3,6 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getToken } from "./getToken";
 
 import {
+    IPasswordResponse,
+    IUserInfo,
     IUserLogin,
     IUserLoginByTokenResponse,
     IUserRegister,
@@ -47,6 +49,49 @@ export const fetchUser = createApi({
             }),
             invalidatesTags: ["User"],
         }),
+
+        fetchConfirmPassword: builder.mutation<
+            IPasswordResponse,
+            { password: string }
+        >({
+            query: (data) => ({
+                url: "/user/password",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getToken()}`,
+                },
+                body: JSON.stringify(data),
+            }),
+        }),
+
+        fetchNewPassword: builder.mutation<
+            IPasswordResponse,
+            { password: string }
+        >({
+            query: (data) => ({
+                url: "/user/password",
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getToken()}`,
+                },
+                body: JSON.stringify(data),
+            }),
+        }),
+
+        fetchProfile: builder.mutation<IUserLoginByTokenResponse, IUserInfo>({
+            query: (data) => ({
+                url: "/user/me",
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getToken()}`,
+                },
+                body: JSON.stringify(data),
+            }),
+            invalidatesTags: ["User"],
+        }),
     }),
 });
 
@@ -54,4 +99,7 @@ export const {
     useFetchUserByTokenQuery,
     useFetchRegisterUserMutation,
     useFetchLoginUserMutation,
+    useFetchConfirmPasswordMutation,
+    useFetchNewPasswordMutation,
+    useFetchProfileMutation,
 } = fetchUser;

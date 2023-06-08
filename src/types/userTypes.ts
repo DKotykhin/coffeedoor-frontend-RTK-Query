@@ -13,6 +13,12 @@ export interface IUserRegister {
     password: string;
 }
 
+export interface IUserInfo {
+    userName: string;
+    email?: string;
+    address?: string;
+}
+
 export interface IUser {
     _id: string;
     userName: string;
@@ -30,7 +36,13 @@ export interface IUserResponse {
     message?: string;
 }
 
+
 export interface IUserLoginByTokenResponse {
     user: IUser;
+    message: string;
+}
+
+export interface IPasswordResponse {
+    status: boolean;
     message: string;
 }

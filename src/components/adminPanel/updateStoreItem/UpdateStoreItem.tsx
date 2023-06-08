@@ -72,13 +72,10 @@ const UpdateStoreItem: React.FC = () => {
         await sendData(updatedData)
             .unwrap()
             .then(response => {
-                toast.success(response.message);
-                console.log(response.message);
+                toast.success(response.message);                
                 navigate("/admin");
             })
-            .catch((error: { data: { message: string } }) => {
-                toast.error(error.data.message);
-            })
+            .catch(error => toast.error(error.data.message))
     };
 
     const handleSubmitDelete = async () => {

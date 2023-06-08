@@ -2,13 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Box, Container, Tab } from '@mui/material';
-
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { IUser } from 'types/userTypes';
-import InfoTab from './InfoTab';
-import OrderTab from './OrderTab';
-import ProposalTab from './ProposalTab';
 
+import InfoTab from './infoTab/InfoTab';
+import OrderTab from './orderTab/OrderTab';
+import ProposalTab from './proposalTab/ProposalTab';
+
+import { IUser } from 'types/userTypes';
 
 const Tabs: React.FC<{ user: IUser }> = ({ user }) => {
 

@@ -63,7 +63,7 @@ const BasketModal: React.FC = () => {
                 dispatch(basketSetEmpty());
                 navigate("/thanks");
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error.data.message))
     };
 
     return (

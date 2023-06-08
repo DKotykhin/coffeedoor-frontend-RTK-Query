@@ -2,30 +2,32 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import "yup-phone-lite";
 
-import { userName, password, phone } from "./_validationTypes";
+import { userName, password, phone, email, yupString } from "./_validationTypes";
 
-const registerschema = yup.object({
+const registerSchema = yup.object({
     userName,
     phone,
     password,
 });
 
-const loginschema = yup.object({
+const loginSchema = yup.object({
     phone,
     password,
 });
 
-const passwordschema = yup.object({
-    currentpassword: password,
+const infoSchema = yup.object({
+    userName,
+    email,
+    address: yupString,
 });
 
-const newpasswordschema = yup.object({
+const passwordSchema = yup.object({
+    password,
+});
+
+const newpasswordSchema = yup.object({
     newpassword: password,
     confirmpassword: password,
-});
-
-const profileschema = yup.object({
-    userName,
 });
 
 export const RegisterFormValidation: Object = {
@@ -34,7 +36,7 @@ export const RegisterFormValidation: Object = {
         phone: "+380",
         password: "",
     },
-    resolver: yupResolver(registerschema),
+    resolver: yupResolver(registerSchema),
     mode: "onChange",
 };
 
@@ -44,15 +46,15 @@ export const LoginFormValidation: Object = {
         password: "",
         rememberMe: false,
     },
-    resolver: yupResolver(loginschema),
+    resolver: yupResolver(loginSchema),
     mode: "onChange",
 };
 
 export const PasswordFormValidation: Object = {
     defaultValues: {
-        currentpassword: "",
+        password: "",
     },
-    resolver: yupResolver(passwordschema),
+    resolver: yupResolver(passwordSchema),
     mode: "onChange",
 };
 
@@ -61,15 +63,11 @@ export const NewPasswordFormValidation: Object = {
         newpassword: "",
         confirmpassword: "",
     },
-    resolver: yupResolver(newpasswordschema),
+    resolver: yupResolver(newpasswordSchema),
     mode: "onChange",
 };
 
-export const ProfileFormValidation: Object = {
-    defaultValues: {
-        userName: "",
-        email: "",
-    },
-    resolver: yupResolver(profileschema),
+export const InfoFormValidation: Object = {
+    resolver: yupResolver(infoSchema),
     mode: "onChange",
 };

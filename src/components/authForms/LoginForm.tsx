@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { Button, Container, Typography, Box, Avatar, Paper } from "@mui/material";
 import { InputLabel, Checkbox } from "@mui/material";
@@ -38,7 +39,7 @@ const LoginForm: React.FC = () => {
         await login(validData)
             .unwrap()
             .then(response => {
-                console.log(response);
+                console.log(response.message);
                 if (rememberMe) {
                     localStorage.setItem("rememberMe", response.token);
                 }
@@ -46,7 +47,7 @@ const LoginForm: React.FC = () => {
                 navigate("/");
                 reset();
             })
-            .catch(error => console.log(error))
+            .catch(error => toast.error(error.data.message))
     }
 
     return (
@@ -61,13 +62,13 @@ const LoginForm: React.FC = () => {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <PhoneField
-                        label={t("formPhoneTitle")}
+                        label={t("formPhoneLabel")}
                         error={errors.phone}
                         control={control}
                     />
                     <PasswordField
                         name={"password"}
-                        label={t("formPasswordTitle")}
+                        label={t("formPasswordLabel")}
                         placeholder={t("formPasswordPlaceholder")}
                         error={errors.password}
                         control={control}

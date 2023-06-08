@@ -1,37 +1,35 @@
-import React from "react";
 import { Controller } from "react-hook-form";
 
 import {
     Box,
-    OutlinedInput,
     InputLabel,
     FormControl,
     FormHelperText,
+    OutlinedInput,
 } from "@mui/material";
 
 import styles from './field.module.scss';
 
-interface IEmailField {
+interface IAddressField {
     label: string;
     placeholder: string;
     error: any;
-    control: any
+    control: any;
 }
 
-const EmailField: React.FC<IEmailField> = ({ label, placeholder, error, control }) => {
+const AddressField: React.FC<IAddressField> = ({ label, placeholder, error, control }) => {
     return (
         <Box className={styles.field}>
             <InputLabel>{label}</InputLabel>
-            <FormControl>
+            <FormControl className={styles.field__control}>
                 <Controller
-                    name="email"
+                    name="address"
                     control={control}
                     render={({ field }) => (
                         <OutlinedInput
                             {...field}
-                            type="email"
+                            type="text"
                             placeholder={placeholder}
-                            autoComplete="email"
                             error={error ? true : false}
                         />
                     )}
@@ -42,4 +40,4 @@ const EmailField: React.FC<IEmailField> = ({ label, placeholder, error, control 
     );
 };
 
-export default EmailField;
+export default AddressField;

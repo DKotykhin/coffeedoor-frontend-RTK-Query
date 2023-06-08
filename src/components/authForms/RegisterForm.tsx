@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { Button, Container, Typography, Avatar, Paper, Box } from "@mui/material";
 
@@ -38,12 +39,12 @@ const RegisterForm: React.FC = () => {
         await register(validData)
             .unwrap()
             .then(response => {
-                console.log(response);
+                console.log(response.message);
                 sessionStorage.setItem("rememberMe", response.token);
                 navigate("/");
                 reset();
             })
-            .catch(error => console.log(error))
+            .catch(error => toast.error(error.data.message))
     }
 
     return (
@@ -58,18 +59,18 @@ const RegisterForm: React.FC = () => {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <NameField
-                        label={t("formNameTitle")}
+                        label={t("formNameLabel")}
                         placeholder={t("formNamePlaceholder")}
                         error={errors.userName}
                         control={control} />
                     <PhoneField
-                        label={t("formPhoneTitle")}
+                        label={t("formPhoneLabel")}
                         error={errors.phone}
                         control={control}
                     />
                     <PasswordField
                         name={"password"}
-                        label={t("formPasswordTitle")}
+                        label={t("formPasswordLabel")}
                         placeholder={t("formPasswordPlaceholder")}
                         error={errors.password}
                         control={control}
