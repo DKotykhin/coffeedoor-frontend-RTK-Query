@@ -4,6 +4,7 @@ import { getToken } from "./getToken";
 
 import {
     IPasswordResponse,
+    ISetPasswordResponse,
     IUserInfo,
     IUserLogin,
     IUserLoginByTokenResponse,
@@ -48,6 +49,20 @@ export const fetchUser = createApi({
                 body: JSON.stringify(data),
             }),
             invalidatesTags: ["User"],
+        }),
+
+        fetchSetPassword: builder.mutation<
+            ISetPasswordResponse,
+            { password: string; userId: string | undefined }
+        >({
+            query: (data) => ({
+                url: "/auth/password",
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            }),
         }),
 
         fetchConfirmPassword: builder.mutation<
@@ -99,6 +114,7 @@ export const {
     useFetchUserByTokenQuery,
     useFetchRegisterUserMutation,
     useFetchLoginUserMutation,
+    useFetchSetPasswordMutation,
     useFetchConfirmPasswordMutation,
     useFetchNewPasswordMutation,
     useFetchProfileMutation,

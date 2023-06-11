@@ -23,7 +23,7 @@ const ChangePassword: React.FC = () => {
     return (
         <Paper elevation={10} className={styles.changePassword}>
             <Typography className={styles.changePassword__title}>
-                {t("formPasswordTitle")}
+                {t("formUpdatePasswordTitle")}
             </Typography>
             {confirmPassword
                 ? <NewPasswordForm changePassword={changePassword}/>

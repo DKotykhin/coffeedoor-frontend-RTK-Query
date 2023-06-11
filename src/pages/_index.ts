@@ -10,5 +10,6 @@ export { default as MenuPage } from "./MenuPage";
 export { default as Page404 } from "./Page404";
 export { default as PersonalPage } from "./PersonalPage";
 export { default as RegistrationPage } from "./RegisterPage";
+export { default as SetPasswordPage } from "./SetPasswordPage";
 export { default as StoreItemPage } from "./StoreItemPage";
 export { default as ThanksPage } from "./ThanksPage";

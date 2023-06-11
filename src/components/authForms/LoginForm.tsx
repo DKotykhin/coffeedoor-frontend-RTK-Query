@@ -39,12 +39,12 @@ const LoginForm: React.FC = () => {
         await login(validData)
             .unwrap()
             .then(response => {
-                console.log(response.message);
-                if (rememberMe) {
-                    localStorage.setItem("rememberMe", response.token);
-                }
-                sessionStorage.setItem("rememberMe", response.token);
-                navigate("/");
+                console.log(response);
+                if (response.token) {
+                    sessionStorage.setItem("rememberMe", response.token);
+                    if (rememberMe) localStorage.setItem("rememberMe", response.token);
+                    navigate("/");
+                } else navigate(`/setPassword:${response.user._id}`);
                 reset();
             })
             .catch(error => toast.error(error.data.message))

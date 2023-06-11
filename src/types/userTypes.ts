@@ -46,3 +46,8 @@ export interface IPasswordResponse {
     status: boolean;
     message: string;
 }
+
+export interface ISetPasswordResponse {
+    user: IUser;
+    message: string;
+}

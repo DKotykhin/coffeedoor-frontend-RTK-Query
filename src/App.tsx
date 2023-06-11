@@ -4,7 +4,7 @@ import Layout from "components/layout/Layout";
 import { RequireAuth } from "hocs/RequireAuth";
 import { RequireAdminAuth } from "hocs/RequireAdminAuth";
 
-import { AdminPage, CreateMenuGroupPage, CreateMenuItemPage, CreateStoreItemPage, HomePage, MenuPage, MenuItemPage, MenuGroupPage, LoginPage, Page404, PersonalPage, RegistrationPage, StoreItemPage, ThanksPage } from "pages/_index";
+import { AdminPage, CreateMenuGroupPage, CreateMenuItemPage, CreateStoreItemPage, HomePage, MenuPage, MenuItemPage, MenuGroupPage, LoginPage, Page404, PersonalPage, RegistrationPage, StoreItemPage, ThanksPage, SetPasswordPage } from "pages/_index";
 
 export const router = createBrowserRouter([
     {
@@ -28,12 +28,16 @@ export const router = createBrowserRouter([
                 element: <RequireAuth children={<PersonalPage />} />,
             },
             {
+                path: 'registration',
+                element: <RegistrationPage />,
+            },
+            {
                 path: 'login',
                 element: <LoginPage />,
             },
             {
-                path: 'registration',
-                element: <RegistrationPage />,
+                path: 'setPassword/:userId',
+                element: <SetPasswordPage />,
             },
             {
                 path: 'admin',
