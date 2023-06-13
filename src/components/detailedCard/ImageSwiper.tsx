@@ -27,7 +27,7 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ item, lang }) => {
     const { images } = item;
 
     return (
-        <Box sx={{ maxWidth: '350px' }}>
+        <Box sx={{ width: '100%', maxWidth: '350px' }}>
             {images?.length ?
                 <Swiper
                     pagination={true}

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 import { Box, Modal, Typography, Backdrop, Fade, Divider } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -31,6 +32,8 @@ const BasketModal: React.FC = () => {
     const handleClose = () => setOpenModal(false);
 
     const { t } = useTranslation("basket");
+
+    const matches = useMediaQuery('(min-width:801px)');
 
     const navigate = useNavigate();
 
@@ -97,42 +100,49 @@ const BasketModal: React.FC = () => {
                         <Divider />
                         {basketData.length > 0 ? (
                             basketData.map((item: IBasket, i: number) => (
-                                <Box key={i}>
-                                    <Box className={styles.basketModal__block}>
-                                        <Typography className={styles.basketModal__itemName}>
-                                            {item.title}
-                                            {" "}
-                                            {item.itemName}
-                                            {item.weight ? `, ${item.weight}${t("weight")}` : ""}
-                                        </Typography>
-                                        <CloseIcon
-                                            className={styles.basketModal__removeItem}
-                                            onClick={() =>
-                                                handleRemove(item.id)
-                                            }
-                                        />
+                                <Box key={i} className={styles.basketModal__box}>
+                                    <Box className={styles.basketModal__itemBlock}>
+                                        {matches &&
+                                            <img src={item.image} alt={item.itemName} width={70} height={70} />
+                                        }
+                                        <Box sx={{ flexGrow: 1 }}>
+                                            <Box className={styles.basketModal__nameBlock}>
+                                                <Typography className={styles.basketModal__itemName}>
+                                                    {item.title}
+                                                    {" "}
+                                                    {item.itemName}
+                                                    {item.weight ? `, ${item.weight}${t("weight")}` : ""}
+                                                </Typography>
+                                                <CloseIcon
+                                                    className={styles.basketModal__removeItem}
+                                                    onClick={() =>
+                                                        handleRemove(item.id)
+                                                    }
+                                                />
+                                            </Box>
+                                            <Typography className={styles.basketModal__price}>
+                                                <RemoveCircleOutlineIcon
+                                                    className={styles.basketModal__quantityIcons}
+                                                    onClick={() =>
+                                                        handleDecrement(item.id)
+                                                    }
+                                                />{" "}
+                                                {item.quantity}{" "}
+                                                <AddCircleOutlineIcon
+                                                    className={styles.basketModal__quantityIcons}
+                                                    onClick={() =>
+                                                        handleIncrement(item.id)
+                                                    }
+                                                />
+                                                {" x "}
+                                                {item.price}
+                                                {t("currency")}{" = "}
+                                                {item.quantity * item.price}
+                                                {t("currency")}
+                                            </Typography>
+                                        </Box>
                                     </Box>
-                                    <Typography className={styles.basketModal__price}>
-                                        <RemoveCircleOutlineIcon
-                                            className={styles.basketModal__quantityIcons}
-                                            onClick={() =>
-                                                handleDecrement(item.id)
-                                            }
-                                        />{" "}
-                                        {item.quantity}{" "}
-                                        <AddCircleOutlineIcon
-                                            className={styles.basketModal__quantityIcons}
-                                            onClick={() =>
-                                                handleIncrement(item.id)
-                                            }
-                                        />
-                                        {" x "}
-                                        {item.price}
-                                        {t("currency")}{" = "}
-                                        {item.quantity * item.price}
-                                        {t("currency")}
-                                    </Typography>
-                                    <Divider sx={{ mt: 2 }} />
+                                    <Divider sx={{ mt: 1 }} />
                                 </Box>
                             ))
                         ) : (

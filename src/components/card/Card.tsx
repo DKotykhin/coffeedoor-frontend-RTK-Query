@@ -87,6 +87,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                                 itemName: itemName[lang],
                                 price,
                                 weight,
+                                image,
                                 quantity: 1,
                                 id: _id,
                             })

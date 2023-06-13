@@ -4,14 +4,15 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 24px 0;
+    justify-content: center;
+    margin: 12px 0;
     font-size: 20px;
     .buttons__remove,
     .buttons__add {
         color: $color_mint;
         font-size: 30px;
         vertical-align: middle;
-        margin-right: 10px;
+        margin: 10px;
         border-radius: 50%;
         cursor: pointer;
         &:hover {
@@ -19,9 +20,6 @@
             background-color: $color_mint;
             transition: 0.5s all;
         }
-    }
-    .buttons__add {
-        margin: 0 20px 0 10px;
     }
     .buttons__submit {
         @include button;

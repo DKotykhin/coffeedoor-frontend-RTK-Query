@@ -31,7 +31,7 @@ const FirstBlock: React.FC = () => {
                 </Typography>
                 <Box className={styles.firstBlock__links}>
                     <Box>
-                        <MuiLink href="#coffee_list" className={styles.link_1}>
+                        <MuiLink href="#coffee" className={styles.link_1}>
                             {t("link_1")}
                         </MuiLink>
                     </Box>

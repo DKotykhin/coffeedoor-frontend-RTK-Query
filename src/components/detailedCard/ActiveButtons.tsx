@@ -9,10 +9,14 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { useAppDispatch } from "store/reduxHooks";
 import { basketAddItems } from "store/basketSlice";
 
+import waitImage from 'images/webp/wait_1.webp';
+
 import { IStoreItem } from 'types/storeTypes';
 import { Languages } from "hooks/useLang";
 
 import styles from './activeButtons.module.scss';
+
+const Base_URL = process.env.REACT_APP_BACKEND_URL;
 
 interface IActiveButtons {
     item: IStoreItem,
@@ -22,7 +26,9 @@ interface IActiveButtons {
 
 const ActiveButtons: React.FC<IActiveButtons> = ({ item, lang, closeModal }) => {
 
-    const { _id, itemName, title, price, weight } = item;
+    const { _id, itemName, title, price, weight, images } = item;
+
+    const image = images?.length ? Base_URL + images[0] : waitImage;
 
     const [quantity, setQuantity] = useState<number>(1);
     const dispatch = useAppDispatch();
@@ -44,6 +50,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, lang, closeModal }) => 
             itemName: itemName[lang],
             price,
             weight,
+            image,
             quantity,
             id: _id,
         }));
