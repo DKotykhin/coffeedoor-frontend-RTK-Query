@@ -8,8 +8,8 @@ export const langButtons = [
     { key: "en", label: "En" },
 ];
 
-export const useLang = () => {
-    const { i18n } = useTranslation("admin");
+export const useLang = (): Languages => {
+    const { i18n } = useTranslation();
     let lang: Languages;
     switch (i18n.language) {
         case "ua":

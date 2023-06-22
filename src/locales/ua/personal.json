@@ -34,6 +34,7 @@
     "orderTitle": "Ваш лист замовлень",
     "orderQuantity": "Загалом замовлень: ",
     "orderSum": "Загальна сума: ",
+    "orderAvg": "Середній чек: ",
     "orderCurrency": " грн",
     "orderEmpty": "Нажаль у вас ще немає замовлень",
     "tableName": "Назва товару",

@@ -12,8 +12,6 @@ const OrderTab: React.FC = () => {
     const { data, isSuccess } = useGetUserOrdersQuery();
     const { t } = useTranslation("personal");
 
-    const totalSum = data ? data.orders.reduce((accumulator, currentValue) => accumulator + currentValue.orderSum, 0) : 0;
-
     return isSuccess ? (
         <>
             <Typography>{t("orderTitle")}</Typography>
@@ -23,8 +21,9 @@ const OrderTab: React.FC = () => {
                     {data.orders.map(order => (
                         <OrderTable key={order._id} orders={order} />
                     ))}
-                    <Typography>{t("orderQuantity")} {data.orders.length}</Typography>
-                    <Typography>{t("orderSum")} {totalSum} {t("orderCurrency")}</Typography>
+                    <Typography>{t("orderQuantity")} {data.statistic.totalCount}</Typography>
+                    <Typography>{t("orderSum")} {data.statistic.totalSum} {t("orderCurrency")}</Typography>
+                    <Typography>{t("orderAvg")} {data.statistic.averageSum} {t("orderCurrency")}</Typography>
                 </>
                 :
                 <Typography>{t("orderEmpty")}</Typography>

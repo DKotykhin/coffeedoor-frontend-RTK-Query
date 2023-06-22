@@ -34,6 +34,7 @@
     "orderTitle": "Order list",
     "orderQuantity": "Total orders: ",
     "orderSum": "Total sum: ",
+    "orderAvg": "Average sum: ",
     "orderCurrency": " uah",
     "orderEmpty": "You don't have any order yet",
     "tableName": "Item name",
