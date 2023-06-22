@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { format } from "date-fns";
+import { toast } from 'react-toastify';
 
-import { Container, Paper, Typography } from '@mui/material';
+import { Button, Container, Paper, Typography } from '@mui/material';
 
+import ChildModal from 'components/childModal/ChildModal';
 import InfoForm from './changeProfile/InfoForm';
 import ChangePassword from './changePassword/ChangePassword';
+
+import { useFetchDeleteUserMutation } from 'services/userService';
 
 import { IUser } from 'types/userTypes';
 
@@ -14,7 +19,29 @@ import styles from './infoTab.module.scss';
 const InfoTab: React.FC<{ user: IUser }> = ({ user }) => {
 
     const { userName, phone, createdAt } = user;
+    const [openChildModal, setOpenChildModal] = useState(false);
+
+    const navigate = useNavigate();
     const { t } = useTranslation("personal");
+
+    const [deleteUser, { isLoading }] = useFetchDeleteUserMutation();
+
+    const handleDelete = (): void => setOpenChildModal(true);
+    const handleCloseModal = (): void => setOpenChildModal(false);
+
+    const handleSubmitDelete = async () => {
+        setOpenChildModal(false);
+        await deleteUser()
+            .unwrap()
+            .then(response => {
+                toast.info(response.message);
+                console.log(response);
+                navigate("/");
+            })
+            .catch((error: { data: { message: string } }) => {
+                toast.error(error.data.message);
+            })
+    };
 
     return (
         <Container maxWidth='sm' className={styles.info}>
@@ -29,6 +56,20 @@ const InfoTab: React.FC<{ user: IUser }> = ({ user }) => {
             </Paper>
             <InfoForm user={user} />
             <ChangePassword />
+            <Button
+                variant='contained'
+                color='error'
+                className={styles.info__delete}
+                onClick={handleDelete}
+            >
+                {isLoading ? 'Deleting...' : t("deleteUser")}
+            </Button>
+            <ChildModal
+                open={openChildModal}
+                handleClose={handleCloseModal}
+                handleSubmit={handleSubmitDelete}
+                title={userName}
+            />
         </Container>
     )
 }

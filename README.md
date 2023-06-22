@@ -7,7 +7,7 @@ A brief description of what this project does and who it's for
 ## Features
 
 -   React, Typescript, Redux Toolkit
--   Personal page with user's info and orders history
+-   Personal page with user's info, update, delete user and orders history
 -   Admin Panel for CRUD operations with srore item and menu
 -   React Hook Form and Yup for input validation
 -   MUI, SCSS

@@ -5,11 +5,12 @@ import { getToken } from "./getToken";
 import {
     IPasswordResponse,
     ISetPasswordResponse,
+    IUserDeleteResponse,
+    IUserLoginByTokenResponse,
+    IUserResponse,
     IUserInfo,
     IUserLogin,
-    IUserLoginByTokenResponse,
     IUserRegister,
-    IUserResponse,
 } from "types/userTypes";
 
 const Base_URL = process.env.REACT_APP_BACKEND_URL;
@@ -107,6 +108,18 @@ export const fetchUser = createApi({
             }),
             invalidatesTags: ["User"],
         }),
+
+        fetchDeleteUser: builder.mutation<IUserDeleteResponse, void>({
+            query: () => ({
+                url: "/user/me",
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${getToken()}`,
+                },
+            }),
+            invalidatesTags: ["User"],
+        }),
     }),
 });
 
@@ -118,4 +131,5 @@ export const {
     useFetchConfirmPasswordMutation,
     useFetchNewPasswordMutation,
     useFetchProfileMutation,
+    useFetchDeleteUserMutation,
 } = fetchUser;

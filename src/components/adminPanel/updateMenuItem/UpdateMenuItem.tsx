@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Button, Box, Container, Typography, Paper } from '@mui/material';
 
 import Spinner from 'components/spinner/Spinner';
-import ChildModal from '../childModal/ChildModal';
+import ChildModal from '../../childModal/ChildModal';
 import { CheckboxInput, InputField } from '../inputs/_index';
 import { menuItemFormData } from '../formData/menuItemFormData';
 import { MenuItemValidation } from 'components/validation/menuItemValidation';

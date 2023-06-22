@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
 import Spinner from 'components/spinner/Spinner';
-import ChildModal from '../childModal/ChildModal';
+import ChildModal from '../../childModal/ChildModal';
 import { StoreItemValidation } from 'components/validation/storeItemValidation';
 import { TextArea, MDEField, CheckboxInput, InputField } from '../inputs/_index';
 

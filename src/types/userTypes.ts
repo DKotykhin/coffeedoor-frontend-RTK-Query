@@ -36,7 +36,6 @@ export interface IUserResponse {
     message?: string;
 }
 
-
 export interface IUserLoginByTokenResponse {
     user: IUser;
     message: string;
@@ -49,5 +48,17 @@ export interface IPasswordResponse {
 
 export interface ISetPasswordResponse {
     user: IUser;
+    message: string;
+}
+
+export interface IUserDeleteResponse {
+    userStatus: {
+        acknowledged: boolean;
+        deletedCount: number;
+    };
+    orderStatus: {
+        acknowledged: boolean;
+        deletedCount: number;
+    };
     message: string;
 }
