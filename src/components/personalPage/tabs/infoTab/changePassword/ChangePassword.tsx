@@ -30,7 +30,7 @@ const ChangePassword: React.FC = () => {
                 : <PasswordForm changePassword={changePassword} />
             }
         </Paper>
-    )
-}
+    );
+};
 
 export default ChangePassword;

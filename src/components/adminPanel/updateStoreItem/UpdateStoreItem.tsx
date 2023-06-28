@@ -67,7 +67,7 @@ const UpdateStoreItem: React.FC = () => {
         const updatedData = {
             id: itemId,
             data: formData,
-        }
+        };
         // console.log(updatedData);
         await sendData(updatedData)
             .unwrap()
@@ -75,7 +75,7 @@ const UpdateStoreItem: React.FC = () => {
                 toast.success(response.message);                
                 navigate("/admin");
             })
-            .catch(error => toast.error(error.data.message))
+            .catch(error => toast.error(error.data.message));
     };
 
     const handleSubmitDelete = async () => {
@@ -89,7 +89,7 @@ const UpdateStoreItem: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return isSuccess ? (
@@ -315,7 +315,7 @@ const UpdateStoreItem: React.FC = () => {
                 title={currentItem?.itemName.ua}
             />
         </Container>
-    ) : <Spinner />
-}
+    ) : <Spinner />;
+};
 
 export default UpdateStoreItem;

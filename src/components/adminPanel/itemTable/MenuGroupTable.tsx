@@ -32,7 +32,7 @@ const MenuGroupTable: React.FC<IMenuGroupTable> = ({ itemList }) => {
             position: item.position,
             hidden: item.hidden ? <DoNotDisturbOnIcon color='error' /> : <CheckCircleIcon color='primary' />,
             edit: <Button onClick={() => handleClickEdit(item._id)}>Edit</Button>,
-        }
+        };
     });
 
     return (
@@ -67,7 +67,7 @@ const MenuGroupTable: React.FC<IMenuGroupTable> = ({ itemList }) => {
                 </Table>
             </TableContainer>
         </Container>
-    )
-}
+    );
+};
 
 export default MenuGroupTable;

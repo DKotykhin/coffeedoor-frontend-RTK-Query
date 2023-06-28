@@ -28,6 +28,6 @@ const SelectInput: React.FC<ISelectInput> = ({ value, control, name }) => {
             />
         </FormControl>
     );
-}
+};
 
-export default SelectInput;
+export { SelectInput };

@@ -98,7 +98,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
             </CardActions>
             <DetailedCard item={item} lang={lang} openModal={openModal} closeModal={closeModal} />
         </Card>
-    )
-}
+    );
+};
 
 export default ItemCard;

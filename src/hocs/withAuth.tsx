@@ -10,11 +10,11 @@ const RequireAuth: React.FC<{ children: JSX.Element }> = ({ children }): JSX.Ele
     const auth = useAuth();
 
     if (!getToken()) {
-        return <Navigate to="/login" />
+        return <Navigate to="/login" />;
     }
 
     if (!auth.isSuccess) {
-        return auth.isError ? <Navigate to='/login' state={{ from: location }} /> : <Spinner />
+        return auth.isError ? <Navigate to='/login' state={{ from: location }} /> : <Spinner />;
     }
 
     return children;

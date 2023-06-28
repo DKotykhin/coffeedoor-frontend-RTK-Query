@@ -32,7 +32,7 @@ const StoreTable: React.FC<IStoreTable> = ({ itemList }) => {
             position: item.position,
             hidden: item.hidden ? <DoNotDisturbOnIcon color='error'/> : <CheckCircleIcon color='primary'/>,
             edit: <Button onClick={() => handleClick(item._id)}>Edit</Button>
-        }
+        };
     });
 
     return (
@@ -67,7 +67,7 @@ const StoreTable: React.FC<IStoreTable> = ({ itemList }) => {
                 </Table>
             </TableContainer>
         </Container>
-    )
-}
+    );
+};
 
 export default StoreTable;

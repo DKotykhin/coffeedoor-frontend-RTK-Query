@@ -29,7 +29,7 @@ const OrderTab: React.FC = () => {
                 <Typography>{t("orderEmpty")}</Typography>
             }
         </>
-    ) : null
-}
+    ) : null;
+};
 
 export default OrderTab;

@@ -12,7 +12,7 @@ const AdminPage: React.FC = () => {
             </Helmet>
             <AdminPanel />
         </>
-    )
-}
+    );
+};
 
 export { AdminPage };

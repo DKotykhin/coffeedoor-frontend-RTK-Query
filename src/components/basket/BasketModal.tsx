@@ -56,7 +56,7 @@ const BasketModal: React.FC = () => {
         const fullData: IFullData = {
             userData,
             basketData
-        }
+        };
         console.log(fullData);
         setOpenModal(false);
         await sendData(fullData)
@@ -66,7 +66,7 @@ const BasketModal: React.FC = () => {
                 dispatch(basketSetEmpty());
                 navigate("/thanks");
             })
-            .catch(error => console.log(error.data.message))
+            .catch(error => console.log(error.data.message));
     };
 
     return (
@@ -165,7 +165,7 @@ const BasketModal: React.FC = () => {
                 </Fade>
             </Modal>
         </>
-    )
-}
+    );
+};
 
 export default BasketModal;

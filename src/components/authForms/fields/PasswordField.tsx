@@ -72,4 +72,4 @@ const PasswordField: React.FC<IPasswordField> = ({ label, name, placeholder, err
     );
 };
 
-export default PasswordField;
+export { PasswordField };

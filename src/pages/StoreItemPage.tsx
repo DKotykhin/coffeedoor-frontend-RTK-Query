@@ -12,7 +12,7 @@ const StoreItemPage: React.FC = () => {
             </Helmet>
             <UpdateStoreItem />
         </>
-    )
-}
+    );
+};
 
 export { StoreItemPage };

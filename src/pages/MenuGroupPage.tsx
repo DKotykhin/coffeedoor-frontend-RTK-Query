@@ -12,7 +12,7 @@ const MenuGroupPage: React.FC = () => {
             </Helmet>
             <UpdateMenuGroup />
         </>
-    )
-}
+    );
+};
 
 export { MenuGroupPage };

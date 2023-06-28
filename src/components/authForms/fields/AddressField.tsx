@@ -40,4 +40,4 @@ const AddressField: React.FC<IAddressField> = ({ label, placeholder, error, cont
     );
 };
 
-export default AddressField;
+export { AddressField };

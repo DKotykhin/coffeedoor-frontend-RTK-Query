@@ -23,7 +23,7 @@ const PersonalHeader: React.FC = () => {
                 {t("return")}
             </Button>
         </Box>
-    )
-}
+    );
+};
 
 export default PersonalHeader;

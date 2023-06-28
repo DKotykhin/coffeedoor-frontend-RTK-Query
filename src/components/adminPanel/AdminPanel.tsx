@@ -43,7 +43,7 @@ const AdminPanel: React.FC = () => {
     };
 
     const handleClickMenu = () => {
-        setMenuList(menuData)
+        setMenuList(menuData);
         setStoreList([]);
     };
 
@@ -109,7 +109,7 @@ const AdminPanel: React.FC = () => {
                 <MenuGroupTable itemList={menuList} /> : null
             }
         </Box>
-    ) : <Spinner />
-}
+    ) : <Spinner />;
+};
 
 export default AdminPanel;

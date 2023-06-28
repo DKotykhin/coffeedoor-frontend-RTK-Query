@@ -23,7 +23,7 @@ const MenuPage: React.FC = () => {
             {isLoading ? <Spinner /> : <AccordionMenu data={visibleData} />}
             <ReturnButton />
         </>
-    )
+    );
 };
 
 export { MenuPage };

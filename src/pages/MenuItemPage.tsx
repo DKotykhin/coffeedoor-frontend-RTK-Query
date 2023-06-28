@@ -12,7 +12,7 @@ const MenuItemPage: React.FC = () => {
             </Helmet>
             <UpdateMenuItem />
         </>
-    )
-}
+    );
+};
 
 export { MenuItemPage };

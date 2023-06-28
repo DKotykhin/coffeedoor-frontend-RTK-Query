@@ -103,7 +103,7 @@ const AboutBlock: React.FC = () => {
                 <br />
             </Box>
         </Container>
-    )
-}
+    );
+};
 
 export default AboutBlock;

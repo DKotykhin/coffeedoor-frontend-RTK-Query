@@ -12,7 +12,7 @@ const CreateMenuGroupPage: React.FC = () => {
             </Helmet>
             <CreateMenuGroup />
         </>
-    )
-}
+    );
+};
 
 export { CreateMenuGroupPage };

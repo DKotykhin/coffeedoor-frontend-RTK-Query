@@ -33,7 +33,7 @@ const TextArea: React.FC<IInput> = ({ label, defaultValue, control, name, error 
             </Box>
             <FormHelperText sx={{ marginLeft: '130px' }}>{error?.message}</FormHelperText>
         </>
-    )
-}
+    );
+};
 
-export default TextArea;
+export { TextArea };

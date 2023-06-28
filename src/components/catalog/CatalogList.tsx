@@ -54,7 +54,7 @@ const CatalogList: React.FC = () => {
                 </Box>
             ))}
         </>
-    ) : <Spinner />
-}
+    ) : <Spinner />;
+};
 
 export default CatalogList;

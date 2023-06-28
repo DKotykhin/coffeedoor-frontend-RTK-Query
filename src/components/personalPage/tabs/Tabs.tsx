@@ -35,6 +35,6 @@ const Tabs: React.FC<{ user: IUser }> = ({ user }) => {
             </TabContext>
         </Container>
     );
-}
+};
 
 export default Tabs;

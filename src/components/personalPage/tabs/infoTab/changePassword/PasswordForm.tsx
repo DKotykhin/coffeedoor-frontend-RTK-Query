@@ -32,8 +32,8 @@ const PasswordForm: React.FC<IPassword> = ({ changePassword }) => {
                 changePassword(response.status);
                 toast.success(response.message);                
             })
-            .catch(error => toast.error(error.data.message))
-    }
+            .catch(error => toast.error(error.data.message));
+    };
 
     return (
         <Box
@@ -56,7 +56,7 @@ const PasswordForm: React.FC<IPassword> = ({ changePassword }) => {
                 {isLoading ? t("formLoading") : t("passwordSubmit")}
             </Button>
         </Box>
-    )
-}
+    );
+};
 
 export default PasswordForm;

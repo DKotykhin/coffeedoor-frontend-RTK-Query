@@ -12,7 +12,7 @@ const Page404: React.FC = () => {
             </Helmet>
             <Error />
         </>
-    )
-}
+    );
+};
 
 export { Page404 };

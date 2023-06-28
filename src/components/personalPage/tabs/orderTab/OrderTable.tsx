@@ -20,7 +20,7 @@ const OrderTable: React.FC<{ orders: IUserOrder }> = ({ orders }) => {
             price: item.price,
             quantity: item.quantity,
             sum: item.price * item.quantity,
-        }
+        };
     });
 
     return (
@@ -57,7 +57,7 @@ const OrderTable: React.FC<{ orders: IUserOrder }> = ({ orders }) => {
                 </TableBody>
             </Table>
         </TableContainer>
-    )
-}
+    );
+};
 
 export default OrderTable;

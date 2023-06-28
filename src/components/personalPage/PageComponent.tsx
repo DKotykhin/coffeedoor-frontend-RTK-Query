@@ -16,7 +16,7 @@ const PageComponent: React.FC = () => {
                 <Tabs user={data.user} />
             }
         </>
-    )
-}
+    );
+};
 
 export default PageComponent;

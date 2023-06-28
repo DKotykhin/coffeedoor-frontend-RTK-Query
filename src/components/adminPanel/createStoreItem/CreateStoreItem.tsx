@@ -54,7 +54,7 @@ const CreateStoreItem: React.FC = () => {
         const createdData = {
             ...formData,
             group: data.group,
-        }
+        };
         await createData(createdData)
             .unwrap()
             .then(response => {
@@ -64,7 +64,7 @@ const CreateStoreItem: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return (
@@ -261,7 +261,7 @@ const CreateStoreItem: React.FC = () => {
                 </Box>
             </Box>
         </Container>
-    )
-}
+    );
+};
 
 export default CreateStoreItem;

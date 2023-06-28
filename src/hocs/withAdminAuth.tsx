@@ -10,18 +10,18 @@ const RequireAdminAuth: React.FC<{ children: JSX.Element }> = ({ children }): JS
     const { isSuccess, isError, data } = useAuth();
 
     if (!getToken()) {
-        return <Navigate to="/login" />
+        return <Navigate to="/login" />;
     }
 
     if (!isSuccess) {
-        return isError ? <Navigate to='/login' state={{ from: location }} /> : <Spinner />
+        return isError ? <Navigate to='/login' state={{ from: location }} /> : <Spinner />;
     }
 
     if (!(data?.user.role === 'admin')) {
-        return <Navigate to='/login' state={{ from: location }} />
+        return <Navigate to='/login' state={{ from: location }} />;
     }
     return children;
-}
+};
 
 export const withAdminAuth = (Component: React.FunctionComponent): JSX.Element => {
     return (
@@ -29,4 +29,4 @@ export const withAdminAuth = (Component: React.FunctionComponent): JSX.Element =
             <Component />
         </RequireAdminAuth>
     );
-}
+};

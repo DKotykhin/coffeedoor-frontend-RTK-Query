@@ -144,6 +144,6 @@ const NavigationDrawer: React.FC = () => {
             </Drawer>
         </Box>
     );
-}
+};
 
 export default NavigationDrawer;

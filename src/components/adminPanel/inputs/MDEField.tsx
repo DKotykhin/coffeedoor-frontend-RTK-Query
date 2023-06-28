@@ -37,7 +37,7 @@ const MDEField: React.FC<IMDEField> = ({ value, MDEChange, label }) => {
                 <SimpleMDE value={value} onChange={MDEChange} options={options} />
             </Box>
         </Paper>
-    )
+    );
 };
 
-export default MDEField;
+export { MDEField };

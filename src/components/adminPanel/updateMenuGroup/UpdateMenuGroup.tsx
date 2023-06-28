@@ -54,7 +54,7 @@ const UpdateMenuGroup: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     const onSubmit = async (data: FieldValues) => {
@@ -62,7 +62,7 @@ const UpdateMenuGroup: React.FC = () => {
         const updatedData = {
             groupId: itemId,
             data: formData,
-        }
+        };
         console.log(updatedData);
         await sendData(updatedData)
             .unwrap()
@@ -73,7 +73,7 @@ const UpdateMenuGroup: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return isSuccess ? (
@@ -179,7 +179,7 @@ const UpdateMenuGroup: React.FC = () => {
                 title={currentItem.title.ua}
             />
         </Container>
-    ) : <Spinner />
-}
+    ) : <Spinner />;
+};
 
 export default UpdateMenuGroup;

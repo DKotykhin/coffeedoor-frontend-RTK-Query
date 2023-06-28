@@ -12,7 +12,7 @@ const PersonalPage: React.FC = () => {
             </Helmet>
             <PageComponent />
         </>
-    )
-}
+    );
+};
 
 export { PersonalPage };

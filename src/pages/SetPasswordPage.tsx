@@ -11,7 +11,7 @@ const SetPasswordPage: React.FC = () => {
             </Helmet>
             <SetPasswordForm />
         </>
-    )
-}
+    );
+};
 
 export { SetPasswordPage };

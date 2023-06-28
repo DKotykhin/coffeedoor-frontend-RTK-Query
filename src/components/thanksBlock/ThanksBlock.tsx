@@ -26,7 +26,7 @@ const ThanksBlock: React.FC = () => {
             </Typography>
             <ReturnButton />
         </Container>
-    )
-}
+    );
+};
 
 export default ThanksBlock;

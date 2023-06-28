@@ -1,5 +1,5 @@
-export { default as EmailField } from "./EmailField";
-export { default as NameField } from "./NameField";
-export { default as PasswordField } from "./PasswordField";
-export { default as PhoneField } from "./PhoneField";
-export { default as AddressField } from "./AddressField";
+export { EmailField } from "./EmailField";
+export { NameField } from "./NameField";
+export { PasswordField } from "./PasswordField";
+export { PhoneField } from "./PhoneField";
+export { AddressField } from "./AddressField";

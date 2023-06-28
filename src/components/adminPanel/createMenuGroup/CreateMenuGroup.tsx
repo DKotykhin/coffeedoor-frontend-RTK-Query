@@ -6,8 +6,7 @@ import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
-import InputField from '../inputs/InputField';
-import CheckboxInput from '../inputs/CheckboxInput';
+import { InputField, CheckboxInput } from '../inputs/_index';
 import { MenuGroupValidation } from 'components/validation/menuGroupValidation';
 import { menuGroupFormData } from '../formData/menuGroupFormData';
 
@@ -31,7 +30,7 @@ const CreateMenuGroup: React.FC = () => {
     const handleCancel = (): void => navigate("/admin");
 
     const onSubmit = async (data: FieldValues) => {
-        const formData = menuGroupFormData(data)       
+        const formData = menuGroupFormData(data);
         await sendData(formData)
             .unwrap()
             .then(response => {
@@ -41,7 +40,7 @@ const CreateMenuGroup: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return (
@@ -126,7 +125,7 @@ const CreateMenuGroup: React.FC = () => {
                 </Box>
             </Box>
         </Container>
-    )
-}
+    );
+};
 
 export default CreateMenuGroup;

@@ -32,7 +32,7 @@ const InputField: React.FC<IInputField> = ({ label, defaultValue, control, name,
             </Box>
             <FormHelperText sx={{ marginLeft: '130px' }}>{error?.message}</FormHelperText>
         </>
-    )
-}
+    );
+};
 
-export default InputField;
+export { InputField };

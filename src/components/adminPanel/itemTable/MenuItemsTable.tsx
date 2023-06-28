@@ -31,7 +31,7 @@ const MenuItemsTable: React.FC<IMenuItemsTable> = ({ itemList }) => {
             price: item.price,
             hidden: item.hidden ? <DoNotDisturbOnIcon color='error'/> : <CheckCircleIcon color='primary'/>,
             edit: <Button onClick={() => handleClick(item._id)}>Edit</Button>
-        }
+        };
     });
 
     return (
@@ -71,7 +71,7 @@ const MenuItemsTable: React.FC<IMenuItemsTable> = ({ itemList }) => {
                 </Table>
             </TableContainer>
         </Container>
-    )
-}
+    );
+};
 
 export default MenuItemsTable;

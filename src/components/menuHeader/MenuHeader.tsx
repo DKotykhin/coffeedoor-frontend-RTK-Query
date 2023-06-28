@@ -33,7 +33,7 @@ const MenuHeader: React.FC = () => {
                 </Box>
             ))}
         </Container>
-    )
-}
+    );
+};
 
 export default MenuHeader;

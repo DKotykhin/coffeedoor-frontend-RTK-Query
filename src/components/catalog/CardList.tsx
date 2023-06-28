@@ -39,12 +39,12 @@ const CardList: React.FC<ICardList> = ({ item, data }) => {
     const { t } = useTranslation('catalog');
 
     useEffect(() => {
-        const filterKeyArray = data.map(item => item.sort?.key[lang])
+        const filterKeyArray = data.map(item => item.sort?.key[lang]);
         if (filterKeyArray.length) {
             const filterKey = [...new Set(filterKeyArray)];
             setFilterKey(filterKey[0]);
         }
-        const filterValueArray = data.map(item => item.sort?.value[lang])
+        const filterValueArray = data.map(item => item.sort?.value[lang]);
         if (filterValueArray.length) {
             let filterValue = [...new Set(filterValueArray)];
             const all = t("all_button");
@@ -56,11 +56,11 @@ const CardList: React.FC<ICardList> = ({ item, data }) => {
     const onSelected = (filterLabel: string | undefined | null) => {
         const filteredArray = data.filter(item => {
             if (filterLabel !== t("all_button"))
-                return item.sort?.value[lang] === filterLabel
-            else return true
-        })
+                return item.sort?.value[lang] === filterLabel;
+            else return true;
+        });
         setItemArray(filteredArray);
-        setArrayLength(filteredArray.length)
+        setArrayLength(filteredArray.length);
     };
 
     return (
@@ -106,7 +106,7 @@ const CardList: React.FC<ICardList> = ({ item, data }) => {
                 </Swiper>
             }
         </Container>
-    )
-}
+    );
+};
 
 export default CardList;

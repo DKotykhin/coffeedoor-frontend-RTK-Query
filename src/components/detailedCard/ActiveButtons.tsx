@@ -71,7 +71,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, lang, closeModal }) => 
                 {t("button_2")}
             </Button>
         </Typography>
-    )
-}
+    );
+};
 
 export default ActiveButtons;

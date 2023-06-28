@@ -41,10 +41,10 @@ const SetPasswordForm: React.FC = () => {
                     toast.success(response.message);
                     navigate('/login');
                 })
-                .catch(error => toast.error(error.data.message))
+                .catch(error => toast.error(error.data.message));
 
         } else toast.warn("Passwords don't match");
-    }
+    };
 
     return (
         <Container maxWidth="xs" className={styles.form}>
@@ -88,7 +88,7 @@ const SetPasswordForm: React.FC = () => {
                 {t("return")}
             </Button>
         </Container>
-    )
-}
+    );
+};
 
 export default SetPasswordForm;

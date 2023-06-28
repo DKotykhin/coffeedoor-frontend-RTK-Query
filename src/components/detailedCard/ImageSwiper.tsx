@@ -51,7 +51,7 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ item, lang }) => {
                 <img src={waitImage} alt={'wait for'} />
             }
         </Box>
-    )
-}
+    );
+};
 
 export default ImageSwiper;

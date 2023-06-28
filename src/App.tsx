@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Layout from "components/layout/Layout";
+import Layout from "layout/Layout";
 import { AdminPage, CreateMenuGroupPage, CreateMenuItemPage, CreateStoreItemPage, HomePage, MenuPage, MenuItemPage, MenuGroupPage, LoginPage, Page404, PersonalPage, RegistrationPage, StoreItemPage, ThanksPage, SetPasswordPage } from "pages/_index";
 
 import { withAdminAuth } from "hocs/withAdminAuth";

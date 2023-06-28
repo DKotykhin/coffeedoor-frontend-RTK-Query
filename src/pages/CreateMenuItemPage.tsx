@@ -12,7 +12,7 @@ const CreateMenuItemPage: React.FC = () => {
             </Helmet>
             <CreateMenuItem />
         </>
-    )
-}
+    );
+};
 
 export { CreateMenuItemPage };

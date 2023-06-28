@@ -44,7 +44,7 @@ const FirstBlock: React.FC = () => {
                 <ArrowBackIosIcon className={styles.firstBlock__icon} />
             </motion.div>
         </Box>
-    )
-}
+    );
+};
 
 export default FirstBlock;

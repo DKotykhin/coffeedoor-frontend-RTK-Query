@@ -33,12 +33,12 @@ const CreateMenuItem: React.FC = () => {
     const handleCancel = (): void => navigate("/admin");
 
     const onSubmit = async (data: FieldValues) => {
-        const formData = menuItemFormData(data)
+        const formData = menuItemFormData(data);
         const group = menuData.find((item: IMenuGroup) => item.title.ua === data.group);
         const updatedData = {
             groupId: group._id,
             data: formData,
-        }
+        };
         console.log(updatedData);
         await sendData(updatedData)
             .unwrap()
@@ -49,7 +49,7 @@ const CreateMenuItem: React.FC = () => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return (
@@ -141,7 +141,7 @@ const CreateMenuItem: React.FC = () => {
                 </Box>
             </Box>
         </Container>
-    )
-}
+    );
+};
 
 export default CreateMenuItem;

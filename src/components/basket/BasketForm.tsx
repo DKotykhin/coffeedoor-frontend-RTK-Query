@@ -114,7 +114,7 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
                 </Button>
             </Box>
         </>
-    )
-}
+    );
+};
 
 export default BasketForm;

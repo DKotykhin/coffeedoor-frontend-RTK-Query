@@ -22,7 +22,7 @@ const FilterItem: React.FC<IFilterItem> = ({ filterKey, filterValue, onSelected,
     const filtersOpen = () => {
         setShowFilter(!showFilter);
         onSelected(t("all_button"));
-        setSelectedItem(filterValue?.length ? filterValue[0] : "")
+        setSelectedItem(filterValue?.length ? filterValue[0] : "");
     };
     const handleSelect = (data: string | undefined) => {
         setSelectedItem(data);
@@ -72,7 +72,7 @@ const FilterItem: React.FC<IFilterItem> = ({ filterKey, filterValue, onSelected,
                 </Stack>
             }
         </>
-    )
-}
+    );
+};
 
 export default FilterItem;

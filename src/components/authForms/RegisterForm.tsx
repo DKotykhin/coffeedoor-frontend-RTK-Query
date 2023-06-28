@@ -44,8 +44,8 @@ const RegisterForm: React.FC = () => {
                 navigate("/");
                 reset();
             })
-            .catch(error => toast.error(error.data.message))
-    }
+            .catch(error => toast.error(error.data.message));
+    };
 
     return (
         <Container maxWidth="xs" className={styles.form}>
@@ -102,7 +102,7 @@ const RegisterForm: React.FC = () => {
                 {t("return")}
             </Button>
         </Container>
-    )
-}
+    );
+};
 
 export default RegisterForm;

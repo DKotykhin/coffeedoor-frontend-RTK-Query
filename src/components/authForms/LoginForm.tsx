@@ -47,8 +47,8 @@ const LoginForm: React.FC = () => {
                 } else navigate(`/setPassword:${response.user._id}`);
                 reset();
             })
-            .catch(error => toast.error(error.data.message))
-    }
+            .catch(error => toast.error(error.data.message));
+    };
 
     return (
         <Container maxWidth="xs" className={styles.form}>
@@ -109,7 +109,7 @@ const LoginForm: React.FC = () => {
                 {t("return")}
             </Button>
         </Container>
-    )
-}
+    );
+};
 
 export default LoginForm;

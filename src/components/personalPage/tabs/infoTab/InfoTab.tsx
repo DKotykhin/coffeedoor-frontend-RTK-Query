@@ -40,7 +40,7 @@ const InfoTab: React.FC<{ user: IUser }> = ({ user }) => {
             })
             .catch((error: { data: { message: string } }) => {
                 toast.error(error.data.message);
-            })
+            });
     };
 
     return (
@@ -71,7 +71,7 @@ const InfoTab: React.FC<{ user: IUser }> = ({ user }) => {
                 title={userName}
             />
         </Container>
-    )
-}
+    );
+};
 
 export default InfoTab;

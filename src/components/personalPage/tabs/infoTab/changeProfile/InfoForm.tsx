@@ -39,8 +39,8 @@ const InfoForm: React.FC<{ user: IUser }> = ({ user }) => {
         await sendProfile(formData)
             .unwrap()
             .then(response => toast.success(response.message))
-            .catch(error => toast.error(error.data.message))
-    }
+            .catch(error => toast.error(error.data.message));
+    };
 
     return (
         <Paper elevation={10} className={styles.infoForm}>
@@ -79,7 +79,7 @@ const InfoForm: React.FC<{ user: IUser }> = ({ user }) => {
                 </Button>
             </Box>
         </Paper>
-    )
-}
+    );
+};
 
 export default InfoForm;

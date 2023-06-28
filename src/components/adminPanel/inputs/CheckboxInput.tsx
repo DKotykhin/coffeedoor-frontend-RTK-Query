@@ -22,6 +22,6 @@ const CheckboxInput: React.FC<ICheckboxInput> = ({ label, defaultValue, control,
             />
         </Box>
     );
-}
+};
 
-export default CheckboxInput;
+export { CheckboxInput };

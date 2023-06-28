@@ -104,6 +104,6 @@ const DetailedCard: React.FC<IDetailedCard> = ({ item, lang, openModal, closeMod
             </Fade>
         </Modal>
     );
-}
+};
 
 export default DetailedCard;

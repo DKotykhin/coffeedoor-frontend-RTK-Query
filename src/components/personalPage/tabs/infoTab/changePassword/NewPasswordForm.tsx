@@ -37,10 +37,10 @@ const NewPasswordForm: React.FC<IPassword> = ({ changePassword }) => {
                     changePassword(response.status);
                     toast.success(response.message);
                 })
-                .catch(error => toast.error(error.data.message))
+                .catch(error => toast.error(error.data.message));
             changePassword(false);
         } else toast.warn("Passwords don't match");
-    }
+    };
 
     const handleCancel = () => changePassword(false);
 
@@ -80,7 +80,7 @@ const NewPasswordForm: React.FC<IPassword> = ({ changePassword }) => {
                 </Button>
             </Box>
         </Box>
-    )
-}
+    );
+};
 
 export default NewPasswordForm;

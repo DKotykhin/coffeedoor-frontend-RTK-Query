@@ -28,7 +28,7 @@ const AccordeonItem: React.FC<IAccordeonItem> = ({ item, lang }) => {
                 {item.price} {t("currency")}
             </Typography>
         </>
-    )
-}
+    );
+};
 
 export default AccordeonItem;

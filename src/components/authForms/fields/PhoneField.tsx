@@ -1,6 +1,6 @@
 import React from 'react';
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
 import { Controller } from "react-hook-form";
 
@@ -20,7 +20,7 @@ interface IPhoneField {
 }
 
 const PhoneField: React.FC<IPhoneField> = ({ label, error, control }) => {
-   
+
     return (
         <Box className={styles.field}>
             <InputLabel>{label}</InputLabel>
@@ -28,7 +28,7 @@ const PhoneField: React.FC<IPhoneField> = ({ label, error, control }) => {
                 <Controller
                     name="phone"
                     control={control}
-                    render={({ field }) => (                        
+                    render={({ field }) => (
                         <PhoneInput
                             {...field}
                             country={'ua'}
@@ -44,6 +44,6 @@ const PhoneField: React.FC<IPhoneField> = ({ label, error, control }) => {
             </FormControl>
         </Box>
     );
-}
+};
 
-export default PhoneField;
+export { PhoneField };

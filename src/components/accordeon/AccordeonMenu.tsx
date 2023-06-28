@@ -78,6 +78,6 @@ const AccordeonMenu: React.FC<IAccordeonBlock> = ({ data }) => {
             ))}
         </Container>
     );
-}
+};
 
 export default AccordeonMenu;

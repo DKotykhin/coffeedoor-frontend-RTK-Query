@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
             <AboutBlock />
             <BasketModal />
         </>
-    )
+    );
 };
 
 export { HomePage };
