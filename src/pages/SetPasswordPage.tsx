@@ -14,4 +14,4 @@ const SetPasswordPage: React.FC = () => {
     )
 }
 
-export default SetPasswordPage;
+export { SetPasswordPage };

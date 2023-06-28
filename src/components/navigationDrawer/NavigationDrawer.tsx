@@ -19,7 +19,19 @@ import styles from './navigationDrawer.module.scss';
 interface IDrawerTitle {
     title: string;
     id: string
-}
+};
+
+const catalogTitleList: IDrawerTitle[] = [
+    { title: "titleA", id: "#coffee" },
+    { title: "titleB", id: "#tea" },
+    { title: "titleE", id: "#jam" },
+    { title: "titleC", id: "#mills" },
+    { title: "titleD", id: "#accessories" },
+];
+const homePageTitleList: IDrawerTitle[] = [
+    { title: "titleX", id: "#about" },
+    { title: "titleY", id: "#footer" },
+];
 
 const NavigationDrawer: React.FC = () => {
 
@@ -29,18 +41,6 @@ const NavigationDrawer: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const { data, isSuccess } = useAuth();
-
-    const catalogTitleList: IDrawerTitle[] = [
-        { title: t("titleA"), id: "#coffee" },
-        { title: t("titleB"), id: "#tea" },
-        { title: t("titleE"), id: "#jam" },
-        { title: t("titleC"), id: "#mills" },
-        { title: t("titleD"), id: "#accessories" },
-    ];
-    const homePageTitleList: IDrawerTitle[] = [
-        { title: t("titleX"), id: "#about" },
-        { title: t("titleY"), id: "#footer" },
-    ];
 
     const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
@@ -55,7 +55,6 @@ const NavigationDrawer: React.FC = () => {
     const handleLink = () => navigate('/admin');
     const handleLogin = () => navigate('/personal');
     const handleLogout = () => {
-        // console.log('logout');
         sessionStorage.removeItem("rememberMe");
         localStorage.removeItem("rememberMe");
         dispatch(fetchUser.util.resetApiState());
@@ -103,7 +102,7 @@ const NavigationDrawer: React.FC = () => {
                                     className={styles.drawer__item}
                                     href={text.id}
                                 >
-                                    {text.title}
+                                    {t(text.title)}
                                 </MuiLink>
                             </ListItem>
                         ))}
@@ -111,12 +110,12 @@ const NavigationDrawer: React.FC = () => {
                     <Divider />
                     <List className={styles.drawer__items}>
                         {homePageTitleList.map((text) => (
-                            <ListItem key={text.title} disablePadding>
+                            <ListItem key={text.id} disablePadding>
                                 <MuiLink
                                     className={styles.drawer__item}
                                     href={text.id}
                                 >
-                                    {text.title}
+                                    {t(text.title)}
                                 </MuiLink>
                             </ListItem>
                         ))}

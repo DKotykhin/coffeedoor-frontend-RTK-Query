@@ -16,4 +16,4 @@ const ThanksPage: React.FC = () => {
     );
 };
 
-export default ThanksPage;
+export { ThanksPage };

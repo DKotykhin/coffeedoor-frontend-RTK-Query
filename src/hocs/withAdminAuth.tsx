@@ -5,7 +5,7 @@ import Spinner from "components/spinner/Spinner";
 import { useAuth } from "hooks/useAuth";
 import { getToken } from 'services/getToken';
 
-const RequireAdminAuth: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const RequireAdminAuth: React.FC<{ children: JSX.Element }> = ({ children }): JSX.Element => {
     const location = useLocation();
     const { isSuccess, isError, data } = useAuth();
 
@@ -23,4 +23,10 @@ const RequireAdminAuth: React.FC<{ children: JSX.Element }> = ({ children }) => 
     return children;
 }
 
-export { RequireAdminAuth };
+export const withAdminAuth = (Component: React.FunctionComponent): JSX.Element => {
+    return (
+        <RequireAdminAuth>
+            <Component />
+        </RequireAdminAuth>
+    );
+}

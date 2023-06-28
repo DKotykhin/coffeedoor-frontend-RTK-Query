@@ -15,4 +15,4 @@ const PersonalPage: React.FC = () => {
     )
 }
 
-export default PersonalPage;
+export { PersonalPage };

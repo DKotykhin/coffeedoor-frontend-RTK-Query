@@ -15,4 +15,4 @@ const CreateStoreItemPage: React.FC = () => {
     )
 }
 
-export default CreateStoreItemPage;
+export { CreateStoreItemPage };

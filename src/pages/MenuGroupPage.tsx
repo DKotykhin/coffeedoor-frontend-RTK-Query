@@ -15,4 +15,4 @@ const MenuGroupPage: React.FC = () => {
     )
 }
 
-export default MenuGroupPage;
+export { MenuGroupPage };

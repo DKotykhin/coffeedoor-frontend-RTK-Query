@@ -15,4 +15,4 @@ const StoreItemPage: React.FC = () => {
     )
 }
 
-export default StoreItemPage;
+export { StoreItemPage };

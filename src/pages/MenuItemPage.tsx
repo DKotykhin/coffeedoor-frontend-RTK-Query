@@ -15,4 +15,4 @@ const MenuItemPage: React.FC = () => {
     )
 }
 
-export default MenuItemPage;
+export { MenuItemPage };

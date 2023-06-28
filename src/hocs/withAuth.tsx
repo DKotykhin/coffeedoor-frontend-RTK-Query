@@ -5,7 +5,7 @@ import Spinner from "components/spinner/Spinner";
 import { useAuth } from "hooks/useAuth";
 import { getToken } from 'services/getToken';
 
-const RequireAuth: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const RequireAuth: React.FC<{ children: JSX.Element }> = ({ children }): JSX.Element => {
     const location = useLocation();
     const auth = useAuth();
 
@@ -18,6 +18,12 @@ const RequireAuth: React.FC<{ children: JSX.Element }> = ({ children }) => {
     }
 
     return children;
-}
+};
 
-export { RequireAuth };
+export const withAuth = (Component: React.FunctionComponent): JSX.Element => {
+    return (
+        <RequireAuth>
+            <Component />
+        </RequireAuth>
+    );
+};

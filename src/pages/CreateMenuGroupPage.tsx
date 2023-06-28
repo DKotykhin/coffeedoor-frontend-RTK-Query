@@ -15,4 +15,4 @@ const CreateMenuGroupPage: React.FC = () => {
     )
 }
 
-export default CreateMenuGroupPage;
+export { CreateMenuGroupPage };

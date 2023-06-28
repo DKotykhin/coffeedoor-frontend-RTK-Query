@@ -34,12 +34,13 @@ const listVariants = {
     hidden: { opacity: 0 },
 };
 
+const benefitsItem = [
+    "itemA", "itemB", "itemC", "itemD", "itemE", "itemF",
+];
+
 const AboutBlock: React.FC = () => {
 
     const { t } = useTranslation("about");
-    const benefitsItem = [
-        t("itemA"), t("itemB"), t("itemC"), t("itemD"), t("itemE"), t("itemF"),
-    ];
 
     return (
         <Container
@@ -92,7 +93,7 @@ const AboutBlock: React.FC = () => {
                     >
                         <DoneIcon />
                         <Box className={styles.about__item}>
-                            {item}
+                            {t(item)}
                         </Box>
                     </motion.div>
                 ))}
