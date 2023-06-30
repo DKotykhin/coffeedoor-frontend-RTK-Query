@@ -1,11 +1,17 @@
 import { useTranslation } from "react-i18next";
 
-export type Languages = "ua" | "ru" | "en";
+// export type Languages = "ua" | "ru" | "en";
+
+export enum Languages {
+    "ua" = "ua",
+    "ru" = "ru",
+    "en" = "en",
+} 
 
 export const langButtons = [
-    { key: "ua", label: "Ua" },
-    { key: "ru", label: "Ru" },
-    { key: "en", label: "En" },
+    { key: Languages.ua, label: "Ua" },
+    { key: Languages.ru, label: "Ru" },
+    { key: Languages.en, label: "En" },
 ];
 
 export const useLang = (): Languages => {
@@ -13,16 +19,16 @@ export const useLang = (): Languages => {
     let lang: Languages;
     switch (i18n.language) {
         case "ua":
-            lang = "ua";
+            lang = Languages.ua;
             break;
         case "ru":
-            lang = "ru";
+            lang = Languages.ru;
             break;
         case "en":
-            lang = "en";
+            lang = Languages.en;
             break;
         default:
-            lang = "ua";
+            lang = Languages.ua;
     }
     return lang;
 };

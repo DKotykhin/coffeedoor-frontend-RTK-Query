@@ -46,35 +46,35 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                     image={image}
                     alt={itemName[lang]}
                 />
-                <CardContent className={styles.card__content}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {title[lang]} {itemName[lang]}
-                    </Typography>
-                    <Typography className={styles.card__price}>
-                        {price} {t("currency")}
-                    </Typography>
-                    <Typography className={styles.card__description}>
-                        {description[lang]}
-                    </Typography>
-                    <Box className={styles.card__boxItems}>
-                        {order &&
-                            <Typography color="error">
-                                {t("order")}
-                            </Typography>
-                        }
-                        {weight &&
-                            <Typography color='secondary.light'>
-                                {t("weight")}{weight}{t("unit")}
-                            </Typography>
-                        }
-                        {sort?.key &&
-                            <Typography color='secondary.light'>
-                                {sort.key[lang]}{": "} {sort.value[lang]}
-                            </Typography>
-                        }
-                    </Box>
-                </CardContent>
             </CardActionArea>
+            <CardContent className={styles.card__content}>
+                <Typography gutterBottom variant="h5" component="div">
+                    {title[lang]} {itemName[lang]}
+                </Typography>
+                <Typography className={styles.card__price}>
+                    {price} {t("currency")}
+                </Typography>
+                <Typography className={styles.card__description}>
+                    {description[lang]}
+                </Typography>
+                <Box className={styles.card__boxItems}>
+                    {order &&
+                        <Typography color="error">
+                            {t("order")}
+                        </Typography>
+                    }
+                    {weight &&
+                        <Typography color='secondary.light'>
+                            {t("weight")}{weight}{t("unit")}
+                        </Typography>
+                    }
+                    {sort?.key &&
+                        <Typography color='secondary.light'>
+                            {sort.key[lang]}{": "} {sort.value[lang]}
+                        </Typography>
+                    }
+                </Box>
+            </CardContent>
             <CardActions className={styles.card__buttons}>
                 <Button className={styles.button__detail} onClick={detailClick}>
                     {t("button_1")}

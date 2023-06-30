@@ -1,7 +1,9 @@
+import { Languages } from "hooks/useLang";
+
 interface IStoreUnit {
-    ua: string;
-    ru: string;
-    en: string;
+    [Languages.ua]: string;
+    [Languages.ru]: string;
+    [Languages.en]: string;
 }
 export interface IUpdateStoreItem {
     title: IStoreUnit;

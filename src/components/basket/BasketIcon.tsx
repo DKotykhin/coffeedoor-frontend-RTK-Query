@@ -30,19 +30,16 @@ const BasketIcon: React.FC<IBasketIcon> = ({ handleOpen }) => {
         0
     );
 
-    return (
-        <>
-            {basketData.length > 0 && (
-                <Box className={styles.basketIcon} onClick={handleOpen}>
-                    <StyledBadge badgeContent={totalQuantity}>
-                        <ShoppingBasketOutlinedIcon
-                            className={styles.basketIcon__icon}
-                        />
-                    </StyledBadge>
-                </Box>
-            )}
-        </>
-    );
+    return basketData.length > 0 ? (
+        <Box className={styles.basketIcon} onClick={handleOpen}>
+            <StyledBadge badgeContent={totalQuantity}>
+                <ShoppingBasketOutlinedIcon
+                    className={styles.basketIcon__icon}
+                />
+            </StyledBadge>
+        </Box>
+    ) : null;
 };
+
 
 export default BasketIcon;

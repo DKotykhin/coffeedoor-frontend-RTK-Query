@@ -73,8 +73,8 @@ const BasketModal: React.FC = () => {
         <>
             <BasketIcon handleOpen={handleOpen} />
             <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
+                aria-labelledby="basket-modal"
+                aria-describedby="open-basket-modal-form"
                 open={openModal}
                 onClose={handleClose}
                 closeAfterTransition

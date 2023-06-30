@@ -25,6 +25,7 @@ import Image_33 from "images/aboutImages/Coffeedoor_33.webp";
 import Image_34 from "images/aboutImages/Coffeedoor_34.webp";
 
 export interface IPhotoData {
+    id: number;
     img: string;
     alt: string;
     bigSize: boolean;
@@ -33,150 +34,175 @@ export interface IPhotoData {
 
 export const photoData: IPhotoData[] = [
     {
+        id: 1,
         img: Image_10,
         alt: "Coffee",
         bigSize: true,
         portrait: false,
     },
     {
+        id: 2,
         img: Image_11,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 3,
         img: Image_12,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 4,
         img: Image_13,
         alt: "Coffee",
         bigSize: true,
         portrait: false,
     },
     {
+        id: 5,
         img: Image_14,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 6,
         img: Image_15,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 7,
         img: Image_18,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 8,
         img: Image_19,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 9,
         img: Image_16,
         alt: "Coffee",
         bigSize: false,
         portrait: true,
     },
     {
+        id: 10,
         img: Image_17,
         alt: "Coffee",
         bigSize: false,
         portrait: true,
     },
     {
+        id: 11,
         img: Image_20,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 12,
         img: Image_21,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 13,
         img: Image_22,
         alt: "Coffee",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 14,
         img: Image_23,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 15,
         img: Image_24,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 16,
         img: Image_25,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 17,
         img: Image_26,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 18,
         img: Image_27,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 19,
         img: Image_30,
         alt: "Coffee table",
         bigSize: false,
         portrait: true,
     },
     {
+        id: 20,
         img: Image_31,
         alt: "Coffee table",
         bigSize: false,
         portrait: true,
     },
     {
+        id: 21,
         img: Image_28,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 22,
         img: Image_29,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 23,
         img: Image_32,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 24,
         img: Image_33,
         alt: "Coffee table",
         bigSize: false,
         portrait: false,
     },
     {
+        id: 25,
         img: Image_34,
         alt: "Coffee table",
         bigSize: true,

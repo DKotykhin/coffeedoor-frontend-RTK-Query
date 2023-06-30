@@ -1,0 +1,37 @@
+@import "constants/constants.scss";
+
+.photoModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 900px;
+    max-height: 900px;
+    padding: 15px;
+    border: 1px solid $color_lightGrey;
+    border-radius: 10px;
+    background-color: $color_grey;
+    @media (max-width: 880px) {
+        width: 90%;
+    }
+    @media (max-height: 900px) {
+        max-height: 90%;
+        overflow-y: scroll;
+    }
+    .close {
+        position: absolute;
+        color: $color_lightGrey;
+        font-size: 2.5rem;
+        top: 0;
+        right: 16px;
+        cursor: pointer;
+    }
+    .close:hover {
+        color: #fff;
+        transition: 0.4s;
+    }
+    img {
+        width: 100%;
+        margin-top: 30px;
+    }
+}

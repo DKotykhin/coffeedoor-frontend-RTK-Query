@@ -2,27 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from "framer-motion";
 
-import {
-    Container,
-    Box,
-    ImageList,
-    ImageListItem,
-    Typography,
-} from "@mui/material";
+import { Container, Box, Typography } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
-import { photoData, IPhotoData } from "./photoData";
+import PhotoList from './PhotoList';
 
 import styles from './aboutblock.module.scss';
-
-const srcset = (image: string, width: number, height: number, rows = 1, cols = 1) => {
-    return {
-        src: `${image}?w=${width * cols}&h=${height * rows
-            }&fit=crop&auto=format`,
-        srcSet: `${image}?w=${width * cols}&h=${height * rows
-            }&fit=crop&auto=format&dpr=2 2x`,
-    };
-};
 
 const listVariants = {
     visible: (i: number) => ({
@@ -49,28 +34,7 @@ const AboutBlock: React.FC = () => {
             className={styles.about}
         >
             <Typography className={styles.about__title}>{t("title")}</Typography>
-            <ImageList
-                sx={{
-                    height: 800,
-                    transform: "translateZ(0)",
-                }}
-                gap={10}
-            >
-                {photoData.map((item: IPhotoData, i: number) => {
-                    const cols = item.bigSize ? 2 : 1;
-                    const rows = item.bigSize ? 2 : 1;
-                    return (
-                        <ImageListItem key={i} cols={cols} rows={rows}>
-                            <img
-                                {...srcset(item.img, 250, 200, rows, cols)}
-                                src={item.img}
-                                alt={item.alt}
-                                loading="lazy"
-                            />
-                        </ImageListItem>
-                    );
-                })}
-            </ImageList>
+            <PhotoList />
             <Box maxWidth="md" className={styles.about__box}>
                 <Typography className={styles.about__slogan}>
                     Our coffee – Everything matters
