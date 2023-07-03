@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Button, Container, Typography, Avatar, Paper, Box } from "@mui/material";
 
 import { PasswordField, NameField, PhoneField } from './fields/_index';
-import { RegisterFormValidation } from '../validation/userFormValidation';
+import { RegisterFormValidation } from '../../validation/userFormValidation';
 
 import { useFetchRegisterUserMutation } from "services/userService";
 

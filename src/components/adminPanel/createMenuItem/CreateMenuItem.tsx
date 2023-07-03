@@ -8,7 +8,7 @@ import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
 import { InputField, CheckboxInput, SelectInput } from '../inputs/_index';
 import { menuItemFormData } from '../formData/menuItemFormData';
-import { MenuItemValidation } from 'components/validation/menuItemValidation';
+import { MenuItemValidation } from 'validation/menuItemValidation';
 
 import { useCreateMenuItemMutation, useGetMenuQuery } from 'services/menuService';
 

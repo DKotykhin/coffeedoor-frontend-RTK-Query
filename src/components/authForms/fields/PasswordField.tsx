@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Controller, FieldError } from "react-hook-form";
+import { Control, Controller, FieldError } from "react-hook-form";
 
 import {
     Box,
@@ -19,8 +19,8 @@ interface IPasswordField {
     label: string;
     name: string;
     placeholder: string;
-    error: FieldError | undefined;
-    control: any
+    error?: FieldError;
+    control: Control<any>;
 }
 
 const PasswordField: React.FC<IPasswordField> = ({ label, name, placeholder, error, control }) => {

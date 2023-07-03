@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Box, Button, Paper, Typography } from '@mui/material';
 
 import { NameField, EmailField, AddressField } from 'components/authForms/fields/_index';
-import { InfoFormValidation } from 'components/validation/userFormValidation';
+import { InfoFormValidation } from 'validation/userFormValidation';
 
 import { useFetchProfileMutation } from 'services/userService';
 

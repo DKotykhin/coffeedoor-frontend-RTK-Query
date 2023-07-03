@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
 import { InputField, CheckboxInput } from '../inputs/_index';
-import { MenuGroupValidation } from 'components/validation/menuGroupValidation';
+import { MenuGroupValidation } from 'validation/menuGroupValidation';
 import { menuGroupFormData } from '../formData/menuGroupFormData';
 
 import { useCreateMenuGroupMutation } from 'services/menuService';

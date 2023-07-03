@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { toast } from 'react-toastify';
 
 import { Box, Modal, Typography, Backdrop, Fade, Divider } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -40,7 +42,7 @@ const BasketModal: React.FC = () => {
     const { basketData } = useAppSelector(selectBasket);
     const dispatch = useAppDispatch();
 
-    const [sendData] = useSendBasketDataMutation();
+    const [sendData, { isLoading }] = useSendBasketDataMutation();
 
     const handleRemove = (id: string): void => {
         dispatch(basketRemoveItems(id));
@@ -57,16 +59,15 @@ const BasketModal: React.FC = () => {
             userData,
             basketData
         };
-        console.log(fullData);
-        setOpenModal(false);
         await sendData(fullData)
             .unwrap()
             .then(response => {
+                setOpenModal(false);
                 console.log(response.message);
                 dispatch(basketSetEmpty());
                 navigate("/thanks");
             })
-            .catch(error => console.log(error.data.message));
+            .catch(error => toast.error(error.data.message));
     };
 
     return (
@@ -160,7 +161,7 @@ const BasketModal: React.FC = () => {
                             )}
                             {t("currency")}
                         </Typography>
-                        <BasketForm onSubmit={onSubmitForm} />
+                        <BasketForm onSubmit={onSubmitForm} isLoading={isLoading} />
                     </Box>
                 </Fade>
             </Modal>

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
-import { StoreItemValidation } from 'components/validation/storeItemValidation';
+import { StoreItemValidation } from 'validation/storeItemValidation';
 import { TextArea, MDEField, CheckboxInput, InputField, SelectInput } from '../inputs/_index';
 import { storeFormData } from '../formData/storeFormData';
 

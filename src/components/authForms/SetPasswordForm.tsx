@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Button, Container, Typography, Avatar, Paper, Box } from "@mui/material";
 
 import { PasswordField } from './fields/_index';
-import { NewPasswordFormValidation } from '../validation/userFormValidation';
+import { NewPasswordFormValidation } from '../../validation/userFormValidation';
 
 import { useFetchSetPasswordMutation } from 'services/userService';
 

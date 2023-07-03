@@ -9,7 +9,7 @@ import Spinner from 'components/spinner/Spinner';
 import ChildModal from '../../childModal/ChildModal';
 import { CheckboxInput, InputField } from '../inputs/_index';
 import { menuItemFormData } from '../formData/menuItemFormData';
-import { MenuItemValidation } from 'components/validation/menuItemValidation';
+import { MenuItemValidation } from 'validation/menuItemValidation';
 
 import { useDeleteMenuItemMutation, useGetMenuQuery, useUpdateMenuItemMutation } from 'services/menuService';
 

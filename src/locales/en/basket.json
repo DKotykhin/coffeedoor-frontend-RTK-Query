@@ -11,5 +11,6 @@
     "var_1": "pick up at coffee shop",
     "var_2": "delivery according to the carrier's tariffs",
     "comment": "Delivery address or comment",
-    "submit": "submit"
+    "submit": "submit",
+    "loading": "Loading..."
 }

@@ -8,7 +8,7 @@ import { Button, Box, Container, Paper, Typography } from '@mui/material';
 
 import Spinner from 'components/spinner/Spinner';
 import ChildModal from '../../childModal/ChildModal';
-import { StoreItemValidation } from 'components/validation/storeItemValidation';
+import { StoreItemValidation } from 'validation/storeItemValidation';
 import { TextArea, MDEField, CheckboxInput, InputField } from '../inputs/_index';
 
 import { storeFormData } from '../formData/storeFormData';

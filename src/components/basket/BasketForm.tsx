@@ -4,15 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Box, Button, TextField } from "@mui/material";
 import { Typography, InputLabel } from "@mui/material";
-import {
-    Radio,
-    RadioGroup,
-    FormControl,
-    FormControlLabel,
-    FormLabel,
-} from "@mui/material";
+import { Radio, RadioGroup, FormControlLabel } from "@mui/material";
 
-import { FormValidation } from "../validation/basketValidation";
+import { FormValidation } from "../../validation/basketValidation";
 import { NameField, PhoneField } from 'components/authForms/fields/_index';
 import { useAuth } from 'hooks/useAuth';
 
@@ -22,9 +16,10 @@ import styles from './basketForm.module.scss';
 
 interface IBasketForm {
     onSubmit: (data: IFormData) => void;
+    isLoading: boolean;
 }
 
-const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
+const BasketForm: React.FC<IBasketForm> = ({ onSubmit, isLoading }) => {
 
     const { t } = useTranslation("basket");
     const { data } = useAuth();
@@ -38,6 +33,7 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
         defaultValues: {
             userName: data ? data.user.userName : '',
             phone: data ? data.user.phone : '',
+            deliveryWay: '',
         },
     });
 
@@ -60,27 +56,25 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
                 error={errors.phone}
                 control={control}
             />
+            <InputLabel className={styles.basketForm__label}>
+                {t("delivery")}
+            </InputLabel>
             <Controller
                 name="deliveryWay"
                 control={control}
                 render={({ field }) => (
-                    <FormControl {...field}>
-                        <FormLabel className={styles.basketForm__label}>
-                            {t("delivery")}
-                        </FormLabel>
-                        <RadioGroup>
-                            <FormControlLabel
-                                value="забрати в кав'ярні"
-                                control={<Radio />}
-                                label={t("var_1")}
-                            />
-                            <FormControlLabel
-                                value="доставка перевізником"
-                                control={<Radio />}
-                                label={t("var_2")}
-                            />
-                        </RadioGroup>
-                    </FormControl>
+                    <RadioGroup {...field}>
+                        <FormControlLabel
+                            value="забрати в кав'ярні"
+                            control={<Radio />}
+                            label={t("var_1")}
+                        />
+                        <FormControlLabel
+                            value="доставка перевізником"
+                            control={<Radio />}
+                            label={t("var_2")}
+                        />
+                    </RadioGroup>
                 )}
             />
             <Typography className={styles.basketForm__error}>
@@ -109,7 +103,7 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit }) => {
                 className={styles.basketForm__submitButton}
                 type="submit"
             >
-                {t("submit")}
+                {isLoading ? t("loading") : t("submit")}
             </Button>
         </Box>
     );

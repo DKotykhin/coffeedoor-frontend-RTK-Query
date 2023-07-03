@@ -1,4 +1,4 @@
-import { Controller } from "react-hook-form";
+import { Control, Controller, FieldError } from "react-hook-form";
 
 import {
     Box,
@@ -13,8 +13,8 @@ import styles from './field.module.scss';
 interface IAddressField {
     label: string;
     placeholder: string;
-    error: any;
-    control: any;
+    error?: FieldError;
+    control: Control<any>;
 }
 
 const AddressField: React.FC<IAddressField> = ({ label, placeholder, error, control }) => {

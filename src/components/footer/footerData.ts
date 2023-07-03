@@ -18,13 +18,13 @@ export const SocialMedias = [
         href: "https://t.me/Dmytro_Kotykhin",
         icon: TelegramIcon
     },
-]
+];
 
 export const Phone = {
     phone: '+38 099 760 98 83',
     href: 'tel:80997609883'
-}
+};
 
 export const Email = {
     email: 'coffeedoor.kh@gmail.com'    
-}
+};

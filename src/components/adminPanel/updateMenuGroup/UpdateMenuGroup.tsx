@@ -11,7 +11,7 @@ import ChildModal from '../../childModal/ChildModal';
 import MenuItemsTable from '../itemTable/MenuItemsTable';
 import { CheckboxInput, InputField } from '../inputs/_index';
 import { menuGroupFormData } from '../formData/menuGroupFormData';
-import { MenuGroupValidation } from 'components/validation/menuGroupValidation';
+import { MenuGroupValidation } from 'validation/menuGroupValidation';
 
 import { useDeleteMenuGroupMutation, useGetMenuQuery, useUpdateMenuGroupMutation } from 'services/menuService';
 

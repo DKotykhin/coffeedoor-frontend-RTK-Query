@@ -2,7 +2,7 @@ import React from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
-import { Controller } from "react-hook-form";
+import { Control, Controller, FieldError } from "react-hook-form";
 
 import {
     Box,
@@ -15,8 +15,8 @@ import styles from './field.module.scss';
 
 interface IPhoneField {
     label: string;
-    error: any;
-    control: any;
+    error?: FieldError;
+    control: Control<any>;
 }
 
 const PhoneField: React.FC<IPhoneField> = ({ label, error, control }) => {
