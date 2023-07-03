@@ -18,6 +18,7 @@ A brief description of what this project does and who it's for
 -   React Hook Form and Yup for input validation
 -   React tostify for user notification
 -   Three languages: ua, en, ru
+-   Google Analytics
 -   Mobile friendly
 
 ## Environment Variables

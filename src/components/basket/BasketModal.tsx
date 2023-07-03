@@ -42,14 +42,14 @@ const BasketModal: React.FC = () => {
 
     const [sendData] = useSendBasketDataMutation();
 
-    const handleRemove = (basketItem: string): void => {
-        dispatch(basketRemoveItems(basketItem));
+    const handleRemove = (id: string): void => {
+        dispatch(basketRemoveItems(id));
     };
-    const handleDecrement = (basketItem: string): void => {
-        dispatch(basketRemoveQuantity(basketItem));
+    const handleDecrement = (id: string): void => {
+        dispatch(basketRemoveQuantity(id));
     };
-    const handleIncrement = (basketItem: string): void => {
-        dispatch(basketAddQuantity(basketItem));
+    const handleIncrement = (id: string): void => {
+        dispatch(basketAddQuantity(id));
     };
 
     const onSubmitForm = async (userData: IFormData): Promise<void> => {

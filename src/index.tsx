@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 
 import { ToastContainer, Flip } from 'react-toastify';
 
+import ReactGA from "react-ga4";
+
 import CssBaseline from '@mui/material/CssBaseline';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -41,6 +43,9 @@ const theme = createTheme({
         ].join(','),
     }
 });
+
+const GOOGLE_DATA_ID: string = process.env.REACT_APP_GOOGLE_DATA_ID || "";
+ReactGA.initialize(GOOGLE_DATA_ID);
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
