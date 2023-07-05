@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 
 import { langButtons } from 'hooks/useLang';
 import logo from 'images/webp/logo_700x191.webp';
@@ -24,13 +24,13 @@ const MenuHeader: React.FC = () => {
                 {t("subtitle")}
             </Typography>
             {langButtons.map(item => (
-                <Box
+                <Button
                     key={item.key}
                     onClick={() => i18n.changeLanguage(item.key)}
                     className={(i18n.language === item.key) ? styles.menu__langButtonActive : styles.menu__langButton}
                 >
                     {item.label}
-                </Box>
+                </Button>
             ))}
         </Container>
     );

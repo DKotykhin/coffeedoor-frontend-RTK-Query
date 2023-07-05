@@ -1,7 +1,7 @@
 @import 'constants/constants.scss';
 
 .footer_block {
-    min-height: 260px;
+    min-height: 230px;
     background-color: $color_grey;
     text-align: center;
     color: #fff;
@@ -13,13 +13,11 @@
         }
         &:hover {
             text-decoration: underline;
-        }
-        
+        }        
     }
     .footer_icon {
-        margin-top: 25px;
-        font-size: 80px;
-        padding: 0 15px;
+        font-size: 50px;
+        margin: 35px 15px 10px 15px;
         color: #fff;
         &:hover {
             transform: translateY(-3px);

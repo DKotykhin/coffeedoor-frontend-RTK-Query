@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from "react-router-dom";
 
-import { List, ListItem, Typography } from "@mui/material";
+import { Button, List, ListItem, Typography } from "@mui/material";
 import { Box, Drawer, Divider, Link as MuiLink } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -138,13 +138,13 @@ const NavigationDrawer: React.FC = () => {
                     <Divider />
                     <Box className={styles.lang__box}>
                         {langButtons.map(item => (
-                            <Box
+                            <Button
                                 key={item.key}
                                 onClick={() => i18n.changeLanguage(item.key)}
                                 className={(i18n.language === item.key) ? styles.lang__button_active : styles.lang__button}
                             >
                                 {item.label}
-                            </Box>
+                            </Button>
                         ))}
                     </Box>
                 </Box>
