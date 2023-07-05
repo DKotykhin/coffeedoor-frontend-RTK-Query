@@ -7,6 +7,7 @@ import AboutBlock from 'components/aboutBlock/AboutBlock';
 import CatalogList from 'components/catalog/CatalogList';
 import NavigationDrawer from 'components/navigationDrawer/NavigationDrawer';
 import BasketModal from 'components/basket/BasketModal';
+import ScrollButton from 'components/scrollButton/ScrollButton';
 
 const HomePage: React.FC = () => {
 
@@ -22,6 +23,7 @@ const HomePage: React.FC = () => {
             <CatalogList />
             <AboutBlock />
             <BasketModal />
+            <ScrollButton />
         </>
     );
 };

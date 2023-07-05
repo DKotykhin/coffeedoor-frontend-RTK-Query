@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { motion } from "framer-motion";
+
 import { Box, Typography, Stack, Chip, Badge } from "@mui/material";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 
@@ -44,10 +46,18 @@ const FilterItem: React.FC<IFilterItem> = ({ filterKey, filterValue, onSelected,
                     </Typography>
                 </Stack>
             </Box>
-            {showFilter &&
+            <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={showFilter
+                    ? { opacity: 1, height: 'auto' }
+                    : { opacity: 0, height: 0 }
+                }
+                transition={{ duration: 0.5 }}
+            >
                 <Stack
                     direction="row"
                     spacing={2}
+                    sx={{ pt: 3 }}
                 >
                     {filterValue?.map((item, i) => (
                         <Badge
@@ -70,7 +80,7 @@ const FilterItem: React.FC<IFilterItem> = ({ filterKey, filterValue, onSelected,
                         </Badge>
                     ))}
                 </Stack>
-            }
+            </motion.div>
         </>
     );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { motion } from 'framer-motion';
 
 import { Box, Container, Typography } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -100,12 +101,18 @@ const CardList: React.FC<ICardList> = ({ item, data }) => {
                 >
                     {itemArray.map((item) => (
                         <SwiperSlide key={item._id}>
+                            <motion.section
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.6 }}
+                            >
                             <ItemCard item={item} lang={lang} />
+                        </motion.section>
                         </SwiperSlide>
                     ))}
-                </Swiper>
+        </Swiper>
             }
-        </Container>
+        </Container >
     );
 };
 

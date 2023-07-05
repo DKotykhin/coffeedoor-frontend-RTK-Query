@@ -39,7 +39,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
 
     return (
         <Card raised className={styles.card}>
-            <CardActionArea onClick={detailClick}>
+            <CardActionArea onClick={detailClick} sx={{ cursor: 'pointer' }}>
                 <CardMedia
                     component="img"
                     height="100%"

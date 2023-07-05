@@ -12,11 +12,11 @@
         position: fixed;
         right: 30px;
         top: 20px;
-        color: #a0a0a0;
+        color: $color_lightGrey;
         font-size: 50px;
         font-weight: 700;
         padding: 8px;
-        border: 2px solid #a0a0a0;
+        border: 2px solid $color_lightGrey;
         border-radius: 50%;
         z-index: 5;
         cursor: pointer;

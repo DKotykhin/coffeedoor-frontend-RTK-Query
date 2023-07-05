@@ -52,6 +52,13 @@ const NavigationDrawer: React.FC = () => {
         setState(open);
     };
 
+    const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     const handleLink = () => navigate('/admin');
     const handleLogin = () => navigate('/personal');
     const handleLogout = () => {
@@ -68,7 +75,7 @@ const NavigationDrawer: React.FC = () => {
             />
             <Drawer anchor="right" open={state} onClick={toggleDrawer(false)}>
                 <Box className={styles.drawer__box}>
-                    <img src={logo} width={100} alt='CoffeeDoor logo' />
+                    <img src={logo} width={100} alt='CoffeeDoor logo' onClick={handleClick} />
                     <Divider />
                     <Box className={styles.drawer__loginBox}>
                         <Typography

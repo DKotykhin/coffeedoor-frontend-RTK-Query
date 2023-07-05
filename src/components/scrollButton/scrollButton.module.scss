@@ -1,0 +1,16 @@
+@import 'src/constants/constants.scss';
+
+.scrollButton {
+    position: fixed;
+    right: 32px;
+    bottom: 18px;
+    z-index: 5;
+    svg {
+        font-size: 50px;
+        font-weight: 700;
+        color: $color_lightGrey;
+        border: 2px solid $color_lightGrey;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
