@@ -69,10 +69,15 @@ const NavigationDrawer: React.FC = () => {
 
     return (
         <Box className={styles.drawer}>
-            <MenuIcon
-                className={styles.drawer__icon}
+            <Button
                 onClick={toggleDrawer(true)}
-            />
+                className={styles.drawer__menuButton}
+                aria-label="menu"
+            >
+                <MenuIcon
+                    className={styles.drawer__menuIcon}
+                />
+            </Button>
             <Drawer anchor="right" open={state} onClick={toggleDrawer(false)}>
                 <Box className={styles.drawer__box}>
                     <img src={logo} width={100} alt='CoffeeDoor logo' onClick={handleClick} />

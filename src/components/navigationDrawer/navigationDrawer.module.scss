@@ -8,18 +8,20 @@
     cursor: pointer;
 }
 .drawer {
-    .drawer__icon {
+    .drawer__menuButton {
         position: fixed;
-        right: 30px;
-        top: 20px;
-        color: $color_lightGrey;
-        font-size: 50px;
-        font-weight: 700;
-        padding: 8px;
-        border: 2px solid $color_lightGrey;
-        border-radius: 50%;
+        right: 20px;
+        top: 15px;
         z-index: 5;
-        cursor: pointer;
+        .drawer__menuIcon {
+            font-size: 50px;
+            font-weight: 700;
+            padding: 8px;
+            color: $color_lightGrey;
+            border: 2px solid $color_lightGrey;
+            border-radius: 50%;
+            cursor: pointer;
+        }
     }
 }
 .drawer__box {
