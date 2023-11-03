@@ -6,17 +6,17 @@ A brief description of what this project does and who it's for
 
 ## Technologies
 
--   React, Typescript, Redux Toolkit, RTK Query, Material UI, SCSS, Swiper, React Hook Form, React tostify, Date-fns, Framer Motion, i18next, React helmet, React Markdown, Yup
+-   React, Typescript, Redux Toolkit, RTK Query, Material UI, SCSS, Swiper, React Hook Form, React toastify, Date-fns, Framer Motion, i18next, React helmet, React Markdown, Yup
 
 ## Features
 
--   Online coffee, tea and assessories store - full stack app
+-   Online coffee, tea and accessories store - full stack app
 -   Swiper for images on detail card
 -   Coffeebar menu page
 -   Personal page with user's info and orders history, update, delete user
--   Admin Panel for CRUD operations with srore item and menu
+-   Admin Panel for CRUD operations with store item and menu
 -   React Hook Form and Yup for input validation
--   React tostify for user notification
+-   React toastify for user notification
 -   Three languages: ua, en, ru
 -   Google Analytics
 -   Mobile friendly
